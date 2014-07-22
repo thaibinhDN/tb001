@@ -1,6 +1,6 @@
 $(document).ready(function() {
         
-	var DOMAIN_URL = 'http://127.0.0.1/corp-sec/'
+	var DOMAIN_URL = 'http://127.0.0.1/tb001/'
         console.log("welcome to main application.js");
         var count = 0;
         

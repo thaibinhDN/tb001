@@ -1807,4 +1807,9 @@ class FunctionCorpsController extends AppController{
             "action"=>'index',
         ));
     }
+    public function saleOfAssetBusiness() {
+        $data = $this->request->data();
+        $this->set("view_data",$data);
+        
+    }
 }
