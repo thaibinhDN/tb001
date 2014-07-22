@@ -26,7 +26,7 @@ class FormsController extends AppController {
               'Session',
               'Paginator'
               );
-	public $uses = array('StakeHolder','Secretary','User','Document','Form', 'Company', 'Director','Pdf','FunctionCorp','ZipFile');
+	public $uses = array('ShareHolder','StakeHolder','Secretary','User','Document','Form', 'Company', 'Director','Pdf','FunctionCorp','ZipFile');
 	public $template_path = 'files/templates/';
 	public $pdf_path = 'files/pdf/';
         public $zip_path = 'files/zip/';
@@ -3931,5 +3931,178 @@ class FormsController extends AppController {
         );
     
         array_push($this->form_downloads,$data_pdf['pdf_url']);
+    }
+    public function generateEOGM_SALES_ASSET($data){
+        $pdf_name = 'EOGM_SALES_ASSET'.time();
+        $company_info = $this->Company->find("first",array(
+            "conditions"=>array(
+                "Company.company_id"=>$data['company']
+            )
+        ));
+           
+        $asIsStakeHolders = $this->StakeHolder->find("all",array(
+                "conditions"=>array(
+                    "StakeHolder.company_id"=>$data['company']
+                )
+            ));
+            $avail_ids=array();
+            foreach($asIsStakeHolders as $asIsStakeHolder){
+                array_push($avail_ids,$asIsStakeHolder['StakeHolder']['id']);
+            };
+
+            $asIsShareHolders = $this->ShareHolder->find("all",array(
+                "conditions"=>array(
+                    "ShareHolder.id"=>$avail_ids
+                )
+            ));
+            // generate PDF
+		$pdf = new FPDI(); // init
+		// create overlays
+		$pdf->SetFont('Helvetica','',9); // set font type
+		$pdf->SetTextColor(0, 0, 0); // set font color
+             // page 1
+            $pdf->addPage(); // add page
+            $pageCount = $pdf->setSourceFile(WWW_ROOT . $this->template_path . "EOGM_SalesOfAsset_template.pdf"); // load template
+            $tplIdx = $pdf->importPage(1); 
+            $pdf->useTemplate($tplIdx, 10, 10, 200); // place the template 
+           
+            // write company name
+            $pdf->SetFont('Helvetica','',12);
+            $pdf->SetXY(98.9,28);
+            $pdf->Write(10, $company_info['Company']['name']);
+            $pdf->SetFont('Helvetica','',8);
+            $pdf->SetXY(130,32.7);
+            $pdf->Write(10, $company_info['Company']['register_number']);
+            
+
+            $pdf->SetXY(98.9,40.4);
+            $pdf->Write(10, $company_info['Company']['address_1']." ".$company_info['Company']['address_2']);
+            
+//         
+             $y = 135;
+                 for($i = 0;$i<count($asIsShareHolders);$i=$i+2){
+                    $pdf->SetFont('Helvetica','',10);
+                        $x = 30;
+                        $pdf->SetXY($x,$y);
+                         $pdf->Line($x,$y-1,$x+40,$y-1);
+                        $pdf->Write(10,$asIsShareHolders[$i]['StakeHolder']['name']);
+                        if($i+1<count($asIsShareHolders)){
+                            $k = 140;
+                            //ChromePhp::log($y);
+                            $pdf->SetXY($k,$y);
+                             $pdf->Line($k,$y-1,$k+40,$y-1);
+                            $pdf->Write(10,$asIsShareHolders[$i+1]['StakeHolder']['name']);
+                            
+                        }
+                   
+                    $y += 30;
+             }
+             // page 2
+            $pdf->addPage(); // add page
+            $pageCount = $pdf->setSourceFile(WWW_ROOT . $this->template_path . "EOGM_SalesOfAsset_template.pdf"); // load template
+            $tplIdx = $pdf->importPage(2); 
+            $pdf->useTemplate($tplIdx, 10, 10, 200); // place the template 
+           
+            // write company name
+            $pdf->SetFont('Helvetica','',12);
+            $pdf->SetXY(98.9,26);
+            $pdf->Write(10, $company_info['Company']['name']);
+            $pdf->SetFont('Helvetica','',8);
+            $pdf->SetXY(130,29.7);
+            $pdf->Write(10, $company_info['Company']['register_number']);
+            
+
+            $pdf->SetXY(98.9,39.8);
+            $pdf->Write(10, $company_info['Company']['address_1']." ".$company_info['Company']['address_2']);
+            $pdf->SetFont('Helvetica','',10);
+            $pdf->SetXY(40,62);
+            $pdf->Write(10, $data['m_address1']." ".$data['m_address1']);
+            
+            $pdf->SetXY(28.8,93);
+            $pdf->Write(10, $data['chairman']." was appointed Chairman of the meeting");
+            
+            $pdf->SetXY(103,133.8);
+            $pdf->Write(10, $data['seller']);
+            
+            $pdf->SetXY(33.8,139);
+            $pdf->Write(10, $data['buyer']);
+            
+            $pdf->SetXY(78,144);
+            $pdf->Write(10, $data['price']);
+            
+            $pdf->SetXY(111,252);
+            $pdf->Write(10, $data['chairman']);
+//          
+            // page 3
+            $pdf->addPage(); // add page
+            $pageCount = $pdf->setSourceFile(WWW_ROOT . $this->template_path . "EOGM_SalesOfAsset_template.pdf"); // load template
+            $tplIdx = $pdf->importPage(3); 
+            $pdf->useTemplate($tplIdx, 10, 10, 200); // place the template 
+           
+            // write company name
+            $pdf->SetFont('Helvetica','',12);
+            $pdf->SetXY(98.9,27.8);
+            $pdf->Write(10, $company_info['Company']['name']);
+            $pdf->SetFont('Helvetica','',8);
+            $pdf->SetXY(130,32.4);
+            $pdf->Write(10, $company_info['Company']['register_number']);
+            
+
+            $pdf->SetXY(98.9,40.9);
+            $pdf->Write(10, $company_info['Company']['address_1']." ".$company_info['Company']['address_2']);
+            $pdf->SetFont('Helvetica','',12);
+            $pdf->SetXY(69,65.8);
+            $pdf->Write(10, $data['m_address1']." ".$data['m_address1']);
+             $y = 110;
+                 for($i = 0;$i<count($asIsShareHolders);$i=$i+2){
+                    $pdf->SetFont('Helvetica','',10);
+                        $x = 90;
+                        $pdf->SetXY($x,$y);
+                        $pdf->Write(10,$asIsShareHolders[$i]['StakeHolder']['name']);
+                   
+                    $y += 30;
+             }
+             
+//             // page 4
+//            $pdf->addPage(); // add page
+//            $pageCount = $pdf->setSourceFile(WWW_ROOT . $this->template_path . "EOGM_SalesOfAsset_template.pdf"); // load template
+//            $tplIdx = $pdf->importPage(3); 
+//            $pdf->useTemplate($tplIdx, 10, 10, 200); // place the template 
+//           
+//            // write company name
+//            $pdf->SetFont('Helvetica','',12);
+//            $pdf->SetXY(98.9,27.8);
+//            $pdf->Write(10, $company_info['Company']['name']);
+//            $pdf->SetFont('Helvetica','',8);
+//            $pdf->SetXY(130,32.4);
+//            $pdf->Write(10, $company_info['Company']['register_number']);
+//            
+//
+//            $pdf->SetXY(98.9,40.9);
+//            $pdf->Write(10, $company_info['Company']['address_1']." ".$company_info['Company']['address_2']);
+//            $pdf->SetFont('Helvetica','',12);
+//            $pdf->SetXY(69,65.8);
+//            $pdf->Write(10, $data['m_address1']." ".$data['m_address1']);
+//             $y = 110;
+//                 for($i = 0;$i<count($asIsShareHolders);$i=$i+2){
+//                    $pdf->SetFont('Helvetica','',10);
+//                        $x = 90;
+//                        $pdf->SetXY($x,$y);
+//                        $pdf->Write(10,$asIsShareHolders[$i]['StakeHolder']['name']);
+//                   
+//                    $y += 30;
+//             }
+//            
+//            $pdf->Output(WWW_ROOT . $this->pdf_path . $pdf_name .'.pdf', 'F');
+           // save to database
+     
+//        $data_pdf = array(
+//                'form_id' => 26,
+//                'company_id' => $company_info['Company']['company_id'],
+//                'pdf_url' => $this->pdf_path . $pdf_name .'.pdf',
+//                'created_at' => date('Y-m-d H:i:s')
+//        );
+//    
+//        array_push($this->form_downloads,$data_pdf['pdf_url']);
     }
 }
