@@ -4,54 +4,27 @@
 	Generate Forms
 </div>
 <div class="form-content">
-	<form action="<?php echo $this->Html->url(array('controller' => 'FunctionCorps', 'action' => 'preview4')); ?>" method="post" accept-charset="utf-8">
+	<form action="<?php echo $this->Html->url(array('controller' => 'FunctionCorps', 'action' => 'generateSalesAssetBusiness')); ?>" method="post" accept-charset="utf-8">
 		<div style="display:none;">
 			<input type="hidden" name="_method" value="POST"/>
 		</div>	
 		
-                <input type="hidden" name="company" value="<?php echo $company; ?>" />
-                <div>
-           <?php echo $this->Html->link('New ShareHolder', array('controller' => 'Shareholders', 'action' => 'shareholderForm',"?"=>array('id' => $company)),array("class"=>"btn btn-default pull-right")); ?>
-              
-               </div>
-               <br>
-               <br>
-                <div style="margin-bottom:10px" id="container-shareholder-block">
-                <label>ShareHolder</label>
-                <div  style="margin-top:-10px" class="shareholder-block">
-                <br />
-                <select name="shareholder[]" class="form-control" id="shareholder">
-                        <option value=""> -- Select ShareHolder -- </option>
-                         <?php foreach($shareholders as $shareholder){ ?>
-                        <option value="<?php echo $shareholder['StakeHolder']['id']; ?>"><?php echo $shareholder['StakeHolder']['name']; ?></option>
-                        <?php }?>
-                </select>
-                </div>	
-                </div>
-                <button class="btn btn-small btn-primary" type="button" id="add_shareholders">Add</button>
-                <br>
-                <br>
-                <div  id="container-director-block">
-                 <label>Director</label>   
-                <div style="margin-top:-10px" class="director-block">
-                <br />
-                <select name="director[]" class="form-control" id="director">
-                        <option value=""> -- Select Director -- </option>
-                         <?php foreach($directors as $director){ ?>
-                        <option value="<?php echo $director['StakeHolder']['id']; ?>"><?php echo $director['StakeHolder']['name']; ?></option>
-                        <?php }?>
-                </select>
-                </div>	
-                </div>
-                 <button class="btn btn-small btn-primary" type="button" id="add_directors">Add</button>
-                <br>
+                <input type="hidden" name="company" value="<?php echo $view_data['company']; ?>" />
                 <div class="input text required">
-                        <label style="margin-left:3.5em">New Company Name</label>
-                        <input style="margin-bottom:10px" name="new_company_name" class="form-control" type="text"  required="required"/>
+                        <label style="width:auto">Assets|Business</label>
+                        <input style="margin-bottom:10px" name="saleAsset" class="form-control" type="text"  required="required"/>
                 </div>
 		 <div class="input text required">
-                        <label style="width:auto">Name of *Directors/Secretaries</label>
-                        <input style="margin-bottom:10px" name="prepared_by" class="form-control" type="text" id="prepared_by" required="required"/>
+                        <label style="width:auto">Name of Seller</label>
+                        <input style="margin-bottom:10px" name="seller" class="form-control" type="text" id="seller" required="required"/>
+                </div>
+                <div class="input text required">
+                        <label style="width:auto">Name of Buyer</label>
+                        <input style="margin-bottom:10px" name="buyer" class="form-control" type="text" id="buyer" required="required"/>
+                </div>
+                <div class="input text required">
+                        <label style="width:auto">Price</label>
+                        <input style="margin-bottom:10px" name="price" class="form-control" type="text" id="price" required="required"/>
                 </div>
                  <div class="input text required">
                         <label style="margin-left:8em">Meeting Place</label>
