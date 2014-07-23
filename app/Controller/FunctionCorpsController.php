@@ -1808,7 +1808,7 @@ class FunctionCorpsController extends AppController{
             "action"=>'index',
         ));
     }
-    public function saleOfAssetBusiness() {
+    public function SalesAssetBusiness() {
         $data = $this->request->data;
         $this->set("view_data",$data);
         
@@ -1834,6 +1834,9 @@ class FunctionCorpsController extends AppController{
       
         $data_SalesAssetBusiness= array(
                 "document_id"=> $this->Document->id,
+                "price"=>$data['price'],
+                "seller"=>$data['seller'],
+                "buyer"=>$data['buyer'],
                 //"event_id"=>null,
                 //Add later
          );
