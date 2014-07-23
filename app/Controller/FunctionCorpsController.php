@@ -82,7 +82,7 @@ class FunctionCorpsController extends AppController{
     
     function AppointResignS(){
         $created_data=$this->Session->read('created_secretary');
-        ChromePhp::log($created_data);
+        //ChromePhp::log($created_data);
         if($created_data == null){
              $secretaries_created = null;
              $data = $this->request->data;
@@ -153,7 +153,7 @@ class FunctionCorpsController extends AppController{
                 ));  
                 array_push($directors_created,$director);
              }
-             ChromePhp::log($directors_created);
+             //ChromePhp::log($directors_created);
             $company = $data[0]['company'];
                 $directors = $this->StakeHolder->find('all',array(
                    "conditions"=>array(
@@ -386,7 +386,7 @@ class FunctionCorpsController extends AppController{
         $form->generateResignationLetter($data);
         $form->generateIndemnityLetter($data);
         $files_to_zip = $form->form_downloads;
-        $time = time();
+        $time = date('Y-m-d H-i-s');
         $this->create_zip($files_to_zip,APP . WEBROOT_DIR . DS.'files' . DS . 'zip' . DS . 'AppointResignDirector'.$time.'.zip');
         //$this->create_zip($files_to_zip,APP . WEBROOT_DIR . DS.'\files\zip\AppointResignDirector'.$time.'.zip');
         foreach($files_to_zip as $file){ //Delete files after zipping
@@ -487,7 +487,7 @@ class FunctionCorpsController extends AppController{
         );
         $form->generateResolutionSignatoriesUOB($data_generate);
         $files_to_zip = $form->form_downloads;
-        $time = time();
+        $time = date('Y-m-d H-i-s');
         $this->create_zip($files_to_zip,APP . WEBROOT_DIR . DS .'files' . DS . 'zip' . DS . 'ChangeOfBankingUOB'.$time.'.zip');
         //$this->create_zip($files_to_zip,APP . WEBROOT_DIR . DS.'\files\zip\ChangeOfBankingUOB'.$time.'.zip');
         foreach($files_to_zip as $file){ //Delete files after zipping
@@ -600,7 +600,7 @@ class FunctionCorpsController extends AppController{
          $form->generateResolutionASA($data);
         $form->generateIndemnityLetter($data);
          $files_to_zip = $form->form_downloads;
-         $time = time();
+         $time = date('Y-m-d H-i-s');
          $this->create_zip($files_to_zip,APP . WEBROOT_DIR . DS .'files' . DS . 'zip' . DS . 'AppointSecretaryAuditor'.$time.'.zip');
         //$this->create_zip($files_to_zip,APP . WEBROOT_DIR . DS.'\files\zip\AppointSecretaryAuditor'.$time.'.zip');
         foreach($files_to_zip as $file){ //Delete files after zipping
@@ -787,7 +787,7 @@ class FunctionCorpsController extends AppController{
          $form->generateIndemnityLetter($data);
 
           $files_to_zip = $form->form_downloads;
-          $time = time();
+          $time = date('Y-m-d H-i-s');
            $this->create_zip($files_to_zip,APP . WEBROOT_DIR . DS .'files' . DS . 'zip' . DS . 'AppointResignSecretary'.$time.'.zip');
         //$this->create_zip($files_to_zip,APP . WEBROOT_DIR . DS.'\files\zip\AppointResignSecretary'.$time.'.zip');
         foreach($files_to_zip as $file){ //Delete files after zipping
@@ -1173,7 +1173,7 @@ class FunctionCorpsController extends AppController{
 		   $this->Company->id = $data['company'];
 		   $this->Company->saveField("name",$data['new_company_name']);
                     $files_to_zip = $form->form_downloads;
-                    $time = time();
+                    $time = date('Y-m-d H-i-s');
         $this->create_zip($files_to_zip,APP . WEBROOT_DIR . DS .'files' . DS . 'zip' . DS . 'ChangeCompanyName'.$time.'.zip');
        // $this->create_zip($files_to_zip,APP . WEBROOT_DIR . DS.'\files\zip\ChangeCompanyName'.$time.'.zip');
         foreach($files_to_zip as $file){ //Delete files after zipping
@@ -1263,7 +1263,7 @@ class FunctionCorpsController extends AppController{
 
         $this->ChangeFinancialYear->save($data_FY );//end
          $files_to_zip = $form->form_downloads;
-          $time = time();
+          $time = date('Y-m-d H-i-s');
           $this->create_zip($files_to_zip,APP . WEBROOT_DIR . DS .'files' . DS . 'zip' . DS . 'ChangeFinancialYear'.$time.'.zip');
        // $this->create_zip($files_to_zip,APP . WEBROOT_DIR . DS.'\files\zip\ChangeFinancialYear'.$time.'.zip');
         foreach($files_to_zip as $file){ //Delete files after zipping
@@ -1439,7 +1439,7 @@ class FunctionCorpsController extends AppController{
 
         $this->ChangeOfMAA->save($data_MAA);//end
          $files_to_zip = $form->form_downloads;
-          $time = time();
+          $time = date('Y-m-d H-i-s');
           $this->create_zip($files_to_zip,APP . WEBROOT_DIR . DS .'files' . DS . 'zip' . DS . 'ChangeOfMAA'.$time.'.zip');
         //$this->create_zip($files_to_zip,APP . WEBROOT_DIR . DS.'\files\zip\ChangeOfMAA'.$time.'.zip');
         foreach($files_to_zip as $file){ //Delete files after zipping
@@ -1500,7 +1500,7 @@ class FunctionCorpsController extends AppController{
 
         $this->ClosureBankAcc->save($data_ClosureBankAcc);//end
          $files_to_zip = $form->form_downloads;
-          $time = time();
+          $time = date('Y-m-d H-i-s');
           $this->create_zip($files_to_zip,APP . WEBROOT_DIR . DS .'files' . DS . 'zip' . DS . 'ClosureBankAcc'.$time.'.zip');
         //$this->create_zip($files_to_zip,APP . WEBROOT_DIR . DS.'\files\zip\ClosureBankAcc'.$time.'.zip');
         foreach($files_to_zip as $file){ //Delete files after zipping
@@ -1559,7 +1559,7 @@ class FunctionCorpsController extends AppController{
 
         $this->LoanResolution->save($data_LoanResolution);//end
          $files_to_zip = $form->form_downloads;
-          $time = time();
+          $time = date('Y-m-d H-i-s');
           $this->create_zip($files_to_zip,APP . WEBROOT_DIR . DS .'files' . DS . 'zip' . DS . 'LoanResolution'.$time.'.zip');
         //$this->create_zip($files_to_zip,APP . WEBROOT_DIR . DS.'\files\zip\LoanResolution'.$time.'.zip');
         foreach($files_to_zip as $file){ //Delete files after zipping
@@ -1619,7 +1619,7 @@ class FunctionCorpsController extends AppController{
 
         $this->OptionToPurchase->save($data_OptionToPurchase);//end
          $files_to_zip = $form->form_downloads;
-         $time = time();
+         $time = date('Y-m-d H-i-s');
          $this->create_zip($files_to_zip,APP . WEBROOT_DIR . DS .'files' . DS . 'zip' . DS . 'OptionToPurchase'.$time.'.zip');
         //$this->create_zip($files_to_zip,APP . WEBROOT_DIR . DS.'\files\zip\OptionToPurchase'.$time.'.zip');
         foreach($files_to_zip as $file){ //Delete files after zipping
@@ -1691,7 +1691,7 @@ class FunctionCorpsController extends AppController{
 
         $this->ChangeOfPassport->save($data_ChangeOfPassport);//end
          $files_to_zip = $form->form_downloads;
-         $time = time();
+         $time = date('Y-m-d H-i-s');
          
         $this->create_zip($files_to_zip,APP . WEBROOT_DIR . DS .'files' . DS . 'zip' . DS . 'ChangeOfPassport'.$time.'.zip');
         foreach($files_to_zip as $file){ //Delete files after zipping
@@ -1784,7 +1784,7 @@ class FunctionCorpsController extends AppController{
         )); 
         
         $files_to_zip = $form->form_downloads;
-         $time = time();
+         $time = date('Y-m-d H-i-s');
         $this->create_zip($files_to_zip,APP . WEBROOT_DIR . DS .'files' . DS . 'zip' . DS . 'ChangeOfRegisteredAddress'.$time.'.zip');
         foreach($files_to_zip as $file){ //Delete files after zipping
             unlink($file);
@@ -1818,53 +1818,53 @@ class FunctionCorpsController extends AppController{
         //ChromePhp::log($data);
         $form = new FormsController();
         $form->generateEOGM_SALES_ASSET($data);
-        //$form->generateIndemnityLetter($data);
-//        //Create Document
-//        $this->Document->create();
-//        $hash_value = sha1($data['company']." generateSalesAssetBusiness".date('Y-m-d H:i:s'));
-//        $document = array(
-//            'company_id'=>$data['company'],
-//            'function_id'=>13,
-//            'created_at'=>date('Y-m-d H:i:s'),
-//            'unique_key'=>$hash_value,
-//            'status'=>"Available"
-//        );
-//        $this->Document->save($document);
-//  
-//      
-//        $data_SalesAssetBusiness= array(
-//                "document_id"=> $this->Document->id,
-//                //"event_id"=>null,
-//                //Add later
-//         );
-//        
-//        $this->SalesAssetBusiness->create();
-//
-//        $this->SalesAssetBusiness->save($data_SalesAssetBusiness);
-//        
-//        $files_to_zip = $form->form_downloads;
-//         $time = date('Y-m-d H:i:s');
-//        $this->create_zip($files_to_zip,APP . WEBROOT_DIR . DS .'files' . DS . 'zip' . DS . 'SalesOfAssetBusiness'.$time.'.zip');
-//        foreach($files_to_zip as $file){ //Delete files after zipping
-//            unlink($file);
-//        };
-//        //Create zip file
-//        $this->ZipFile->create();
-//        $zip_file = array(
-//            "function_id"=>13,
-//            "company_id"=>$data['company'],
-//            "path"=>'SalesOfAssetBusiness'.$time.'.zip',
-//            "created_at"=>date('Y-m-d H:i:s'),
-//        );
-//        $this->ZipFile->save($zip_file);
-//        $this->Session->setFlash(
-//		    'Forms are generated!',
-//		    'default',
-//		    array('class' => 'alert alert-success')
-//		);
-//        return $this->redirect(array(
-//            "controller"=>'forms',
-//            "action"=>'index',
-//        ));
+        $form->generateIndemnityLetter($data);
+        //Create Document
+        $this->Document->create();
+        $hash_value = sha1($data['company']." generateSalesAssetBusiness".date('Y-m-d H:i:s'));
+        $document = array(
+            'company_id'=>$data['company'],
+            'function_id'=>13,
+            'created_at'=>date('Y-m-d H:i:s'),
+            'unique_key'=>$hash_value,
+            'status'=>"Available"
+        );
+        $this->Document->save($document);
+  
+      
+        $data_SalesAssetBusiness= array(
+                "document_id"=> $this->Document->id,
+                //"event_id"=>null,
+                //Add later
+         );
+        
+        $this->SalesAssetBusiness->create();
+
+        $this->SalesAssetBusiness->save($data_SalesAssetBusiness);
+        
+        $files_to_zip = $form->form_downloads;
+         $time = date('Y-m-d H-i-s');
+        $this->create_zip($files_to_zip,APP . WEBROOT_DIR . DS .'files' . DS . 'zip' . DS . 'SalesOfAssetBusiness'.$time.'.zip');
+        foreach($files_to_zip as $file){ //Delete files after zipping
+            unlink($file);
+        };
+        //Create zip file
+        $this->ZipFile->create();
+        $zip_file = array(
+            "function_id"=>13,
+            "company_id"=>$data['company'],
+            "path"=>'SalesOfAssetBusiness'.$time.'.zip',
+            "created_at"=>date('Y-m-d H:i:s'),
+        );
+        $this->ZipFile->save($zip_file);
+        $this->Session->setFlash(
+		    'Forms are generated!',
+		    'default',
+		    array('class' => 'alert alert-success')
+		);
+        return $this->redirect(array(
+            "controller"=>'forms',
+            "action"=>'index',
+        ));
     }
 }

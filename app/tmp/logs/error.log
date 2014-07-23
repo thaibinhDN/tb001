@@ -22520,3 +22520,198 @@ Stack Trace:
 #3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
 #4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #5 {main}
+2014-07-23 13:44:34 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_sales_asset_business.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_sales_asset_business.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateSalesAssetBusiness
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-23 13:48:56 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_sales_asset_business.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_sales_asset_business.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateSalesAssetBusiness
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-23 13:50:27 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_sales_asset_business.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_sales_asset_business.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateSalesAssetBusiness
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-23 13:51:55 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_sales_asset_business.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_sales_asset_business.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateSalesAssetBusiness
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-23 13:55:39 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_sales_asset_business.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_sales_asset_business.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateSalesAssetBusiness
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-23 13:59:29 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_sales_asset_business.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_sales_asset_business.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateSalesAssetBusiness
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-23 14:00:30 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_sales_asset_business.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_sales_asset_business.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateSalesAssetBusiness
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-23 14:01:41 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_sales_asset_business.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_sales_asset_business.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateSalesAssetBusiness
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-23 14:05:35 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_sales_asset_business.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_sales_asset_business.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateSalesAssetBusiness
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-23 14:05:51 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_sales_asset_business.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_sales_asset_business.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateSalesAssetBusiness
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-23 14:06:31 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_sales_asset_business.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_sales_asset_business.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateSalesAssetBusiness
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-23 14:06:52 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_sales_asset_business.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_sales_asset_business.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateSalesAssetBusiness
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-23 14:07:07 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_sales_asset_business.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_sales_asset_business.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateSalesAssetBusiness
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-23 14:07:24 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_sales_asset_business.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_sales_asset_business.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateSalesAssetBusiness
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-23 14:53:47 Error: [NotFoundException] The requested file C:\wamp\www\tb001\app\C:\wamp\www\tb001\app\webroot\files/zip/SalesOfAssetBusiness2014-07-23 14:53:45.zip was not found or not readable
+Request URL: /tb001/forms/176/download
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\MediaView.php(91): CakeResponse->file('C:\\wamp\\www\\tb0...', Array)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): MediaView->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FormsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-23 14:56:49 Error: [NotFoundException] The requested file C:\wamp\www\tb001\app\C:\wamp\www\tb001\app\webroot\files/zip/SalesOfAssetBusiness2014-07-23 14:56:47.zip was not found or not readable
+Request URL: /tb001/forms/177/download
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\MediaView.php(91): CakeResponse->file('C:\\wamp\\www\\tb0...', Array)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): MediaView->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FormsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-23 15:02:34 Error: [NotFoundException] The requested file C:\wamp\www\tb001\app\C:\wamp\www\tb001\app\webroot\files/zip/SalesOfAssetBusiness2014-07-23 14:56:47.zip was not found or not readable
+Request URL: /tb001/forms/177/download
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\MediaView.php(91): CakeResponse->file('C:\\wamp\\www\\tb0...', Array)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): MediaView->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FormsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}

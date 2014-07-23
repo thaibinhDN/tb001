@@ -36,8 +36,13 @@
                         <input name="chairman" class="form-control" type="text"  required="required" style="margin-left:-4.3em" >
                        
                 </div>
+                <div class="input text required">
+                        <label style="margin-left:8em">Article No</label>
+                        <input name="articleNo" class="form-control" type="text"  required="required" style="margin-left:-4.3em" >
+                       
+                </div>
 		<div class="submit">
-			<input  style="margin-left:3.5em" class="form-control" type="submit" value="Preview" />
+			<input  style="margin-left:3.5em" class="form-control" type="submit" value="Generate" />
 		</div>
 	</form>
          
