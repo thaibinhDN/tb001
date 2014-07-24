@@ -8,7 +8,7 @@
         <br>
         <label>Property Name&Address</label>
         <input  style="margin-bottom:10px" name="property" class="form-control"  required/>
-        <input name="company_id" value="<?php echo $view_data['company'] ?>" type="hidden" />
+        <input name="company" value="<?php echo $view_data['company'] ?>" type="hidden" />
         <input  name="function_id" value="<?php echo $view_data['functionCorp'] ?>" type="hidden" />
         <br>
         <label>Buyer</label>
@@ -21,7 +21,11 @@
         <input  style="margin-bottom:10px" name="undersigned" class="form-control"  required/>
         <br>
         <label>Article No</label>
-        <input  style="margin-bottom:10px" name="articleNo" class="form-control" placeholder="100" required/>
+        <input  style="margin-bottom:10px" name="articleNo" class="form-control"  required/>
+        <br>
+        <label>Meeting Address</label><br>
+        <input  style="margin-bottom:10px" name="AddressLine1" class="form-control" placeholder="AddressLine1" required/>
+        <input  style="margin-bottom:10px" name="AddressLine2" class="form-control" placeholder="AddressLine2" required/>
         <input type="submit" value="Generate Form" class="form-control"/>
     </form>
 </div>

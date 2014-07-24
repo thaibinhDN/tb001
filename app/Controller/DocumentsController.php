@@ -8,7 +8,7 @@
 include 'ChromePhp.php';
 class DocumentsController extends AppController{
     public $components = array('Session', 'Paginator');
-	public $uses = array('SalesAssetBusiness','ChangeOfRegisteredAddress','ChangeOfPassport','ChangeOfMAA','OptionToPurchase','LoanResolution','ClosureBankAcc','ChangeFinancialYear','IncorporationDocument','ChangeCompanyName','ChangeBankSignatorUob','AppointSecretaryAuditor','AppointResignSecretary','Secretary','Event','User','Company', 'Director','FunctionCorp','Document','AppointResignDirector','StakeHolder');
+	public $uses = array('PropertyDisposal','SalesAssetBusiness','ChangeOfRegisteredAddress','ChangeOfPassport','ChangeOfMAA','OptionToPurchase','LoanResolution','ClosureBankAcc','ChangeFinancialYear','IncorporationDocument','ChangeCompanyName','ChangeBankSignatorUob','AppointSecretaryAuditor','AppointResignSecretary','Secretary','Event','User','Company', 'Director','FunctionCorp','Document','AppointResignDirector','StakeHolder');
     public function beforeFilter() {
 		parent::beforeFilter();
 
@@ -146,6 +146,13 @@ class DocumentsController extends AppController{
                 )
             ));
              $function = "SalesAssetBusiness";
+        }else if ($function_id == 14){
+             $document = $this->PropertyDisposal->find("first",array(
+                "conditions"=>array(
+                    "PropertyDisposal.document_id"=>$document_id
+                )
+            ));
+             $function = "PropertyDisposal";
         }
       
       
@@ -336,11 +343,21 @@ class DocumentsController extends AppController{
                 "conditions"=>array(
                     "SalesAssetBusiness.document_id"=>$document_id
                 )
-            ));
+        ));
             $this->Document->id = $document_id;
             $this->Document->saveField($type ,null);
              $function = "SalesAssetBusiness";
              $action = "SalesAssetBusiness";
+        }else if ($function_id == 14){
+            $document = $this->PropertyDisposal->find("first",array(
+                "conditions"=>array(
+                    "PropertyDisposal.document_id"=>$document_id
+                )
+        ));
+            $this->Document->id = $document_id;
+            $this->Document->saveField($type ,null);
+             $function = "PropertyDisposal";
+             $action = "PropertyDisposal";
         }
 
          $user = $this->User->find("first",array(
@@ -511,6 +528,16 @@ class DocumentsController extends AppController{
              $this->Document->saveField("status","deleted");
              $function = "SalesAssetBusiness";
              $action = "SalesAssetBusiness";
+        }else if ($function_id == 14){
+            $document = $this->PropertyDisposal->find("first",array(
+              "conditions"=>array(
+                  "PropertyDisposal.document_id"=>$document_id
+              )
+          ));
+            $this->Document->id=$document_id;
+             $this->Document->saveField("status","deleted");
+             $function = "PropertyDisposal";
+             $action = "PropertyDisposal";
         }
        
         $user = $this->User->find("first",array(
@@ -715,6 +742,18 @@ class DocumentsController extends AppController{
             ));
             $description = "Upload before-submission documents[Function: SalesAssetBusiness]";
             $action = "SalesAssetBusiness";
+        }else if ($function_id == 14){
+            $this->Document->id = $data['document_id'];
+            $this->Document->saveField('acra_before',$acra);
+            $this->Document->saveField('before',$filePath);
+            $this->Document->saveField('before_time',date('Y-m-d H:i:s'));
+            $ccn = $this->PropertyDisposal->find("first",array(
+                    "conditions"=>array(
+                        "PropertyDisposal.document_id" => $data['document_id']
+                    )
+            ));
+            $description = "Upload before-submission documents[Function: PropertyDisposal]";
+            $action = "PropertyDisposal";
         }
          
          $user = $this->User->find("first",array(
@@ -916,6 +955,18 @@ class DocumentsController extends AppController{
             ));
             $description = "Upload after-submission documents[Function: SalesAssetBusiness]";
             $action = "SalesAssetBusiness";
+        }else if ($function_id == 14){
+            $this->Document->id = $data['document_id'];
+            $this->Document->saveField('acra_after',$acra);
+            $this->Document->saveField('after',$filePath);
+            $this->Document->saveField('after_time',date('Y-m-d H:i:s'));
+            $ccn = $this->PropertyDisposal->find("first",array(
+                    "conditions"=>array(
+                        "PropertyDisposal.document_id" => $data['document_id']
+                    )
+            ));
+            $description = "Upload after-submission documents[Function: PropertyDisposal]";
+            $action = "PropertyDisposal";
         }
          
           $user = $this->User->find("first",array(
@@ -1882,5 +1933,50 @@ class DocumentsController extends AppController{
 	$this->set("functionCorp",$data['functionCorp']); 
          
      }
+     public function PropertyDisposal() {
+         $data = $this->request->data;
+            if(isset($data['company'])){  
+                 $this->Session->write("sessionData",$data);
+            }else{
+                $session_data = $this->Session->read("sessionData");
+                $data = $session_data; 
+            }
+            $docs = $this->Document->find("all",array(
+                         'conditions'=>array(
+                                'Document.company_id'=>$data['company'],
+                                'Document.function_id'=>$data['functionCorp'],
+                                "Document.status"=>"Available",
+                         )
+                ));
+               
+                $ids = array();
+                foreach($docs as $doc){
+                    array_push($ids,$doc['Document']['id']);  
+                }
+
+            $this->Paginator->settings= array(
+                        'conditions'=>array(
+                                "Document.id"=>$ids,
+                          
+                        ),
+                        'limit'=>6, 
+                       'order' => array(
+                            'Document.created_at' => 'DESC'
+                            ),
+            );           
+		 $this->set("company",$data['company'] );
+		 $this->set("functionCorp",$data['functionCorp']);
+
+        $documents = $this->Paginator->paginate('Document');
+        $view_data = $this->PropertyDisposal->find("all",array(
+            "conditions"=>array(
+                "PropertyDisposal.document_id"=>$ids
+            )
+        ));
+        $this->set("documents",$documents);
+        $this->set("view_data",$view_data); 
+	$this->set("company",$data['company']); 
+	$this->set("functionCorp",$data['functionCorp']); 
+    }
         
 }

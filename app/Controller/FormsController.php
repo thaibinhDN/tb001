@@ -4201,138 +4201,73 @@ class FormsController extends AppController {
 		$pdf->SetTextColor(0, 0, 0); // set font color
              // page 1
             $pdf->addPage(); // add page
-            $pageCount = $pdf->setSourceFile(WWW_ROOT . $this->template_path . "EOGM_SalesOfAsset_template.pdf"); // load template
+            $pageCount = $pdf->setSourceFile(WWW_ROOT . $this->template_path . "ResolutionPropertyDisposal_template.pdf"); // load template
             $tplIdx = $pdf->importPage(1); 
             $pdf->useTemplate($tplIdx, 10, 10, 200); // place the template 
            
             // write company name
             $pdf->SetFont('Helvetica','',12);
-            $pdf->SetXY(98.9,28);
+            $pdf->SetXY(90.9,30.9);
             $pdf->Write(10, $company_info['Company']['name']);
             $pdf->SetFont('Helvetica','',8);
-            $pdf->SetXY(130,32.7);
+            $pdf->SetXY(122,36.5);
             $pdf->Write(10, $company_info['Company']['register_number']);
             
 
-            $pdf->SetXY(98.9,40.4);
+            $pdf->SetXY(98,45);
             $pdf->Write(10, $company_info['Company']['address_1']." ".$company_info['Company']['address_2']);
-            
-//         
-             $y = 135;
-                 for($i = 0;$i<count($asIsShareHolders);$i=$i+2){
-                    $pdf->SetFont('Helvetica','',10);
-                        $x = 30;
-                        $pdf->SetXY($x,$y);
-                         $pdf->Line($x,$y-1,$x+40,$y-1);
-                        $pdf->Write(10,$asIsShareHolders[$i]['StakeHolder']['name']);
-                        if($i+1<count($asIsShareHolders)){
-                            $k = 140;
-                            //ChromePhp::log($y);
-                            $pdf->SetXY($k,$y);
-                             $pdf->Line($k,$y-1,$k+40,$y-1);
-                            $pdf->Write(10,$asIsShareHolders[$i+1]['StakeHolder']['name']);
-                            
-                        }
-                   
-                    $y += 30;
-             }
-             // page 2
+            $pdf->SetFont('Helvetica','',10);
+            $pdf->SetXY(33,72.8);
+            $pdf->Write(10, $data['undersigned'].",the undersigned,");
+             $pdf->SetXY(100.5,78);
+            $pdf->Write(10,$company_info['Company']['name']);
+            $pdf->SetXY(124,83.1);
+            $pdf->Write(10,$company_info['Company']['name']);
+            $pdf->SetFont('Helvetica','',12);
+             $pdf->SetXY(28.2,129);
+            $pdf->Write(10,$data['header_resolution']);
+            $pdf->Line(28.4,136,$pdf->GetX(),136);
+             $pdf->SetFont('Helvetica','',10);
+            $pdf->SetXY(28.2,145);
+            $pdf->Write(10,$data['property']);
+            $pdf->SetXY(34,149.6);
+            $pdf->Write(10,$data['buyer']);
+           
+            $pdf->SetXY(54,154.3);
+            $pdf->Write(10,$data['price']);
+            // page 2
             $pdf->addPage(); // add page
-            $pageCount = $pdf->setSourceFile(WWW_ROOT . $this->template_path . "EOGM_SalesOfAsset_template.pdf"); // load template
+            $pageCount = $pdf->setSourceFile(WWW_ROOT . $this->template_path . "ResolutionPropertyDisposal_template.pdf"); // load template
             $tplIdx = $pdf->importPage(2); 
             $pdf->useTemplate($tplIdx, 10, 10, 200); // place the template 
            
             // write company name
             $pdf->SetFont('Helvetica','',12);
-            $pdf->SetXY(98.9,26);
+            $pdf->SetXY(90.9,31.9);
             $pdf->Write(10, $company_info['Company']['name']);
+            $pdf->SetXY(74.4,68.4);
+            $pdf->Write(10, $data['articleNo']);
             $pdf->SetFont('Helvetica','',8);
-            $pdf->SetXY(130,29.7);
+            $pdf->SetXY(121,37.3);
             $pdf->Write(10, $company_info['Company']['register_number']);
-            
-
-            $pdf->SetXY(98.9,39.8);
+            $pdf->SetXY(98,45.9);
             $pdf->Write(10, $company_info['Company']['address_1']." ".$company_info['Company']['address_2']);
             $pdf->SetFont('Helvetica','',10);
-            $pdf->SetXY(40,62);
-            $pdf->Write(10, $data['m_address1']." ".$data['m_address1']);
-            
-            $pdf->SetXY(28.8,93);
-            $pdf->Write(10, $data['chairman']." was appointed Chairman of the meeting");
-            
-            $pdf->SetXY(103,133.8);
-            $pdf->Write(10, $data['seller']);
-            
-            $pdf->SetXY(33.8,139);
-            $pdf->Write(10, $data['buyer']);
-            
-            $pdf->SetXY(78,144);
-            $pdf->Write(10, $data['price']);
-            
-            $pdf->SetXY(111,252);
-            $pdf->Write(10, $data['chairman']);
-//          
-            // page 3
-            $pdf->addPage(); // add page
-            $pageCount = $pdf->setSourceFile(WWW_ROOT . $this->template_path . "EOGM_SalesOfAsset_template.pdf"); // load template
-            $tplIdx = $pdf->importPage(3); 
-            $pdf->useTemplate($tplIdx, 10, 10, 200); // place the template 
+            $pdf->SetXY(28.2,88.8);
+            $pdf->Write(10, $data['AddressLine1']." ".$data['AddressLine2']);
+            $pdf->SetFont('Helvetica','',12);
+             $pdf->SetXY(28.2,113);
+            $pdf->Write(10,$data['header_resolution']);
+            $pdf->Line(28.2,120,$pdf->GetX(),120);
+             $pdf->SetFont('Helvetica','',10);
+            $pdf->SetXY(28.2,126);
+            $pdf->Write(10,$data['property']);
+            $pdf->SetXY(33.5,130.6);
+            $pdf->Write(10,$data['buyer']);
            
-            // write company name
-            $pdf->SetFont('Helvetica','',12);
-            $pdf->SetXY(98.9,27.8);
-            $pdf->Write(10, $company_info['Company']['name']);
-            $pdf->SetFont('Helvetica','',8);
-            $pdf->SetXY(130,32.4);
-            $pdf->Write(10, $company_info['Company']['register_number']);
-            
-
-            $pdf->SetXY(98.9,40.9);
-            $pdf->Write(10, $company_info['Company']['address_1']." ".$company_info['Company']['address_2']);
-            $pdf->SetFont('Helvetica','',12);
-            $pdf->SetXY(69,65.8);
-            $pdf->Write(10, $data['m_address1']." ".$data['m_address1']);
-             $y = 110;
-                 for($i = 0;$i<count($asIsShareHolders);$i=$i+1){
-                    $pdf->SetFont('Helvetica','',10);
-                        $x = 90;
-                        $pdf->SetXY($x,$y);
-                        $pdf->Write(10,$asIsShareHolders[$i]['StakeHolder']['name']);
-                   
-                    $y += 30;
-             }
-             
-             // page 4
-            $pdf->addPage(); // add page
-            $pageCount = $pdf->setSourceFile(WWW_ROOT . $this->template_path . "EOGM_SalesOfAsset_template.pdf"); // load template
-            $tplIdx = $pdf->importPage(4); 
-            $pdf->useTemplate($tplIdx, 10, 10, 200); // place the template 
-           
-            // write company name
-            $pdf->SetFont('Helvetica','',12);
-            $pdf->SetXY(98.9,21.9);
-            $pdf->Write(10, $company_info['Company']['name']);
-            $pdf->SetFont('Helvetica','',8);
-            $pdf->SetXY(130,26.4);
-            $pdf->Write(10, $company_info['Company']['register_number']);
-            
-
-            $pdf->SetXY(99.9,34.5);
-            $pdf->Write(10, $company_info['Company']['address_1']." ".$company_info['Company']['address_2']);
-            $pdf->SetFont('Helvetica','',12);
-            $pdf->SetXY(119,50);
-            $pdf->Write(10, $data['articleNo']);
-             $pdf->SetXY(27.8,78);
-            $pdf->Write(10, $data['m_address1']." ".$data['m_address1']);
-             $pdf->SetXY(112,108.8);
-            $pdf->Write(10, $data['seller']);
-            
-            $pdf->SetXY(33.8,113.9);
-            $pdf->Write(10, $data['buyer']);
-            
-            $pdf->SetXY(83,118.5);
-            $pdf->Write(10, $data['price']);
-             $y = 215;
+            $pdf->SetXY(52,135);
+            $pdf->Write(10,$data['price']);
+            $y = 211;
                  for($i = 0;$i<count($asIsDirectors);$i=$i+2){
                     $pdf->SetFont('Helvetica','',10);
                         $x = 30;
@@ -4350,51 +4285,9 @@ class FormsController extends AppController {
                    
                     $y += 30;
              }
-            // page 5
-            $pdf->addPage(); // add page
-            $pageCount = $pdf->setSourceFile(WWW_ROOT . $this->template_path . "EOGM_SalesOfAsset_template.pdf"); // load template
-            $tplIdx = $pdf->importPage(5); 
-            $pdf->useTemplate($tplIdx, 10, 10, 200); // place the template 
-           
-            // write company name
-            $pdf->SetFont('Helvetica','',12);
-            $pdf->SetXY(91.9,15.8);
-            $pdf->Write(10, $company_info['Company']['name']);
-            $pdf->SetFont('Helvetica','',8);
-            $pdf->SetXY(118,21);
-            $pdf->Write(10, $company_info['Company']['register_number']);
-            $word = "";
-            for($i = 0;$i<count($asIsShareHolders);$i=$i+1){
-                
-                if($i == count($asIsShareHolders)-1){
-                    $word .= $asIsShareHolders[$i]['StakeHolder']['name'];
-                }else{
-                   $word .= $asIsShareHolders[$i]['StakeHolder']['name'].","; 
-                }
-             }
-            $pdf->SetXY(36,40.1);
-            $pdf->Write(10, $word);
-
-            $pdf->SetXY(98.9,31);
-            $pdf->Write(10, $company_info['Company']['address_1']." ".$company_info['Company']['address_2']);
-            $pdf->SetFont('Helvetica','',12);
-             $pdf->SetXY(39,70);
-            $pdf->Write(10, $data['m_address1']." ".$data['m_address1']);
-             $pdf->SetXY(130,115.5);
-            $pdf->Write(10, $data['seller']);
             
-            $pdf->SetXY(60,120);
-            $pdf->Write(10, $data['buyer']);
-            
-            $pdf->SetXY(106,130.4);
-            $pdf->Write(10, $data['price']);
-            
-            $pdf->SetXY(26,205);
-            $pdf->Write(10, $data['chairman']);
              
-            $pdf->Output(WWW_ROOT . $this->pdf_path . $pdf_name .'.pdf', 'F');
-           // save to database
-     
+        $pdf->Output(WWW_ROOT . $this->pdf_path . $pdf_name .'.pdf', 'F');  
         $data_pdf = array(
                 'form_id' => 8,
                 'company_id' => $company_info['Company']['company_id'],

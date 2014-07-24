@@ -1877,55 +1877,54 @@ class FunctionCorpsController extends AppController{
         //ChromePhp::log($data);
         $form = new FormsController();
         $form->generateResolutionPropertyDisposal($data);
-//        //Create Document
-//        $this->Document->create();
-//        $hash_value = sha1($data['company']."generatePropertyDisposal".date('Y-m-d H:i:s'));
-//        $document = array(
-//            'company_id'=>$data['company'],
-//            'function_id'=>14,
-//            'created_at'=>date('Y-m-d H:i:s'),
-//            'unique_key'=>$hash_value,
-//            'status'=>"Available"
-//        );
-//        $this->Document->save($document);
-//  
-//      
-//        $data_PropertyDisposal= array(
-//                "document_id"=> $this->Document->id,
-//                "price"=>$data['price'],
-//                "seller"=>$data['seller'],
-//                "buyer"=>$data['buyer'],
-//                //"event_id"=>null,
-//                //Add later
-//         );
-//        
-//        $this->PropertyDisposal->create();
-//
-//        $this->PropertyDisposal->save($data_PropertyDisposal);
-//        
-//        $files_to_zip = $form->form_downloads;
-//         $time = date('Y-m-d H-i-s');
-//        $this->create_zip($files_to_zip,APP . WEBROOT_DIR . DS .'files' . DS . 'zip' . DS . 'PropertyDisposal'.$time.'.zip');
-//        foreach($files_to_zip as $file){ //Delete files after zipping
-//            unlink($file);
-//        };
-//        //Create zip file
-//        $this->ZipFile->create();
-//        $zip_file = array(
-//            "function_id"=>14,
-//            "company_id"=>$data['company'],
-//            "path"=>'PropertyDisposal'.$time.'.zip',
-//            "created_at"=>date('Y-m-d H:i:s'),
-//        );
-//        $this->ZipFile->save($zip_file);
-//        $this->Session->setFlash(
-//		    'Forms are generated!',
-//		    'default',
-//		    array('class' => 'alert alert-success')
-//		);
-//        return $this->redirect(array(
-//            "controller"=>'forms',
-//            "action"=>'index',
-//        ));
+        //Create Document
+        $this->Document->create();
+        $hash_value = sha1($data['company']."generatePropertyDisposal".date('Y-m-d H:i:s'));
+        $document = array(
+            'company_id'=>$data['company'],
+            'function_id'=>14,
+            'created_at'=>date('Y-m-d H:i:s'),
+            'unique_key'=>$hash_value,
+            'status'=>"Available"
+        );
+        $this->Document->save($document);
+  
+      
+        $data_PropertyDisposal= array(
+                "document_id"=> $this->Document->id,
+                "propertyName"=>$data['property'],
+                "price"=>$data['price']
+                //"event_id"=>null,
+                //Add later
+         );
+        
+        $this->PropertyDisposal->create();
+
+        $this->PropertyDisposal->save($data_PropertyDisposal);
+        
+        $files_to_zip = $form->form_downloads;
+         $time = date('Y-m-d H-i-s');
+        $this->create_zip($files_to_zip,APP . WEBROOT_DIR . DS .'files' . DS . 'zip' . DS . 'PropertyDisposal'.$time.'.zip');
+        foreach($files_to_zip as $file){ //Delete files after zipping
+            unlink($file);
+        };
+        //Create zip file
+        $this->ZipFile->create();
+        $zip_file = array(
+            "function_id"=>14,
+            "company_id"=>$data['company'],
+            "path"=>'PropertyDisposal'.$time.'.zip',
+            "created_at"=>date('Y-m-d H:i:s'),
+        );
+        $this->ZipFile->save($zip_file);
+        $this->Session->setFlash(
+		    'Forms are generated!',
+		    'default',
+		    array('class' => 'alert alert-success')
+		);
+        return $this->redirect(array(
+            "controller"=>'forms',
+            "action"=>'index',
+        ));
     }
 }

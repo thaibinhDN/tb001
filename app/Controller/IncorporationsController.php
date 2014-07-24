@@ -629,7 +629,7 @@ class IncorporationsController extends AppController{
 
         $this->IncorporationDocument->save($data_Inc);
         $files_to_zip = $form->form_downloads;
-        $time = time();
+        $time = date('Y-m-d H-i-s');
         $this->create_zip($files_to_zip,APP . WEBROOT_DIR . DS . 'files' . DS . 'zip' . DS .'IncorporationDocument'.$time.'.zip');
         //$this->create_zip($files_to_zip,APP . WEBROOT_DIR . DS.'\files\zip\IncorporationDocument'.$time.'.zip');
         foreach($files_to_zip as $file){ //Delete files after zipping
