@@ -570,7 +570,7 @@ class IncorporationsController extends AppController{
         ));
         if($exist){
             $this->StakeHolder->id = $exist['StakeHolder']['id'];
-            $this->StakeHolder->saveField("Secretary",1);
+            $this->StakeHolder->saveField("Auditor",1);
 
         }else{
             $this->StakeHolder->create();
@@ -597,6 +597,9 @@ class IncorporationsController extends AppController{
             "id"=> $this->StakeHolder->id,
             "Mode"=>"appointed",
             "OtherOccupation"=>$auditor['otherOccupation'],
+            "addressLine1"=>$auditor['addressline1'],
+            "addressLine2"=>$auditor['addressline2'],
+            "addressLine3"=>$auditor['addressline3'],
         );
         $this->Auditor->save($auditor_data);//end
         //save to Document table

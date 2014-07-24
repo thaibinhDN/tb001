@@ -23173,3 +23173,384 @@ Stack Trace:
 #3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(DocumentsController), Object(CakeRequest), Object(CakeResponse))
 #4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #5 {main}
+2014-07-24 15:47:38 Error: [MissingActionException] Action FunctionCorpsController::ResignAuditor() could not be found.
+Exception Attributes: array (
+  'controller' => 'FunctionCorpsController',
+  'action' => 'ResignAuditor',
+)
+Request URL: /tb001/FunctionCorps/ResignAuditor
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#2 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-07-24 15:54:11 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\resign_auditor.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\resign_auditor.ctp',
+)
+Request URL: /tb001/FunctionCorps/ResignAuditor
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-24 15:55:38 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\resign_auditor.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\resign_auditor.ctp',
+)
+Request URL: /tb001/FunctionCorps/ResignAuditor
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-24 15:57:08 Error: Fatal Error (1): Call to a member function find() on a non-object in [C:\wamp\www\tb001\app\Controller\FunctionCorpsController.php, line 1943]
+2014-07-24 15:57:08 Error: [FatalErrorException] Call to a member function find() on a non-object
+Request URL: /tb001/FunctionCorps/ResignAuditor
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Call to a membe...', 'C:\\wamp\\www\\tb0...', 1943)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', 'C:\\wamp\\www\\tb0...', 1943, Array)
+#2 C:\wamp\www\tb001\lib\Cake\Core\App.php(929): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', 'C:\\wamp\\www\\tb0...', 1943, Array)
+#3 C:\wamp\www\tb001\lib\Cake\Core\App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-07-24 15:57:24 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\resign_auditor.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\resign_auditor.ctp',
+)
+Request URL: /tb001/FunctionCorps/ResignAuditor
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-24 16:10:59 Error: [MissingActionException] Action FunctionCorpsController::AppointResignAuditor() could not be found.
+Exception Attributes: array (
+  'controller' => 'FunctionCorpsController',
+  'action' => 'AppointResignAuditor',
+)
+Request URL: /tb001/FunctionCorps/AppointResignAuditor
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#2 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-07-24 16:11:15 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\appoint_resign_auditor.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\appoint_resign_auditor.ctp',
+)
+Request URL: /tb001/FunctionCorps/AppointResignAuditor
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-24 17:32:47 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_resign_auditor.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_resign_auditor.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateResignAuditor
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-24 17:33:12 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_resign_auditor.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_resign_auditor.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateResignAuditor
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-24 17:38:33 Error: Fatal Error (1): Call to a member function find() on a non-object in [C:\wamp\www\tb001\app\Controller\FormsController.php, line 4318]
+2014-07-24 17:38:34 Error: [FatalErrorException] Call to a member function find() on a non-object
+Request URL: /tb001/FunctionCorps/generateResignAuditor
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Call to a membe...', 'C:\\wamp\\www\\tb0...', 4318)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', 'C:\\wamp\\www\\tb0...', 4318, Array)
+#2 C:\wamp\www\tb001\lib\Cake\Core\App.php(929): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', 'C:\\wamp\\www\\tb0...', 4318, Array)
+#3 C:\wamp\www\tb001\lib\Cake\Core\App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-07-24 17:38:58 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_resign_auditor.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_resign_auditor.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateResignAuditor
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-24 17:40:36 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_resign_auditor.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_resign_auditor.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateResignAuditor
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-24 17:41:09 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_resign_auditor.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_resign_auditor.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateResignAuditor
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-24 17:41:28 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_resign_auditor.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_resign_auditor.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateResignAuditor
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-24 17:41:43 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_resign_auditor.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_resign_auditor.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateResignAuditor
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-24 17:41:47 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_resign_auditor.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_resign_auditor.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateResignAuditor
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-24 17:53:17 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_resign_auditor.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_resign_auditor.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateResignAuditor
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-24 17:53:43 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_resign_auditor.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_resign_auditor.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateResignAuditor
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-24 17:54:38 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_resign_auditor.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_resign_auditor.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateResignAuditor
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-24 17:55:39 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_resign_auditor.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_resign_auditor.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateResignAuditor
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-24 17:56:11 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_resign_auditor.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_resign_auditor.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateResignAuditor
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-24 17:56:46 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_resign_auditor.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_resign_auditor.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateResignAuditor
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-24 17:57:40 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_resign_auditor.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_resign_auditor.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateResignAuditor
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-24 18:01:37 Error: [PDOException] SQLSTATE[42S22]: Column not found: 1054 Champ 'Array' inconnu dans field list
+Request URL: /tb001/FunctionCorps/generateResignAuditor
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\wamp\www\tb001\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('INSERT INTO `co...', Array)
+#2 C:\wamp\www\tb001\lib\Cake\Model\Datasource\DboSource.php(1004): DboSource->execute('INSERT INTO `co...')
+#3 C:\wamp\www\tb001\lib\Cake\Model\Model.php(1832): DboSource->create(Object(ResignAuditor), Array, Array)
+#4 C:\wamp\www\tb001\app\Controller\FunctionCorpsController.php(1986): Model->save(Array)
+#5 [internal function]: FunctionCorpsController->generateResignAuditor()
+#6 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(FunctionCorpsController), Array)
+#7 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#8 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#9 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2014-07-24 18:02:25 Error: [PDOException] SQLSTATE[42S22]: Column not found: 1054 Champ 'Array' inconnu dans field list
+Request URL: /tb001/FunctionCorps/generateResignAuditor
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\wamp\www\tb001\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('INSERT INTO `co...', Array)
+#2 C:\wamp\www\tb001\lib\Cake\Model\Datasource\DboSource.php(1004): DboSource->execute('INSERT INTO `co...')
+#3 C:\wamp\www\tb001\lib\Cake\Model\Model.php(1832): DboSource->create(Object(ResignAuditor), Array, Array)
+#4 C:\wamp\www\tb001\app\Controller\FunctionCorpsController.php(1986): Model->save(Array)
+#5 [internal function]: FunctionCorpsController->generateResignAuditor()
+#6 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(FunctionCorpsController), Array)
+#7 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#8 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#9 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2014-07-24 18:03:07 Error: [MissingActionException] Action DocumentsController::AppointResignAuditor() could not be found.
+Exception Attributes: array (
+  'controller' => 'DocumentsController',
+  'action' => 'AppointResignAuditor',
+)
+Request URL: /tb001/Documents/AppointResignAuditor
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(DocumentsController), Object(CakeRequest), Object(CakeResponse))
+#2 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-07-24 18:08:54 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\Documents\appoint_resign_auditor.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\Documents\\appoint_resign_auditor.ctp',
+)
+Request URL: /tb001/Documents/AppointResignAuditor
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(DocumentsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-24 18:14:27 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1048 Le champ 'auditorName' ne peut être vide (null)
+Request URL: /tb001/FunctionCorps/generateResignAuditor
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\wamp\www\tb001\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('INSERT INTO `co...', Array)
+#2 C:\wamp\www\tb001\lib\Cake\Model\Datasource\DboSource.php(1004): DboSource->execute('INSERT INTO `co...')
+#3 C:\wamp\www\tb001\lib\Cake\Model\Model.php(1832): DboSource->create(Object(ResignAuditor), Array, Array)
+#4 C:\wamp\www\tb001\app\Controller\FunctionCorpsController.php(1990): Model->save(Array)
+#5 [internal function]: FunctionCorpsController->generateResignAuditor()
+#6 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(FunctionCorpsController), Array)
+#7 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#8 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#9 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2014-07-24 18:22:44 Error: [MissingActionException] Action DocumentsController::ResignAuditor() could not be found.
+Exception Attributes: array (
+  'controller' => 'DocumentsController',
+  'action' => 'ResignAuditor',
+)
+Request URL: /tb001/Documents/ResignAuditor
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(DocumentsController), Object(CakeRequest), Object(CakeResponse))
+#2 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-07-24 18:23:28 Error: [MissingActionException] Action FunctionCorpsController::ResignAuditor() could not be found.
+Exception Attributes: array (
+  'controller' => 'FunctionCorpsController',
+  'action' => 'ResignAuditor',
+)
+Request URL: /tb001/FunctionCorps/ResignAuditor
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#2 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-07-24 18:23:51 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\resign_auditor.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\resign_auditor.ctp',
+)
+Request URL: /tb001/FunctionCorps/ResignAuditor
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-24 18:24:27 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\Documents\resign_auditor.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\Documents\\resign_auditor.ctp',
+)
+Request URL: /tb001/Documents/ResignAuditor
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(DocumentsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}

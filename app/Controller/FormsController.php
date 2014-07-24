@@ -26,7 +26,7 @@ class FormsController extends AppController {
               'Session',
               'Paginator'
               );
-	public $uses = array('ShareHolder','StakeHolder','Secretary','User','Document','Form', 'Company', 'Director','Pdf','FunctionCorp','ZipFile');
+	public $uses = array('Auditor','ShareHolder','StakeHolder','Secretary','User','Document','Form', 'Company', 'Director','Pdf','FunctionCorp','ZipFile');
 	public $template_path = 'files/templates/';
 	public $pdf_path = 'files/pdf/';
         public $zip_path = 'files/zip/';
@@ -4296,5 +4296,200 @@ class FormsController extends AppController {
         );
     
         array_push($this->form_downloads,$data_pdf['pdf_url']);
+    }
+    public function generateForm49RA($data){
+        $form_id =2;
+		
+		$prepared_by = $data['prepared_by'];
+                $id = $data['auditor'];
+             
+                $auditor = $this->StakeHolder->find('first', array('conditions' => array('StakeHolder.id ' => $id)));
+                $occupation = "AUDITOR";
+         
+		$company_name = $auditor['Company']['name'];
+		$company_number = $auditor['Company']['register_number'];
+		
+                $LOLName = $auditor['Company']['LOName'];
+                $LOAddressLine1 = $auditor['Company']['LOAddressline1'];
+                $LOAddressLine2 = $auditor['Company']['LOAddressline2'];
+                $LOTelNo = $auditor['Company']['LOTelNo'];
+                 $LOTelFax = $auditor['Company']['LOTelFax'];
+                 $LOAcNo = $auditor['Company']['LOAcNo'];
+                 $au = $this->Auditor->find('first', array('conditions' => array('Auditor.id ' => $id)));
+
+		$pdf_name = 'Form_49_ResignAuditor'.time();
+
+		// generate PDF
+		$pdf = new FPDI(); // init
+		// create overlays
+		$pdf->SetFont('Helvetica', '', 9); // set font type
+		$pdf->SetTextColor(0, 0, 0); // set font color
+
+    	// page 1
+    	$pdf->addPage(); // add page
+    	$pageCount = $pdf->setSourceFile(WWW_ROOT . $this->template_path . "form49_template.pdf"); // load template
+		$tplIdx = $pdf->importPage(1); // import page 1
+		$pdf->useTemplate($tplIdx, 10, 10, 200); // place the template
+
+		// write company name
+		$pdf->SetXY(63, 56);
+		$pdf->Write(10, $company_name);
+
+		// write company number
+		$pdf->SetXY(55, 63.8);
+		$pdf->Write(10, $company_number);
+
+		
+
+		// write prepared by
+		$pdf->SetXY(138, 197.5);
+		$pdf->Write(10, $prepared_by);
+
+		// write company name
+		$pdf->SetXY(44, 251.5);
+		$pdf->Write(10, $LOLName);
+
+		// write company address 1
+		$pdf->SetXY(46, 256.5);
+		$pdf->Write(10, $LOAddressLine1);
+
+		// write company address 2
+		$pdf->SetXY(46.5, 259.5);
+		$pdf->Write(10, $LOAddressLine2);
+
+		// write company number
+		$pdf->SetXY(85, 266.9);
+		$pdf->Write(10, $LOTelFax );
+                
+                // write LO acc
+		$pdf->SetXY(44, 263.6);
+		$pdf->Write(10, $LOAcNo);
+
+		// write company telp
+		$pdf->SetXY(85, 263.6);
+		$pdf->Write(10, $LOTelNo);
+		$y_pos = 115;
+				
+                $name = $auditor['StakeHolder']['name'];
+                $address_1 = $au['Auditor']['addressLine1'];
+                $address_2 = $au['Auditor']['addressLine2'];
+                $address_3 = $au['Auditor']['addressLine3'];
+                $pdf->SetXY(40, $y_pos);
+                $pdf->Write(10,  $name);
+
+                // write director address
+                $pdf->SetXY(40, $y_pos+5);
+                $pdf->Write(10, $address_1);
+                $pdf->SetXY(40, $y_pos+10);
+                $pdf->Write(10, $address_2);
+                $pdf->SetXY(40, $y_pos+15);
+                $pdf->Write(10, $address_3);
+                
+                $pdf->SetXY(40, 106);
+                $pdf->Write(10, $occupation );
+                $pdf->Line(40,113,$pdf->GetX(),113);
+
+                // write type
+                $pdf->SetXY(145, $y_pos);
+                $pdf->Write(10, 'CESSATION WITH');
+				
+                $pdf->SetXY(145, $y_pos+5);
+                $pdf->Write(10, 'EFFECT FROM');
+			
+		
+                $pdf->Output(WWW_ROOT . $this->pdf_path . $pdf_name .'.pdf', 'F');
+
+		
+
+               
+		$data = array(
+			'form_id' => $form_id,
+			'company_id' => $data['company'],
+			'pdf_url' => $this->pdf_path . $pdf_name .'.pdf',
+			'created_at' => date('Y-m-d H:i:s')
+		);
+	
+                array_push($this->form_downloads,$data['pdf_url']);
+    }
+    public function generateResolutionRA($data){
+        $form_id = 3;
+            
+            $company = $this->Company->find('first',array('conditions'=>array('company_id = '=> $data['company'])));
+            //ChromePhp::log($company);
+            $company_id = $company['Company']['company_id'];
+            $id = $data['auditor'];
+           
+            $auditor = $this->StakeHolder->find('first', array('conditions' => array('StakeHolder.id ' => $id)));
+
+          //ChromePhp::log($directors);
+            $pdf_name = 'Resolution_ResignAuditor'.time();
+            
+            // generate PDF
+		$pdf = new FPDI(); // init
+		// create overlays
+		$pdf->SetFont('Helvetica','',9); // set font type
+		$pdf->SetTextColor(0, 0, 0); // set font color
+            // page 1
+            $pdf->addPage(); // add page
+            $pageCount = $pdf->setSourceFile(WWW_ROOT . $this->template_path . "resolutionResignAuditor_template.pdf"); // load template
+            $tplIdx = $pdf->importPage(1); // import page 1esolution_template
+            $pdf->useTemplate($tplIdx, 10, 10, 200); // place the template 
+            // write company name
+            $pdf->SetFont('Helvetica','',13 );
+            $pdf->SetXY(87,25);
+            $pdf->Write(10, $company['Company']['name']);
+            $pdf->SetXY(124,33);
+            $pdf->Write(10, $company['Company']['register_number']);
+            $pdf->SetFont('Helvetica','',10);
+            $pdf->SetXY(103,73.1);
+            $pdf->Write(10,$auditor['StakeHolder']['name']);
+            //write AsIs Directors(The directors which are neither resigned or 
+            //just be promoted
+                $asIsStakeHolders = $this->StakeHolder->find("all",array(
+                    "conditions"=>array(
+                        "StakeHolder.company_id"=>$company_id
+                    )
+                ));
+                $avail_ids=array();
+                foreach($asIsStakeHolders as $asIsStakeHolder){
+                    array_push($avail_ids,$asIsStakeHolder['StakeHolder']['id']);
+                };
+                
+                $asIsDirectors = $this->Director->find("all",array(
+                    "conditions"=>array(
+                        "Director.Mode"=>"appointed",
+                        "Director.id"=>$avail_ids
+                    )
+                ));
+            $y = 120;
+                 for($i = 0;$i<count($asIsDirectors);$i=$i+2){
+                    $pdf->SetFont('Helvetica','',10);
+                        $x = 30;
+                        $pdf->SetXY($x,$y);
+                         $pdf->Line($x,$y-1,$x+40,$y-1);
+                        $pdf->Write(10,$asIsDirectors[$i]['StakeHolder']['name']);
+                        if($i+1<count($asIsDirectors)){
+                            $k = 140;
+                            //ChromePhp::log($y);
+                            $pdf->SetXY($k,$y);
+                             $pdf->Line($k,$y-1,$k+40,$y-1);
+                            $pdf->Write(10,$asIsDirectors[$i+1]['StakeHolder']['name']);
+                            
+                        }
+                   
+                    $y += 30;
+             }
+            $pdf->Output(WWW_ROOT . $this->pdf_path . $pdf_name .'.pdf', 'F');
+
+		// save to database
+
+		$data_pdf = array(
+			'form_id' => $form_id,
+			'company_id' => $company_id,
+			'pdf_url' => $this->pdf_path . $pdf_name .'.pdf',
+			'created_at' => date('Y-m-d H:i:s')
+		);
+		 
+                array_push($this->form_downloads,$data_pdf['pdf_url']);
     }
 }

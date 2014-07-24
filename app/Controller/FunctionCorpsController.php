@@ -9,7 +9,7 @@ App::import('Controller', 'Forms');
 
 class FunctionCorpsController extends AppController{
     public $uses = array('OptionToPurchase','LoanResolution','ClosureBankAcc','ChangeFinancialYear','ChangeCompanyName','ChangeBankSignatorUob','AppointSecretaryAuditor','AppointResignSecretary','AppointResignDirector','StakeHolder','Secretary',
-                        'PropertyDisposal','SalesAssetBusiness','ChangeOfRegisteredAddress','FunctionCorps','User','Event','Document','Form', 'Company', 'Director','Pdf','ChangeOfMAA','ZipFile','ChangeOfPassport');
+                        'ResignAuditor','Auditor','PropertyDisposal','SalesAssetBusiness','ChangeOfRegisteredAddress','FunctionCorps','User','Event','Document','Form', 'Company', 'Director','Pdf','ChangeOfMAA','ZipFile','ChangeOfPassport');
     function generateFunction(){
         $functions = $this->Function->find('all');
     }
@@ -1914,6 +1914,93 @@ class FunctionCorpsController extends AppController{
             "function_id"=>14,
             "company_id"=>$data['company'],
             "path"=>'PropertyDisposal'.$time.'.zip',
+            "created_at"=>date('Y-m-d H:i:s'),
+        );
+        $this->ZipFile->save($zip_file);
+        $this->Session->setFlash(
+		    'Forms are generated!',
+		    'default',
+		    array('class' => 'alert alert-success')
+		);
+        return $this->redirect(array(
+            "controller"=>'forms',
+            "action"=>'index',
+        ));
+    }
+    public function ResignAuditor() {
+        if(isset($this->params['url']['company'])){
+            $data= array();
+            $data['company'] = $this->params['url']['company'];
+        }else{
+            $data = $this->request->data;
+        }
+        $stakeholders = $this->StakeHolder->find("all",array(
+            "conditions"=>array(
+                "StakeHolder.company_id"=>$data['company'],
+                "StakeHolder.Auditor"=>1,
+            )
+        ));
+       $auditor_ids = array();
+       foreach ($stakeholders as $stakeholder){
+           array_push($auditor_ids,$stakeholder['StakeHolder']['id']);
+       }
+      $auditors = $this->Auditor->find("all",array(
+          "conditions"=>array(
+              "Auditor.id"=>$auditor_ids,
+              "Auditor.Mode"=>"appointed"
+          )
+      ));
+     $this->set("auditors",$auditors);   
+     $this->set("view_data",$data);   
+    }
+    public function generateResignAuditor(){
+        $data = $this->request->data;
+        //ChromePhp::log($data);
+        $form = new FormsController();
+      $form->generateForm49RA($data);
+        $form->generateResolutionRA($data);
+        $form->generateIndemnityLetter($data);
+        //Create Document
+        $this->Document->create();
+        $hash_value = sha1($data['company']."generateResignAuditor".date('Y-m-d H:i:s'));
+        $document = array(
+            'company_id'=>$data['company'],
+            'function_id'=>15,
+            'created_at'=>date('Y-m-d H:i:s'),
+            'unique_key'=>$hash_value,
+            'status'=>"Available"
+        );
+        $this->Document->save($document);
+  
+        $auditor = $this->Auditor->find("first",array(
+            "conditions"=>array(
+                "Auditor.id"=>$data['auditor']
+            )
+        ));
+        $data_ResignAuditor= array(
+                "document_id"=> $this->Document->id,
+                "auditorName"=>$auditor['StakeHolder']['name'],
+                //"price"=>$data['price']
+                //"event_id"=>null,
+                //Add later
+         );
+        
+        $this->ResignAuditor->create();
+
+        $this->ResignAuditor->save($data_ResignAuditor);
+        
+        $files_to_zip = $form->form_downloads;
+         $time = date('Y-m-d H-i-s');
+        $this->create_zip($files_to_zip,APP . WEBROOT_DIR . DS .'files' . DS . 'zip' . DS . 'ResignAuditor'.$time.'.zip');
+        foreach($files_to_zip as $file){ //Delete files after zipping
+            unlink($file);
+        };
+        //Create zip file
+        $this->ZipFile->create();
+        $zip_file = array(
+            "function_id"=>15,
+            "company_id"=>$data['company'],
+            "path"=>'ResignAuditor'.$time.'.zip',
             "created_at"=>date('Y-m-d H:i:s'),
         );
         $this->ZipFile->save($zip_file);
