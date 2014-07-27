@@ -118,6 +118,8 @@
             echo $this->Html->script('addShareHolder.js');
         }else if ($controller=="FunctionCorps" && $action=="ChangeOfPassport") {
             echo $this->Html->script('changePassport.js');
+        }else if ($controller=="FunctionCorps" && $action=="NormalStruckOff") {
+            echo $this->Html->script('normalStruckOff.js');
         }
         else{
             echo $this->Html->script('application.js');

@@ -9,7 +9,7 @@ App::import('Controller', 'Forms');
 
 class FunctionCorpsController extends AppController{
     public $uses = array('OptionToPurchase','LoanResolution','ClosureBankAcc','ChangeFinancialYear','ChangeCompanyName','ChangeBankSignatorUob','AppointSecretaryAuditor','AppointResignSecretary','AppointResignDirector','StakeHolder','Secretary',
-                        'ResignAuditor','Auditor','PropertyDisposal','SalesAssetBusiness','ChangeOfRegisteredAddress','FunctionCorps','User','Event','Document','Form', 'Company', 'Director','Pdf','ChangeOfMAA','ZipFile','ChangeOfPassport');
+                        'NormalStruckOff','ResignAuditor','Auditor','PropertyDisposal','SalesAssetBusiness','ChangeOfRegisteredAddress','FunctionCorps','User','Event','Document','Form', 'Company', 'Director','Pdf','ChangeOfMAA','ZipFile','ChangeOfPassport');
     function generateFunction(){
         $functions = $this->Function->find('all');
     }
@@ -1874,7 +1874,6 @@ class FunctionCorpsController extends AppController{
     }
     public function generatePropertyDisposal(){
         $data = $this->request->data;
-        //ChromePhp::log($data);
         $form = new FormsController();
         $form->generateResolutionPropertyDisposal($data);
         //Create Document
@@ -2014,4 +2013,79 @@ class FunctionCorpsController extends AppController{
             "action"=>'index',
         ));
     }
+    public function NormalStruckOff() {
+        $data = $this->request->data;
+        $stakeholders = $this->StakeHolder->find("all",array(
+            "conditions"=>array(
+                "StakeHolder.company_id"=>$data['company'],
+                "OR"=>array(
+                    "StakeHolder.Director"=>1,
+                    "StakeHolder.Shareholder"=>1
+                )
+            )
+        ));
+        $this->set("stakeholders",$stakeholders);
+        $this->set("company",$data['company']);
+        //ChromePhp::log($shareholders);
+    }
+    public function generateNormalStruckOff() {
+        $data = $this->request->data;
+        //ChromePhp::log($data);
+        $form = new FormsController();
+       $form->generateEGM($data);
+       $form->generateLetterAcra($data);
+       $form->generateStatutoryDeclaration($data);
+       $form->generateForm94($data);
+       $form->generateIndemnityLetter($data);
+        $this->Document->create();
+        $hash_value = sha1($data['company']."generateResignAuditor".date('Y-m-d H:i:s'));
+        $document = array(
+            'company_id'=>$data['company'],
+            'function_id'=>16,
+            'created_at'=>date('Y-m-d H:i:s'),
+            'unique_key'=>$hash_value,
+            'status'=>"Available"
+        );
+        $this->Document->save($document);
+        $data_NormalStruckOff= array(
+                "document_id"=> $this->Document->id,
+                //"price"=>$data['price']
+                //"event_id"=>null,
+                //Add later
+         );
+        
+        $this->NormalStruckOff->create();
+
+        $this->NormalStruckOff->save($data_NormalStruckOff);
+        
+        $files_to_zip = $form->form_downloads;
+         $time = date('Y-m-d H-i-s');
+        $this->create_zip($files_to_zip,APP . WEBROOT_DIR . DS .'files' . DS . 'zip' . DS . 'NormalStruckOff'.$time.'.zip');
+        foreach($files_to_zip as $file){ //Delete files after zipping
+            unlink($file);
+        };
+        //Create zip file
+        $this->ZipFile->create();
+        $zip_file = array(
+            "function_id"=>16,
+            "company_id"=>$data['company'],
+            "path"=>'NormalStruckOff'.$time.'.zip',
+            "created_at"=>date('Y-m-d H:i:s'),
+        );
+        $this->ZipFile->save($zip_file);
+        $this->Session->setFlash(
+		    'Forms are generated!',
+		    'default',
+		    array('class' => 'alert alert-success')
+		);
+        return $this->redirect(array(
+            "controller"=>'forms',
+            "action"=>'index',
+        ));
+    }
+    public function AllotDirectorFee() {
+        $data = $this->request->data;
+        
+    };
+
 }

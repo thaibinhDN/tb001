@@ -23554,3 +23554,696 @@ Stack Trace:
 #3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(DocumentsController), Object(CakeRequest), Object(CakeResponse))
 #4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #5 {main}
+2014-07-25 23:54:32 Error: [MissingActionException] Action FunctionCorpsController::NormalStruckOff() could not be found.
+Exception Attributes: array (
+  'controller' => 'FunctionCorpsController',
+  'action' => 'NormalStruckOff',
+)
+Request URL: /tb001/FunctionCorps/NormalStruckOff
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#2 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-07-26 00:05:30 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\normal_struck_off.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\normal_struck_off.ctp',
+)
+Request URL: /tb001/FunctionCorps/NormalStruckOff
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-26 00:06:58 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\normal_struck_off.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\normal_struck_off.ctp',
+)
+Request URL: /tb001/FunctionCorps/NormalStruckOff
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-26 00:07:22 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\normal_struck_off.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\normal_struck_off.ctp',
+)
+Request URL: /tb001/FunctionCorps/NormalStruckOff
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-26 01:05:43 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\Shareholders\get_shareholders_directors.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\Shareholders\\get_shareholders_directors.ctp',
+)
+Request URL: /tb001/Shareholders/getShareholdersDirectors?id=121
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(ShareholdersController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-26 01:08:03 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\Shareholders\get_shareholders_directors.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\Shareholders\\get_shareholders_directors.ctp',
+)
+Request URL: /tb001/Shareholders/getShareholdersDirectors?id=121
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(ShareholdersController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-26 01:08:46 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\Shareholders\get_shareholders_directors.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\Shareholders\\get_shareholders_directors.ctp',
+)
+Request URL: /tb001/Shareholders/getShareholdersDirectors?id=121
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(ShareholdersController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-26 01:14:07 Error: [MissingActionException] Action FunctionCorpsController::generateNormalStruckOff() could not be found.
+Exception Attributes: array (
+  'controller' => 'FunctionCorpsController',
+  'action' => 'generateNormalStruckOff',
+)
+Request URL: /tb001/FunctionCorps/generateNormalStruckOff
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#2 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-07-26 01:17:33 Error: [MissingActionException] Action FunctionCorpsController::generateNormalStruckOff() could not be found.
+Exception Attributes: array (
+  'controller' => 'FunctionCorpsController',
+  'action' => 'generateNormalStruckOff',
+)
+Request URL: /tb001/FunctionCorps/generateNormalStruckOff
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#2 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-07-26 16:52:00 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_normal_struck_off.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_normal_struck_off.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateNormalStruckOff
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-26 16:53:08 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_normal_struck_off.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_normal_struck_off.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateNormalStruckOff
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-26 16:55:04 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_normal_struck_off.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_normal_struck_off.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateNormalStruckOff
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-26 16:56:15 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_normal_struck_off.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_normal_struck_off.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateNormalStruckOff
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-26 16:56:46 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_normal_struck_off.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_normal_struck_off.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateNormalStruckOff
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-26 17:14:34 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_normal_struck_off.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_normal_struck_off.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateNormalStruckOff
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-26 17:15:55 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_normal_struck_off.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_normal_struck_off.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateNormalStruckOff
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-26 17:16:46 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_normal_struck_off.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_normal_struck_off.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateNormalStruckOff
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-26 17:21:21 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_normal_struck_off.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_normal_struck_off.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateNormalStruckOff
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-26 17:22:04 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_normal_struck_off.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_normal_struck_off.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateNormalStruckOff
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-26 17:24:04 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_normal_struck_off.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_normal_struck_off.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateNormalStruckOff
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-26 17:25:14 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_normal_struck_off.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_normal_struck_off.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateNormalStruckOff
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-26 17:46:16 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_normal_struck_off.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_normal_struck_off.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateNormalStruckOff
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-26 17:47:54 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_normal_struck_off.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_normal_struck_off.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateNormalStruckOff
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-26 17:49:25 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_normal_struck_off.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_normal_struck_off.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateNormalStruckOff
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-26 17:50:10 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_normal_struck_off.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_normal_struck_off.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateNormalStruckOff
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-26 17:50:51 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_normal_struck_off.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_normal_struck_off.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateNormalStruckOff
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-26 21:36:00 Error: Fatal Error (1): Call to undefined method FormsController::Line() in [C:\wamp\www\tb001\app\Controller\FormsController.php, line 4733]
+2014-07-26 21:36:00 Error: [FatalErrorException] Call to undefined method FormsController::Line()
+Request URL: /tb001/FunctionCorps/generateNormalStruckOff
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Call to undefin...', 'C:\\wamp\\www\\tb0...', 4733)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to undefin...', 'C:\\wamp\\www\\tb0...', 4733, Array)
+#2 C:\wamp\www\tb001\lib\Cake\Core\App.php(929): call_user_func('ErrorHandler::h...', 1, 'Call to undefin...', 'C:\\wamp\\www\\tb0...', 4733, Array)
+#3 C:\wamp\www\tb001\lib\Cake\Core\App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-07-26 21:36:29 Error: Fatal Error (1): Call to undefined function Line() in [C:\wamp\www\tb001\app\Controller\FormsController.php, line 4733]
+2014-07-26 21:36:30 Error: [FatalErrorException] Call to undefined function Line()
+Request URL: /tb001/FunctionCorps/generateNormalStruckOff
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Call to undefin...', 'C:\\wamp\\www\\tb0...', 4733)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to undefin...', 'C:\\wamp\\www\\tb0...', 4733, Array)
+#2 C:\wamp\www\tb001\lib\Cake\Core\App.php(929): call_user_func('ErrorHandler::h...', 1, 'Call to undefin...', 'C:\\wamp\\www\\tb0...', 4733, Array)
+#3 C:\wamp\www\tb001\lib\Cake\Core\App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-07-26 21:36:58 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_normal_struck_off.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_normal_struck_off.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateNormalStruckOff
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-26 21:37:18 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_normal_struck_off.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_normal_struck_off.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateNormalStruckOff
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-26 21:40:50 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_normal_struck_off.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_normal_struck_off.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateNormalStruckOff
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-26 21:44:07 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_normal_struck_off.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_normal_struck_off.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateNormalStruckOff
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-26 21:45:49 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_normal_struck_off.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_normal_struck_off.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateNormalStruckOff
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-26 21:47:06 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_normal_struck_off.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_normal_struck_off.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateNormalStruckOff
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-26 21:48:30 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_normal_struck_off.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_normal_struck_off.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateNormalStruckOff
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-26 21:59:33 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_normal_struck_off.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_normal_struck_off.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateNormalStruckOff
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-26 22:07:22 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_normal_struck_off.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_normal_struck_off.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateNormalStruckOff
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-26 22:07:51 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_normal_struck_off.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_normal_struck_off.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateNormalStruckOff
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-26 22:58:23 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_normal_struck_off.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_normal_struck_off.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateNormalStruckOff
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-26 23:00:47 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_normal_struck_off.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_normal_struck_off.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateNormalStruckOff
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-26 23:04:14 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_normal_struck_off.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_normal_struck_off.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateNormalStruckOff
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-26 23:06:04 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_normal_struck_off.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_normal_struck_off.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateNormalStruckOff
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-26 23:06:11 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_normal_struck_off.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_normal_struck_off.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateNormalStruckOff
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-26 23:07:26 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_normal_struck_off.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_normal_struck_off.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateNormalStruckOff
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-26 23:08:19 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_normal_struck_off.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_normal_struck_off.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateNormalStruckOff
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-26 23:10:06 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_normal_struck_off.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_normal_struck_off.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateNormalStruckOff
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-26 23:10:39 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_normal_struck_off.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_normal_struck_off.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateNormalStruckOff
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-26 23:11:02 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_normal_struck_off.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_normal_struck_off.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateNormalStruckOff
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-27 13:48:54 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_normal_struck_off.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_normal_struck_off.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateNormalStruckOff
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-27 13:54:06 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_normal_struck_off.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_normal_struck_off.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateNormalStruckOff
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-27 13:56:38 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_normal_struck_off.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_normal_struck_off.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateNormalStruckOff
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-27 13:57:58 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_normal_struck_off.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_normal_struck_off.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateNormalStruckOff
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-27 13:58:24 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_normal_struck_off.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_normal_struck_off.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateNormalStruckOff
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-27 13:58:48 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_normal_struck_off.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_normal_struck_off.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateNormalStruckOff
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-27 14:06:08 Error: [NotFoundException] The requested file C:\wamp\www\tb001\app\C:\wamp\www\tb001\app\webroot\files/zip/ResignAuditor2014-07-27 14-06-04.zip was not found or not readable
+Request URL: /tb001/forms/184/download
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\MediaView.php(91): CakeResponse->file('C:\\wamp\\www\\tb0...', Array)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): MediaView->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FormsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-27 14:06:39 Error: [NotFoundException] The requested file C:\wamp\www\tb001\app\C:\wamp\www\tb001\app\webroot\files/zip/ResignAuditor2014-07-27 14-06-34.zip was not found or not readable
+Request URL: /tb001/forms/185/download
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\MediaView.php(91): CakeResponse->file('C:\\wamp\\www\\tb0...', Array)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): MediaView->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FormsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-27 14:31:33 Error: [MissingActionException] Action DocumentsController::NormalStruckOff() could not be found.
+Exception Attributes: array (
+  'controller' => 'DocumentsController',
+  'action' => 'NormalStruckOff',
+)
+Request URL: /tb001/Documents/NormalStruckOff
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(DocumentsController), Object(CakeRequest), Object(CakeResponse))
+#2 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-07-27 14:36:16 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\Documents\normal_struck_off.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\Documents\\normal_struck_off.ctp',
+)
+Request URL: /tb001/Documents/NormalStruckOff
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(DocumentsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-27 15:23:46 Error: [MissingActionException] Action FunctionCorpsController::AllotDirectorFee() could not be found.
+Exception Attributes: array (
+  'controller' => 'FunctionCorpsController',
+  'action' => 'AllotDirectorFee',
+)
+Request URL: /tb001/FunctionCorps/AllotDirectorFee
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#2 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}

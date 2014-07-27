@@ -86,4 +86,18 @@ class ShareholdersController extends AppController{
               return $this->redirect(array("controller"=>"FunctionCorps","action"=>"changeOfCompanyName","?"=>array(
                         "company"=>$this->request->data['company_id'])));
 	}  
+        public function getShareholdersDirectors(){
+            $this->autoRender = false;
+            $id = $this->params['url']['id'];
+            $stakeholders = $this->StakeHolder->find("all",array(
+            "conditions"=>array(
+                "StakeHolder.company_id"=>$id,
+                "OR"=>array(
+                    "StakeHolder.Director"=>1,
+                    "StakeHolder.Shareholder"=>1
+                )
+            )
+            ));
+            return json_encode($stakeholders);
+        }
 }

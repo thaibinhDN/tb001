@@ -4492,4 +4492,451 @@ class FormsController extends AppController {
 		 
                 array_push($this->form_downloads,$data_pdf['pdf_url']);
     }
+    function generateEGM($data){
+         $form_id = 27;
+         $pdf_name = 'EGM_NormalStruckOff'.time(); 
+            $company = $this->Company->find('first',array('conditions'=>array('company_id = '=> $data['company'])));
+            //ChromePhp::log($company);
+            $shareAmount = $data['shareAmount'];
+            $ids = $data['stakeholder'];
+             $asIsShareHolders = $this->StakeHolder->find("all",array(
+                    "conditions"=>array(
+                        "StakeHolder.id"=>$ids
+                    )
+                ));
+            $total = "";
+            $name = "";
+            foreach($asIsShareHolders as $shareholder){
+                $name .=  $shareholder['StakeHolder']['name'].",";
+            }
+            foreach($shareAmount as $share){
+                $total += $share;
+            }
+            // generate PDF
+		$pdf = new FPDI(); // init
+		// create overlays
+		$pdf->SetFont('Helvetica','',9); // set font type
+		$pdf->SetTextColor(0, 0, 0); // set font color
+            // page 1
+            $pdf->addPage(); // add page
+            $pageCount = $pdf->setSourceFile(WWW_ROOT . $this->template_path . "EGM_normalStruck_template.pdf"); // load template
+            $tplIdx = $pdf->importPage(1); // import page 1esolution_template
+            $pdf->useTemplate($tplIdx, 10, 10, 200); // place the template 
+            // write company name
+            $pdf->SetFont('Helvetica','',13 );
+            $pdf->SetXY(92,26);
+            $pdf->Write(10, $company['Company']['name']);
+            $pdf->SetXY(123,32);
+            $pdf->Write(10, $company['Company']['register_number']);
+            $pdf->SetFont('Helvetica','',10);
+            $pdf->SetXY(92,41);
+            $pdf->Write(10, $company['Company']['address_1']." ".$company['Company']['address_2']);
+            $pdf->SetXY(122,86.4);
+            $pdf->Write(10,$company['Company']['name']);
+            //write AsIs Directors(The directors which are neither resigned or 
+            //just be promoted
+            $y = 165;
+                 for($i = 0;$i<count($asIsShareHolders);$i=$i+2){
+                    $pdf->SetFont('Helvetica','',10);
+                        $x = 30;
+                        $pdf->SetXY($x,$y);
+                         $pdf->Line($x,$y-1,$x+40,$y-1);
+                        $pdf->Write(10,$asIsShareHolders[$i]['StakeHolder']['name']);
+                        if($i+1<count($asIsShareHolders)){
+                            $k = 140;
+                            //ChromePhp::log($y);
+                            $pdf->SetXY($k,$y);
+                             $pdf->Line($k,$y-1,$k+40,$y-1);
+                            $pdf->Write(10,$asIsShareHolders[$i+1]['StakeHolder']['name']);
+                            
+                        }
+                   
+                    $y += 30;
+             }
+             // page 2
+            $pdf->addPage(); // add page
+            $pageCount = $pdf->setSourceFile(WWW_ROOT . $this->template_path . "EGM_normalStruck_template.pdf"); // load template
+            $tplIdx = $pdf->importPage(2); // import page 1esolution_template
+            $pdf->useTemplate($tplIdx, 10, 10, 200); // place the template 
+            // write company name
+            $pdf->SetFont('Helvetica','',13 );
+            $pdf->SetXY(92,25);
+            $pdf->Write(10, $company['Company']['name']);
+            $pdf->SetXY(125,32);
+            $pdf->Write(10, $company['Company']['register_number']);
+            $pdf->SetFont('Helvetica','',10);
+            $pdf->SetXY(100,42);
+            $pdf->Write(10, $company['Company']['address_1']." ".$company['Company']['address_2']);
+            $pdf->SetXY(68,60);
+            $pdf->Write(10,$data['maddress']);
+            //write AsIs Directors(The directors which are neither resigned or 
+            //just be promoted
+            $y = 135;
+                 for($i = 0;$i<count($asIsShareHolders);$i=$i+2){
+                    $pdf->SetFont('Helvetica','',10);
+                        $x = 30;
+                        $pdf->SetXY($x,$y);
+                         $pdf->Line($x,$y-1,$x+40,$y-1);
+                        $pdf->Write(10,$asIsShareHolders[$i]['StakeHolder']['name']);
+                        if($i+1<count($asIsShareHolders)){
+                            $k = 140;
+                            //ChromePhp::log($y);
+                            $pdf->SetXY($k,$y);
+                             $pdf->Line($k,$y-1,$k+40,$y-1);
+                            $pdf->Write(10,$asIsShareHolders[$i+1]['StakeHolder']['name']);
+                            
+                        }
+                   
+                    $y += 30;
+             }
+             // page 3
+            $pdf->addPage(); // add page
+            $pageCount = $pdf->setSourceFile(WWW_ROOT . $this->template_path . "EGM_normalStruck_template.pdf"); // load template
+            $tplIdx = $pdf->importPage(3); // import page 1esolution_template
+            $pdf->useTemplate($tplIdx, 10, 10, 200); // place the template 
+            // write company name
+            $pdf->SetFont('Helvetica','',13 );
+            $pdf->SetXY(90.4,29);
+            $pdf->Write(10, $company['Company']['name']);
+            $pdf->SetXY(124,37);
+            $pdf->Write(10, $company['Company']['register_number']);
+            $pdf->SetFont('Helvetica','',11);
+            $pdf->SetXY(93.4,44.8);
+            $pdf->Write(10, $company['Company']['address_1']." ".$company['Company']['address_2']);
+            $pdf->SetXY(86.5,90.4);
+            $pdf->Write(10,$data['maddress']);
+            //write AsIs Directors(The directors which are neither resigned or 
+            //just be promoted
+            $y = 195;
+                 for($i = 0;$i<count($asIsShareHolders);$i=$i+2){
+                    $pdf->SetFont('Helvetica','',10);
+                        $x = 30;
+                        $pdf->SetXY($x,$y);
+                         $pdf->Line($x,$y-1,$x+40,$y-1);
+                        $pdf->Write(10,$asIsShareHolders[$i]['StakeHolder']['name']);
+                        if($i+1<count($asIsShareHolders)){
+                            $k = 140;
+                            //ChromePhp::log($y);
+                            $pdf->SetXY($k,$y);
+                             $pdf->Line($k,$y-1,$k+40,$y-1);
+                            $pdf->Write(10,$asIsShareHolders[$i+1]['StakeHolder']['name']);
+                            
+                        }
+                   
+                    $y += 30;
+             }
+             // page 4
+            $pdf->addPage(); // add page
+            $pageCount = $pdf->setSourceFile(WWW_ROOT . $this->template_path . "EGM_normalStruck_template.pdf"); // load template
+            $tplIdx = $pdf->importPage(4); // import page 1esolution_template
+            $pdf->useTemplate($tplIdx, 10, 10, 200); // place the template 
+            // write company name
+            $pdf->SetFont('Helvetica','',13 );
+            $pdf->SetXY(96,29);
+            $pdf->Write(10, $company['Company']['name']);
+            $pdf->SetXY(124,33.5);
+            $pdf->Write(10, $company['Company']['register_number']);
+            $pdf->SetFont('Helvetica','',11);
+            $pdf->SetXY(93,42.2);
+            $pdf->Write(10, $company['Company']['address_1']." ".$company['Company']['address_2']);
+            $pdf->SetXY(60.5,57.9);
+            $pdf->Write(10,$company['Company']['name']);
+            $pdf->SetXY(74,63);
+            $pdf->Write(10,$data['maddress']);
+            
+            
+            $pdf->SetXY(43,83);
+            $pdf->Write(10,$name);
+            //write AsIs Directors(The directors which are neither resigned or 
+            //just be promoted
+            $y = 195;
+                 for($i = 0;$i<count($asIsShareHolders);$i=$i+2){
+                    $pdf->SetFont('Helvetica','',10);
+                        $x = 30;
+                        $pdf->SetXY($x,$y);
+                         $pdf->Line($x,$y-1,$x+40,$y-1);
+                        $pdf->Write(10,$asIsShareHolders[$i]['StakeHolder']['name']);
+                        if($i+1<count($asIsShareHolders)){
+                            $k = 140;
+                            //ChromePhp::log($y);
+                            $pdf->SetXY($k,$y);
+                             $pdf->Line($k,$y-1,$k+40,$y-1);
+                            $pdf->Write(10,$asIsShareHolders[$i+1]['StakeHolder']['name']);
+                            
+                        }
+                   
+                    $y += 30;
+             }
+            $pdf->Output(WWW_ROOT . $this->pdf_path . $pdf_name .'.pdf', 'F');
+
+		// save to database
+
+		$data_pdf = array(
+			'form_id' => $form_id,
+			'company_id' => $company['Company']['company_id'],
+			'pdf_url' => $this->pdf_path . $pdf_name .'.pdf',
+			'created_at' => date('Y-m-d H:i:s')
+		);
+		 
+                array_push($this->form_downloads,$data_pdf['pdf_url']);
+    }
+    public function generateLetterAcra($data){
+        $form_id = 28;
+         $pdf_name = 'LetterAcra'.time(); 
+            $company = $this->Company->find('first',array('conditions'=>array('company_id = '=> $data['company'])));
+            $shareAmount = $data['shareAmount'];
+            $ids = $data['stakeholder'];
+             $asIsShareHolders = $this->StakeHolder->find("all",array(
+                    "conditions"=>array(
+                        "StakeHolder.id"=>$ids
+                    )
+                ));
+            $total = "";
+            for($i = 0;$i < count($asIsShareHolders);$i++){
+                $asIsShareHolders[$i]['amountShare'] = $shareAmount[$i]; 
+            }
+            foreach($shareAmount as $share){
+                $total += $share;
+            }
+            // generate PDF
+		$pdf = new FPDI(); // init
+		// create overlays
+		$pdf->SetFont('Helvetica','',9); // set font type
+		$pdf->SetTextColor(0, 0, 0); // set font color
+            // page 1
+            $pdf->addPage(); // add page
+            $pageCount = $pdf->setSourceFile(WWW_ROOT . $this->template_path . "lettertoAcra_template.pdf"); // load template
+            $tplIdx = $pdf->importPage(1); // import page 1esolution_template
+            $pdf->useTemplate($tplIdx, null, null, 0,0,true); // place the template 
+            // write company name
+            $pdf->SetFont('Helvetica','',13 );
+            $pdf->SetXY(21,40);
+            $pdf->Write(10, $data['addressLine1']);
+            $pdf->SetXY(21,45);
+            $pdf->Write(10, $data['addressLine2']);
+            $pdf->SetXY(21,50);
+            $pdf->Write(10, $data['addressLine3']);
+            $pdf->SetFont('Helvetica','',12);
+            $pdf->SetXY(35,74);
+            $pdf->Write(10,$company['Company']['name']);
+            $pdf->SetXY(75,79);
+            $pdf->Write(10, $company['Company']['register_number']);
+            $pdf->SetFont('Helvetica','',10);
+            $y = 107;
+             for($i = 0;$i < count($asIsShareHolders);$i++){
+                 $pdf->SetXY(41,$y);
+                 $pdf->Write(10, $asIsShareHolders[$i]['StakeHolder']['name']);
+                 $pdf->SetXY(133,$y);
+                 $pdf->Write(10, $asIsShareHolders[$i]['amountShare']);  
+                 $y += 7;
+             }
+               $pdf->Line(133,$y+1.5,$pdf->getX()+20,$y+1.5);
+               $pdf->SetXY(133,$y + 5);
+               $pdf->Write(10, $total);
+              
+            //write AsIs Directors(The directors which are neither resigned or 
+            //just be promoted
+            $y =240;
+            if(count($asIsShareHolders)<=2){
+                 for($i = 0;$i<count($asIsShareHolders);$i=$i+2){
+                    $pdf->SetFont('Helvetica','',10);
+                        $x = 30;
+                        $pdf->SetXY($x,$y);
+                         $pdf->Line($x,$y-1,$x+40,$y-1);
+                        $pdf->Write(10,$asIsShareHolders[$i]['StakeHolder']['name']);
+                        $pdf->SetXY($x,$y+4);
+                        $pdf->Write(10,"NRIC No:".$asIsShareHolders[$i]['StakeHolder']['nric']);
+                        $pdf->SetXY($x,$y+8);
+                        $pdf->Write(10,"Director and Shareholder");
+                        if($i+1<count($asIsShareHolders)){
+                            $k = 140;
+                            //ChromePhp::log($y);
+                            $pdf->SetXY($k,$y);
+                             $pdf->Line($k,$y-1,$k+40,$y-1);
+                            $pdf->Write(10,$asIsShareHolders[$i+1]['StakeHolder']['name']);  
+                            $pdf->SetXY($k,$y+4);
+                            $pdf->Write(10,"NRIC No:".$asIsShareHolders[$i]['StakeHolder']['nric']);
+                            $pdf->SetXY($k,$y+8);
+                            $pdf->Write(10,"Director and Shareholder");
+                        }
+                        
+                   
+                    $y += 30;
+                }
+            }else{
+                for($i = 0;$i<2;$i=$i+2){
+                    $pdf->SetFont('Helvetica','',10);
+                        $x = 30;
+                        $pdf->SetXY($x,$y);
+                         $pdf->Line($x,$y-1,$x+40,$y-1);
+                        $pdf->Write(10,$asIsShareHolders[$i]['StakeHolder']['name']);
+                        $pdf->SetXY($x,$y+4);
+                        $pdf->Write(10,"NRIC No:".$asIsShareHolders[$i]['StakeHolder']['nric']);
+                        $pdf->SetXY($x,$y+8);
+                        $pdf->Write(10,"Director and Shareholder");
+                        if($i+1<count($asIsShareHolders)){
+                            $k = 140;
+                            //ChromePhp::log($y);
+                            $pdf->SetXY($k,$y);
+                             $pdf->Line($k,$y-1,$k+40,$y-1);
+                            $pdf->Write(10,$asIsShareHolders[$i+1]['StakeHolder']['name']);
+                            $pdf->SetXY($k,$y+4);
+                            $pdf->Write(10,"NRIC No:".$asIsShareHolders[$i]['StakeHolder']['nric']);
+                            $pdf->SetXY($k,$y+8);
+                            $pdf->Write(10,"Director and Shareholder");
+                        }
+                    $y += 30;
+                }
+                // page 2
+            $pdf->addPage(); // add page
+            $pageCount = $pdf->setSourceFile(WWW_ROOT . $this->template_path . "lettertoAcra_template.pdf"); // load template
+            $tplIdx = $pdf->importPage(2); // import page 1esolution_template
+            $pdf->useTemplate($tplIdx, null, null, 0,0,true); // place the template 
+            $y = 50;
+            for($i = 2;$i<count($asIsShareHolders);$i=$i+2){
+                    $pdf->SetFont('Helvetica','',10);
+                        $x = 30;
+                        $pdf->SetXY($x,$y);
+                         $pdf->Line($x,$y-1,$x+40,$y-1);
+                        $pdf->Write(10,$asIsShareHolders[$i]['StakeHolder']['name']);
+                        $pdf->SetXY($x,$y+4);
+                        $pdf->Write(10,"NRIC No:".$asIsShareHolders[$i]['StakeHolder']['nric']);
+                        $pdf->SetXY($x,$y+8);
+                        $pdf->Write(10,"Director and Shareholder");
+                        if($i+1<count($asIsShareHolders)){
+                            $k = 140;
+                            //ChromePhp::log($y);
+                            $pdf->SetXY($k,$y);
+                             $pdf->Line($k,$y-1,$k+40,$y-1);
+                            $pdf->Write(10,$asIsShareHolders[$i+1]['StakeHolder']['name']);  
+                            $pdf->SetXY($k,$y+4);
+                            $pdf->Write(10,"NRIC No:".$asIsShareHolders[$i]['StakeHolder']['nric']);
+                            $pdf->SetXY($k,$y+8);
+                            $pdf->Write(10,"Director and Shareholder");
+                        }
+                $y += 30;
+            }
+        }
+        $pdf->Output(WWW_ROOT . $this->pdf_path . $pdf_name .'.pdf', 'F');
+        $data_pdf = array(
+			'form_id' => $form_id,
+			'company_id' =>$company['Company']['company_id'],
+			'pdf_url' => $this->pdf_path . $pdf_name .'.pdf',
+			'created_at' => date('Y-m-d H:i:s')
+		);
+		 
+        array_push($this->form_downloads,$data_pdf['pdf_url']);
+    }
+    public function generateStatutoryDeclaration($data){
+        $form_id = 29;
+        $ids = $data['stakeholder'];
+        $company = $this->Company->find('first',array('conditions'=>array('company_id = '=> $data['company'])));
+        $asIsShareHolders = $this->StakeHolder->find("all",array(
+            "conditions"=>array(
+                "StakeHolder.id"=>$ids
+            )
+        ));
+        for($i = 0;$i < count($asIsShareHolders);$i++){
+            $pdf_name = 'StatutoryDeclaration'.$i.time(); 
+            // generate PDF
+		$pdf = new FPDI(); // init
+		// create overlays
+		$pdf->SetFont('Helvetica','',9); // set font type
+		$pdf->SetTextColor(0, 0, 0); // set font color
+            // page 1
+            $pdf->addPage(); // add page
+            $pageCount = $pdf->setSourceFile(WWW_ROOT . $this->template_path . "statutory_declaration_template.pdf"); // load template
+            $tplIdx = $pdf->importPage(1); // import page 1esolution_template
+            $pdf->useTemplate($tplIdx, null, null, 0,0,true); // place the template 
+            // write company name
+            $pdf->SetXY(20,39);
+            $pdf->Write(10,"I,".$asIsShareHolders[$i]['StakeHolder']['name'].",NRIC NO.:".$asIsShareHolders[$i]['StakeHolder']['nric'].",of ".$asIsShareHolders[$i]['StakeHolder']['address_1'].",".$asIsShareHolders[$i]['StakeHolder']['address_2']);
+            $pdf->SetXY(47,43.8);
+            $pdf->Write(10, $company['Company']['name']);
+            $pdf->SetXY(76,56.4);
+            $pdf->Write(10,$company['Company']['name']);
+            $pdf->SetXY(66,61.2);
+            $pdf->Write(10,$company['Company']['register_number']);
+            $pdf->Output(WWW_ROOT . $this->pdf_path . $pdf_name .'.pdf', 'F');
+            $data_pdf = array(
+			'form_id' => $form_id,
+			'company_id' => $company['Company']['company_id'],
+			'pdf_url' => $this->pdf_path . $pdf_name .'.pdf',
+			'created_at' => date('Y-m-d H:i:s')
+		);
+		 
+        array_push($this->form_downloads,$data_pdf['pdf_url']);
+        }  
+       
+    }
+    public function generateForm94($data){
+        $form_id = 30;
+        $ids = $data['stakeholder'];
+        $company = $this->Company->find('first',array('conditions'=>array('company_id = '=> $data['company'])));
+        $asIsShareHolders = $this->StakeHolder->find("all",array(
+            "conditions"=>array(
+                "StakeHolder.id"=>$ids
+            )
+        ));
+        $LOLName = $company['Company']['LOName'];
+        $LOAddressLine1 = $company['Company']['LOAddressline1'];
+        $LOAddressLine2 = $company['Company']['LOAddressline2'];
+        $LOTelNo = $company['Company']['LOTelNo'];
+         $LOTelFax = $company['Company']['LOTelFax'];
+         $LOAcNo = $company['Company']['LOAcNo'];
+        for($i = 0;$i < count($asIsShareHolders);$i++){
+            $pdf_name = 'Form94'.$i.time(); 
+            // generate PDF
+		$pdf = new FPDI(); // init
+		// create overlays
+		$pdf->SetFont('Helvetica','',9); // set font type
+		$pdf->SetTextColor(0, 0, 0); // set font color
+            // page 1
+            $pdf->addPage(); // add page
+            $pageCount = $pdf->setSourceFile(WWW_ROOT . $this->template_path . "form94_template.pdf"); // load template
+            $tplIdx = $pdf->importPage(1); // import page 1esolution_template
+            $pdf->useTemplate($tplIdx, null, null, 0,0,true); // place the template 
+            // write company name
+            $pdf->SetXY(54,55.5);
+            $pdf->Write(10,$company['Company']['name']);
+            $pdf->SetXY(45,64.5);
+            $pdf->Write(10, $company['Company']['register_number']);
+            $pdf->SetXY(79,73);
+            $pdf->Write(10,$asIsShareHolders[$i]['StakeHolder']['name']);
+            $pdf->SetXY(56,80.5);
+            $pdf->Write(10,$asIsShareHolders[$i]['StakeHolder']['nric']);
+            $pdf->SetXY(35,90);
+            $pdf->Write(10,$asIsShareHolders[$i]['StakeHolder']['address_1']." ".$asIsShareHolders[$i]['StakeHolder']['address_2']);
+            $pdf->SetXY(43,100);
+            $pdf->Write(10,"DIRECTOR AND SHAREHOLDER");
+            $pdf->SetXY(117,205.8);
+            $pdf->Write(10,$data['witness'][$i]);
+            
+       
+		$pdf->SetXY(33, 243.5);
+		$pdf->Write(10, $LOLName);
+
+		$pdf->SetXY(34, 248.8);
+		$pdf->Write(10, $LOAddressLine1);
+		$pdf->SetXY(22, 252.8);
+		$pdf->Write(10, $LOAddressLine2);
+		$pdf->SetXY(85, 259.6);
+		$pdf->Write(10, $LOTelFax );
+		$pdf->SetXY(34, 259.6);
+		$pdf->Write(10, $LOAcNo);
+
+		// write company telp
+		$pdf->SetXY(85, 253.4);
+		$pdf->Write(10, $LOTelNo);
+            $pdf->Output(WWW_ROOT . $this->pdf_path . $pdf_name .'.pdf', 'F');
+            $data_pdf = array(
+			'form_id' => $form_id,
+			'company_id' => $company['Company']['company_id'],
+			'pdf_url' => $this->pdf_path . $pdf_name .'.pdf',
+			'created_at' => date('Y-m-d H:i:s')
+		);
+		 
+        array_push($this->form_downloads,$data_pdf['pdf_url']);
+        }  
+    }
 }
