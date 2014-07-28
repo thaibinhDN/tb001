@@ -8,7 +8,7 @@
 include 'ChromePhp.php';
 class DocumentsController extends AppController{
     public $components = array('Session', 'Paginator');
-	public $uses = array('NormalStruckOff','ResignAuditor','PropertyDisposal','SalesAssetBusiness','ChangeOfRegisteredAddress','ChangeOfPassport','ChangeOfMAA','OptionToPurchase','LoanResolution','ClosureBankAcc','ChangeFinancialYear','IncorporationDocument','ChangeCompanyName','ChangeBankSignatorUob','AppointSecretaryAuditor','AppointResignSecretary','Secretary','Event','User','Company', 'Director','FunctionCorp','Document','AppointResignDirector','StakeHolder');
+	public $uses = array('FirstFinalDividend','AllotDirectorFee','NormalStruckOff','ResignAuditor','PropertyDisposal','SalesAssetBusiness','ChangeOfRegisteredAddress','ChangeOfPassport','ChangeOfMAA','OptionToPurchase','LoanResolution','ClosureBankAcc','ChangeFinancialYear','IncorporationDocument','ChangeCompanyName','ChangeBankSignatorUob','AppointSecretaryAuditor','AppointResignSecretary','Secretary','Event','User','Company', 'Director','FunctionCorp','Document','AppointResignDirector','StakeHolder');
     public function beforeFilter() {
 		parent::beforeFilter();
 
@@ -167,6 +167,20 @@ class DocumentsController extends AppController{
                 )
             ));
              $function = "NormalStruckOff";
+        }else if ($function_id == 17){
+             $document = $this->AllotDirectorFee->find("first",array(
+                "conditions"=>array(
+                    "AllotDirectorFee.document_id"=>$document_id
+                )
+            ));
+             $function = "AllotDirectorFee";
+        }else if ($function_id == 18){
+             $document = $this->FirstFinalDividend->find("first",array(
+                "conditions"=>array(
+                    "FirstFinalDividend.document_id"=>$document_id
+                )
+            ));
+             $function = "FirstFinalDividend";
         }
       
       
@@ -392,6 +406,26 @@ class DocumentsController extends AppController{
             $this->Document->saveField($type ,null);
              $function = "NormalStruckOff";
              $action = "NormalStruckOff";
+        }else if ($function_id == 17){
+            $document = $this->AllotDirectorFee->find("first",array(
+                "conditions"=>array(
+                    "AllotDirectorFee.document_id"=>$document_id
+                )
+        ));
+            $this->Document->id = $document_id;
+            $this->Document->saveField($type ,null);
+             $function = "AllotDirectorFee";
+             $action = "AllotDirectorFee";
+        }else if ($function_id == 18){
+            $document = $this->FirstFinalDividend->find("first",array(
+                "conditions"=>array(
+                    "FirstFinalDividend.document_id"=>$document_id
+                )
+        ));
+            $this->Document->id = $document_id;
+            $this->Document->saveField($type ,null);
+             $function = "FirstFinalDividend";
+             $action = "FirstFinalDividend";
         }
 
          $user = $this->User->find("first",array(
@@ -592,6 +626,26 @@ class DocumentsController extends AppController{
              $this->Document->saveField("status","deleted");
              $function = "NormalStruckOff";
              $action = "NormalStruckOff";
+        }else if ($function_id == 17){
+            $document = $this->AllotDirectorFee->find("first",array(
+              "conditions"=>array(
+                  "AllotDirectorFee.document_id"=>$document_id
+              )
+          ));
+            $this->Document->id=$document_id;
+             $this->Document->saveField("status","deleted");
+             $function = "AllotDirectorFee";
+             $action = "AllotDirectorFee";
+        }else if ($function_id == 18){
+            $document = $this->FirstFinalDividend->find("first",array(
+              "conditions"=>array(
+                  "FirstFinalDividend.document_id"=>$document_id
+              )
+          ));
+            $this->Document->id=$document_id;
+             $this->Document->saveField("status","deleted");
+             $function = "FirstFinalDividend";
+             $action = "FirstFinalDividend";
         }
        
         $user = $this->User->find("first",array(
@@ -832,6 +886,30 @@ class DocumentsController extends AppController{
             ));
             $description = "Upload before-submission documents[Function: NormalStruckOff]";
             $action = "NormalStruckOff";
+        }else if ($function_id == 17){
+            $this->Document->id = $data['document_id'];
+            $this->Document->saveField('acra_before',$acra);
+            $this->Document->saveField('before',$filePath);
+            $this->Document->saveField('before_time',date('Y-m-d H:i:s'));
+            $ccn = $this->AllotDirectorFee->find("first",array(
+                    "conditions"=>array(
+                        "AllotDirectorFee.document_id" => $data['document_id']
+                    )
+            ));
+            $description = "Upload before-submission documents[Function: AllotDirectorFee]";
+            $action = "AllotDirectorFee";
+        }else if ($function_id == 18){
+            $this->Document->id = $data['document_id'];
+            $this->Document->saveField('acra_before',$acra);
+            $this->Document->saveField('before',$filePath);
+            $this->Document->saveField('before_time',date('Y-m-d H:i:s'));
+            $ccn = $this->FirstFinalDividend->find("first",array(
+                    "conditions"=>array(
+                        "FirstFinalDividend.document_id" => $data['document_id']
+                    )
+            ));
+            $description = "Upload before-submission documents[Function: FirstFinalDividend]";
+            $action = "FirstFinalDividend";
         }
          
          $user = $this->User->find("first",array(
@@ -1069,6 +1147,30 @@ class DocumentsController extends AppController{
             ));
             $description = "Upload after-submission documents[Function: NormalStruckOff]";
             $action = "NormalStruckOff";
+        }else if ($function_id == 17){
+            $this->Document->id = $data['document_id'];
+            $this->Document->saveField('acra_after',$acra);
+            $this->Document->saveField('after',$filePath);
+            $this->Document->saveField('after_time',date('Y-m-d H:i:s'));
+            $ccn = $this->AllotDirectorFee->find("first",array(
+                    "conditions"=>array(
+                        "AllotDirectorFee.document_id" => $data['document_id']
+                    )
+            ));
+            $description = "Upload after-submission documents[Function: AllotDirectorFee]";
+            $action = "AllotDirectorFee";
+        }else if ($function_id == 18){
+            $this->Document->id = $data['document_id'];
+            $this->Document->saveField('acra_after',$acra);
+            $this->Document->saveField('after',$filePath);
+            $this->Document->saveField('after_time',date('Y-m-d H:i:s'));
+            $ccn = $this->FirstFinalDividend->find("first",array(
+                    "conditions"=>array(
+                        "FirstFinalDividend.document_id" => $data['document_id']
+                    )
+            ));
+            $description = "Upload after-submission documents[Function: FirstFinalDividend]";
+            $action = "FirstFinalDividend";
         }
           $user = $this->User->find("first",array(
                 "conditions"=>array(
@@ -2170,5 +2272,94 @@ class DocumentsController extends AppController{
 	$this->set("functionCorp",$data['functionCorp']); 
         
     }
-        
+    public function AllotDirectorFee() {
+        $data = $this->request->data;
+            if(isset($data['company'])){  
+                 $this->Session->write("sessionData",$data);
+            }else{
+                $session_data = $this->Session->read("sessionData");
+                $data = $session_data; 
+            }
+            $docs = $this->Document->find("all",array(
+                         'conditions'=>array(
+                                'Document.company_id'=>$data['company'],
+                                'Document.function_id'=>$data['functionCorp'],
+                                "Document.status"=>"Available",
+                         )
+                ));
+               
+                $ids = array();
+                foreach($docs as $doc){
+                    array_push($ids,$doc['Document']['id']);  
+                }
+
+            $this->Paginator->settings= array(
+                        'conditions'=>array(
+                                "Document.id"=>$ids,
+                          
+                        ),
+                        'limit'=>6, 
+                       'order' => array(
+                            'Document.created_at' => 'DESC'
+                            ),
+            );           
+		 $this->set("company",$data['company'] );
+		 $this->set("functionCorp",$data['functionCorp']);
+
+        $documents = $this->Paginator->paginate('Document');
+        $view_data = $this->AllotDirectorFee->find("all",array(
+            "conditions"=>array(
+                "AllotDirectorFee.document_id"=>$ids
+            )
+        ));
+        $this->set("documents",$documents);
+        $this->set("view_data",$view_data); 
+	$this->set("company",$data['company']); 
+	$this->set("functionCorp",$data['functionCorp']); 
+    }
+     public function firstFinalDividend() {
+         $data = $this->request->data;
+            if(isset($data['company'])){  
+                 $this->Session->write("sessionData",$data);
+            }else{
+                $session_data = $this->Session->read("sessionData");
+                $data = $session_data; 
+            }
+            $docs = $this->Document->find("all",array(
+                         'conditions'=>array(
+                                'Document.company_id'=>$data['company'],
+                                'Document.function_id'=>$data['functionCorp'],
+                                "Document.status"=>"Available",
+                         )
+                ));
+               
+                $ids = array();
+                foreach($docs as $doc){
+                    array_push($ids,$doc['Document']['id']);  
+                }
+
+            $this->Paginator->settings= array(
+                        'conditions'=>array(
+                                "Document.id"=>$ids,
+                          
+                        ),
+                        'limit'=>6, 
+                       'order' => array(
+                            'Document.created_at' => 'DESC'
+                            ),
+            );           
+		 $this->set("company",$data['company'] );
+		 $this->set("functionCorp",$data['functionCorp']);
+
+        $documents = $this->Paginator->paginate('Document');
+        $view_data = $this->FirstFinalDividend->find("all",array(
+            "conditions"=>array(
+                "FirstFinalDividend.document_id"=>$ids
+            )
+        ));
+        $this->set("documents",$documents);
+        $this->set("view_data",$view_data); 
+	$this->set("company",$data['company']); 
+	$this->set("functionCorp",$data['functionCorp']); 
+    }   
 }

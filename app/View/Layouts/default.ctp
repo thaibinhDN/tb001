@@ -120,6 +120,10 @@
             echo $this->Html->script('changePassport.js');
         }else if ($controller=="FunctionCorps" && $action=="NormalStruckOff") {
             echo $this->Html->script('normalStruckOff.js');
+        }else if ($controller=="FunctionCorps" && $action=="AllotDirectorFee") {
+            echo $this->Html->script('allotedToDirector.js');
+        }else if ($controller=="FunctionCorps" && $action=="firstFinalDividend") {
+            echo $this->Html->script('firstFinalDividend.js');
         }
         else{
             echo $this->Html->script('application.js');

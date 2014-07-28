@@ -9,7 +9,7 @@ App::import('Controller', 'Forms');
 
 class FunctionCorpsController extends AppController{
     public $uses = array('OptionToPurchase','LoanResolution','ClosureBankAcc','ChangeFinancialYear','ChangeCompanyName','ChangeBankSignatorUob','AppointSecretaryAuditor','AppointResignSecretary','AppointResignDirector','StakeHolder','Secretary',
-                        'NormalStruckOff','ResignAuditor','Auditor','PropertyDisposal','SalesAssetBusiness','ChangeOfRegisteredAddress','FunctionCorps','User','Event','Document','Form', 'Company', 'Director','Pdf','ChangeOfMAA','ZipFile','ChangeOfPassport');
+                        'FirstFinalDividend','AllotDirectorFee','NormalStruckOff','ResignAuditor','Auditor','PropertyDisposal','SalesAssetBusiness','ChangeOfRegisteredAddress','FunctionCorps','User','Event','Document','Form', 'Company', 'Director','Pdf','ChangeOfMAA','ZipFile','ChangeOfPassport');
     function generateFunction(){
         $functions = $this->Function->find('all');
     }
@@ -2085,7 +2085,129 @@ class FunctionCorpsController extends AppController{
     }
     public function AllotDirectorFee() {
         $data = $this->request->data;
+        $stakeholders = $this->StakeHolder->find("all",array(
+            "conditions"=>array(
+                "StakeHolder.company_id"=>$data['company'],
+                "StakeHolder.Director"=>1,
+            )
+        ));
+        $this->set("stakeholders",$stakeholders);
+        $this->set("company",$data['company']);
         
-    };
+    }
+    public function generateAllotDirectorFee(){
+        $data = $this->request->data;
+        //ChromePhp::log($data);
+        $form = new FormsController();
+       $form->generateEOGMAllotDirector($data);
+        $this->Document->create();
+        $hash_value = sha1($data['company']."generateAllotDirectorFee".date('Y-m-d H:i:s'));
+        $document = array(
+            'company_id'=>$data['company'],
+            'function_id'=>17,
+            'created_at'=>date('Y-m-d H:i:s'),
+            'unique_key'=>$hash_value,
+            'status'=>"Available"
+        );
+        $this->Document->save($document);
+        $data_AllotDirectorFee= array(
+                "document_id"=> $this->Document->id,
+                //"price"=>$data['price']
+                //"event_id"=>null,
+                //Add later
+         );
+        
+        $this->AllotDirectorFee->create();
 
+        $this->AllotDirectorFee->save($data_AllotDirectorFee);
+        
+        $files_to_zip = $form->form_downloads;
+         $time = date('Y-m-d H-i-s');
+        $this->create_zip($files_to_zip,APP . WEBROOT_DIR . DS .'files' . DS . 'zip' . DS . 'AllotDirectorFee'.$time.'.zip');
+        foreach($files_to_zip as $file){ //Delete files after zipping
+            unlink($file);
+        };
+        //Create zip file
+        $this->ZipFile->create();
+        $zip_file = array(
+            "function_id"=>17,
+            "company_id"=>$data['company'],
+            "path"=>'AllotDirectorFee'.$time.'.zip',
+            "created_at"=>date('Y-m-d H:i:s'),
+        );
+        $this->ZipFile->save($zip_file);
+        $this->Session->setFlash(
+		    'Forms are generated!',
+		    'default',
+		    array('class' => 'alert alert-success')
+		);
+        return $this->redirect(array(
+            "controller"=>'forms',
+            "action"=>'index',
+        ));
+    }
+    public function firstFinalDividend() {
+         $data = $this->request->data;
+        $stakeholders = $this->StakeHolder->find("all",array(
+            "conditions"=>array(
+                "StakeHolder.company_id"=>$data['company'],
+                    "StakeHolder.Shareholder"=>1
+                )
+            )
+        );
+        $this->set("stakeholders",$stakeholders);
+        $this->set("company",$data['company']);
+    }
+    public function generateFirstFinalDividend(){
+        $data = $this->request->data;
+        //ChromePhp::log($data);
+        $form = new FormsController();
+       $form->generateEOGMFirstFinalDividend($data);
+        $this->Document->create();
+        $hash_value = sha1($data['company']."generateFirstFinalDividend".date('Y-m-d H:i:s'));
+        $document = array(
+            'company_id'=>$data['company'],
+            'function_id'=>18,
+            'created_at'=>date('Y-m-d H:i:s'),
+            'unique_key'=>$hash_value,
+            'status'=>"Available"
+        );
+        $this->Document->save($document);
+        $data_FirstFinalDividend= array(
+                "document_id"=> $this->Document->id,
+                "type"=>$data['devidendType']
+                //"price"=>$data['price']
+                //"event_id"=>null,
+                //Add later
+         );
+        
+        $this->FirstFinalDividend->create();
+
+        $this->FirstFinalDividend->save($data_FirstFinalDividend);
+        
+        $files_to_zip = $form->form_downloads;
+         $time = date('Y-m-d H-i-s');
+        $this->create_zip($files_to_zip,APP . WEBROOT_DIR . DS .'files' . DS . 'zip' . DS . 'FirstFinalDividend'.$time.'.zip');
+        foreach($files_to_zip as $file){ //Delete files after zipping
+            unlink($file);
+        };
+        //Create zip file
+        $this->ZipFile->create();
+        $zip_file = array(
+            "function_id"=>18,
+            "company_id"=>$data['company'],
+            "path"=>'FirstFinalDividend'.$time.'.zip',
+            "created_at"=>date('Y-m-d H:i:s'),
+        );
+        $this->ZipFile->save($zip_file);
+        $this->Session->setFlash(
+		    'Forms are generated!',
+		    'default',
+		    array('class' => 'alert alert-success')
+		);
+        return $this->redirect(array(
+            "controller"=>'forms',
+            "action"=>'index',
+        ));
+    }
 }

@@ -4939,4 +4939,484 @@ class FormsController extends AppController {
         array_push($this->form_downloads,$data_pdf['pdf_url']);
         }  
     }
+    public function generateEOGMAllotDirector($data){
+        $form_id = 8;
+        $ids = $data['stakeholder'];
+        $company = $this->Company->find('first',array('conditions'=>array('company_id = '=> $data['company'])));
+        $directors = $this->StakeHolder->find("all",array(
+            "conditions"=>array(
+                "StakeHolder.id"=>$ids
+            )
+        ));
+        $asIsShareHolders = $this->StakeHolder->find("all",array(
+            "conditions"=>array(
+                "StakeHolder.company_id"=>$company['Company']['company_id'],
+                "StakeHolder.Shareholder"=>1
+            )
+        ));
+        $name = "";
+        foreach($asIsShareHolders as $asIsShareHolder){
+            $name .= $asIsShareHolder['StakeHolder']['name'].",";
+        };
+        $pdf_name = 'EOGMAllotDirector'.time(); 
+        // generate PDF
+            $pdf = new FPDI(); // init
+            // create overlays
+            $pdf->SetFont('Helvetica','',12); // set font type
+            $pdf->SetTextColor(0, 0, 0); // set font color
+        // page 1
+        $pdf->addPage(); // add page
+        $pageCount = $pdf->setSourceFile(WWW_ROOT . $this->template_path . "EOGMAllotedDirector_template.pdf"); // load template
+        $tplIdx = $pdf->importPage(1); // import page 1esolution_template
+        $pdf->useTemplate($tplIdx, null, null, 0,0,true); // place the template 
+        // write company name
+        $pdf->SetXY(83,19);
+        $pdf->Write(10,$company['Company']['name']);
+        $pdf->SetFont('Helvetica','',9);
+        $pdf->SetXY(114,24);
+        $pdf->Write(10, $company['Company']['register_number']);
+        $pdf->SetXY(87,33);
+        $pdf->Write(10,$company['Company']['address_1']." ".$company['Company']['address_2']);
+        $y = 140;
+            for($i = 0;$i<count($asIsShareHolders);$i=$i+2){
+                    $pdf->SetFont('Helvetica','',10);
+                        $x = 27;
+                        $pdf->SetXY($x,$y);
+                         $pdf->Line($x,$y-1,$x+40,$y-1);
+                        $pdf->Write(10,$asIsShareHolders[$i]['StakeHolder']['name']);
+                        if($i+1<count($asIsShareHolders)){
+                            $k = 140;
+                            //ChromePhp::log($y);
+                            $pdf->SetXY($k,$y);
+                             $pdf->Line($k,$y-1,$k+40,$y-1);
+                            $pdf->Write(10,$asIsShareHolders[$i+1]['StakeHolder']['name']);  
+                        }
+                $y += 30;
+            }
+        // page 2
+        $pdf->addPage(); // add page
+        $pageCount = $pdf->setSourceFile(WWW_ROOT . $this->template_path . "EOGMAllotedDirector_template.pdf"); // load template
+        $tplIdx = $pdf->importPage(2); // import page 1esolution_template
+        $pdf->useTemplate($tplIdx, null, null, 0,0,true); // place the template 
+        // write company name
+        $pdf->SetXY(83,19);
+        $pdf->Write(10,$company['Company']['name']);
+        $pdf->SetFont('Helvetica','',9);
+        $pdf->SetXY(114,24);
+        $pdf->Write(10, $company['Company']['register_number']);
+        $pdf->SetXY(92,33);
+        $pdf->Write(10,$company['Company']['address_1']." ".$company['Company']['address_2']);
+        $pdf->SetFont('Helvetica','',11);
+        $pdf->SetXY(31,58);
+        $pdf->Write(10,$data['maddress']);
+        $pdf->SetXY(24,101);
+        $pdf->Write(10,$data['chairman']." was appointed Chairman of the meeting");
+        $pdf->SetXY(120.6,144);
+        $pdf->Write(10,$data['totalFees']);
+        $y = 163;
+        $x = 58;
+        for($i = 0;$i < count($directors);$i++){
+            $pdf->SetXY($x,$y);
+            $pdf->Write(10,$directors[$i]['StakeHolder']['name']);
+            $pdf->SetXY($x+70,$y);
+            $pdf->Write(10,$data['feeAmount'][$i]);
+            $y += 4;
+        }
+        $pdf->Line($x+70,$y+4,$pdf->GetX()+7,$y+4);
+        $pdf->Line($x+70,$y+5,$pdf->GetX()+7,$y+5);
+        $pdf->SetXY($x+70,$y+6);
+        $pdf->Write(10,$data['totalFees']);
+        $pdf->SetXY(94,247);
+        $pdf->Write(10,$data['chairman']);
+        // page 3
+        $pdf->addPage(); // add page
+        $pageCount = $pdf->setSourceFile(WWW_ROOT . $this->template_path . "EOGMAllotedDirector_template.pdf"); // load template
+        $tplIdx = $pdf->importPage(3); // import page 1esolution_template
+        $pdf->useTemplate($tplIdx, null, null, 0,0,true); // place the template 
+        // write company name
+        $pdf->SetXY(83,19);
+        $pdf->Write(10,$company['Company']['name']);
+        $pdf->SetFont('Helvetica','',9);
+        $pdf->SetXY(114,24);
+        $pdf->Write(10, $company['Company']['register_number']);
+        $pdf->SetXY(92,33);
+        $pdf->Write(10,$company['Company']['address_1']." ".$company['Company']['address_2']);
+        $pdf->SetFont('Helvetica','',11);
+        $y = 110;
+        for($i = 0;$i<count($asIsShareHolders);$i=$i+1){
+            $pdf->SetXY(82,$y);
+            $pdf->Write(10,$asIsShareHolders[$i]['StakeHolder']['name']);
+            $y += 30;
+        }
+        // page 4
+         $pdf->addPage(); // add page
+        $pageCount = $pdf->setSourceFile(WWW_ROOT . $this->template_path . "EOGMAllotedDirector_template.pdf"); // load template
+        $tplIdx = $pdf->importPage(4); // import page 1esolution_template
+        $pdf->useTemplate($tplIdx, null, null, 0,0,true); // place the template 
+        // write company name
+        $pdf->SetFont('Helvetica','',11);
+        $pdf->SetXY(83,19);
+        $pdf->Write(10,$company['Company']['name']);
+        $pdf->SetFont('Helvetica','',9);
+        $pdf->SetXY(114,24);
+        $pdf->Write(10, $company['Company']['register_number']);
+        $pdf->SetXY(94,33);
+        $pdf->Write(10,$company['Company']['address_1']." ".$company['Company']['address_2']);
+        $pdf->SetFont('Helvetica','',11);
+        $pdf->SetXY(21,68);
+        $pdf->Write(10,$data['maddress']);
+        $pdf->SetXY(122,105);
+        $pdf->Write(10,$data['totalFees']);
+        $y = 118;
+        $x = 58;
+        for($i = 0;$i < count($directors);$i++){
+            $pdf->SetXY($x,$y);
+            $pdf->Write(10,$directors[$i]['StakeHolder']['name']);
+            $pdf->SetXY($x+70,$y);
+            $pdf->Write(10,$data['feeAmount'][$i]);
+            $y += 4;
+        }
+        $pdf->Line($x+70,$y+4,$pdf->GetX()+7,$y+4);
+        $pdf->Line($x+70,$y+5,$pdf->GetX()+7,$y+5);
+        $pdf->SetXY($x+70,$y+6);
+        $pdf->Write(10,$data['totalFees']);
+        $y = 210;
+        for($i = 0;$i<count($directors);$i=$i+2){
+            $pdf->SetFont('Helvetica','',10);
+                $x = 26;
+                $pdf->SetXY($x,$y);
+                $pdf->Line($x,$y-1,$x+40,$y-1);
+                $pdf->Write(10,$directors[$i]['StakeHolder']['name']);
+                if($i+1<count($directors)){
+                    $k = 140;
+                    //ChromePhp::log($y);
+                    $pdf->SetXY($k,$y);
+                     $pdf->Line($k,$y-1,$k+40,$y-1);
+                    $pdf->Write(10,$directors[$i+1]['StakeHolder']['name']);  
+                }
+            $y += 30;
+        }
+        // page 5
+        $pdf->addPage(); // add page
+        $pageCount = $pdf->setSourceFile(WWW_ROOT . $this->template_path . "EOGMAllotedDirector_template.pdf"); // load template
+        $tplIdx = $pdf->importPage(5); // import page 1esolution_template
+        $pdf->useTemplate($tplIdx, null, null, 0,0,true); // place the template 
+        // write company name
+        $pdf->SetFont('Helvetica','',11);
+        $pdf->SetXY(83,19);
+        $pdf->Write(10,$company['Company']['name']);
+        $pdf->SetFont('Helvetica','',9);
+        $pdf->SetXY(114,24);
+        $pdf->Write(10, $company['Company']['register_number']);
+        $pdf->SetXY(94,33);
+        $pdf->Write(10,$company['Company']['address_1']." ".$company['Company']['address_2']);
+        $pdf->SetFont('Helvetica','',10);
+        $pdf->SetXY(30,42);
+        $pdf->Write(10,$name);
+        $pdf->SetXY(53,78);
+        $pdf->Write(10,$data['maddress']);
+        $pdf->SetXY(150,141);
+        $pdf->Write(10,$data['totalFees']);
+        $y = 160;
+        $x = 58;
+        for($i = 0;$i < count($directors);$i++){
+            $pdf->SetXY($x,$y);
+            $pdf->Write(10,$directors[$i]['StakeHolder']['name']);
+            $pdf->SetXY($x+73,$y);
+            $pdf->Write(10,$data['feeAmount'][$i]);
+            $y += 4;
+        }
+        $pdf->Line($x+70,$y+4,$pdf->GetX()+7,$y+4);
+        $pdf->Line($x+70,$y+5,$pdf->GetX()+7,$y+5);
+        $pdf->SetXY($x+70,$y+6);
+        $pdf->Write(10,$data['totalFees']);
+        $pdf->SetFont('Helvetica','',12);
+        $pdf->SetXY(20,217);
+        $pdf->Write(10,$data['chairman']);
+        
+        $pdf->Output(WWW_ROOT . $this->pdf_path . $pdf_name .'.pdf', 'F');
+        $data_pdf = array(
+            'form_id' => $form_id,
+            'company_id' => $company['Company']['company_id'],
+            'pdf_url' => $this->pdf_path . $pdf_name .'.pdf',
+            'created_at' => date('Y-m-d H:i:s')
+        );
+
+     array_push($this->form_downloads,$data_pdf['pdf_url']);
+    }
+    public function generateEOGMFirstFinalDividend($data){
+        $form_id = 8;
+        $ids = $data['stakeholder'];
+        $company = $this->Company->find('first',array('conditions'=>array('company_id = '=> $data['company'])));
+        $sentence = "";
+        if($data['devidendType']=="interim"){
+            $sentence = "That an Interim Dividend of ";
+        }else{
+            $sentence = "That a First and Final Dividend of ";
+        }
+        $shareholders = $this->StakeHolder->find("all",array(
+            "conditions"=>array(
+                "StakeHolder.id"=>$ids
+            )
+        ));
+       $asIsStakeHolders = $this->StakeHolder->find("all",array(
+                    "conditions"=>array(
+                        "StakeHolder.company_id"=>$data['company']
+                    )
+                ));
+        $avail_ids=array();
+        foreach($asIsStakeHolders as $asIsStakeHolder){
+            array_push($avail_ids,$asIsStakeHolder['StakeHolder']['id']);
+        };
+
+        $asIsDirectors = $this->Director->find("all",array(
+            "conditions"=>array(
+                "Director.Mode"=>"appointed",
+                "Director.id"=>$avail_ids
+            )
+        ));
+        $name = "";
+        foreach($shareholders as $asIsShareHolder){
+            $name .= $asIsShareHolder['StakeHolder']['name'].",";
+        };
+        $pdf_name = 'EOGMFirstFinalDividend'.time(); 
+        // generate PDF
+            $pdf = new FPDI(); // init
+            // create overlays
+            $pdf->SetFont('Helvetica','',12); // set font type
+            $pdf->SetTextColor(0, 0, 0); // set font color
+        // page 1
+        $pdf->addPage(); // add page
+        $pageCount = $pdf->setSourceFile(WWW_ROOT . $this->template_path . "EOGM_firstFinalDivident_template.pdf"); // load template
+        $tplIdx = $pdf->importPage(1); // import page 1esolution_template
+        $pdf->useTemplate($tplIdx, null, null, 0,0,true); // place the template 
+        // write company name
+        $pdf->SetXY(83,19);
+        $pdf->Write(10,$company['Company']['name']);
+        $pdf->SetFont('Helvetica','',9);
+        $pdf->SetXY(116,23.2);
+        $pdf->Write(10, $company['Company']['register_number']);
+        $pdf->SetXY(92,31.2);
+        $pdf->Write(10,$company['Company']['address_1']." ".$company['Company']['address_2']);
+        $y = 140;
+            for($i = 0;$i<count($shareholders);$i=$i+2){
+                    $pdf->SetFont('Helvetica','',10);
+                        $x = 27;
+                        $pdf->SetXY($x,$y);
+                         $pdf->Line($x,$y-1,$x+40,$y-1);
+                        $pdf->Write(10,$shareholders[$i]['StakeHolder']['name']);
+                        if($i+1<count($shareholders)){
+                            $k = 140;
+                            //ChromePhp::log($y);
+                            $pdf->SetXY($k,$y);
+                             $pdf->Line($k,$y-1,$k+40,$y-1);
+                            $pdf->Write(10,$shareholders[$i+1]['StakeHolder']['name']);  
+                        }
+                $y += 30;
+            }
+        // page 2
+        $pdf->addPage(); // add page
+        $pageCount = $pdf->setSourceFile(WWW_ROOT . $this->template_path . "EOGM_firstFinalDivident_template.pdf"); // load template
+        $tplIdx = $pdf->importPage(2); // import page 1esolution_template
+        $pdf->useTemplate($tplIdx, null, null, 0,0,true); // place the template 
+        // write company name
+        $pdf->SetXY(83,13);
+        $pdf->Write(10,$company['Company']['name']);
+        $pdf->SetFont('Helvetica','',9);
+        $pdf->SetXY(116,17.4);
+        $pdf->Write(10, $company['Company']['register_number']);
+        $pdf->SetXY(93,26.4);
+        $pdf->Write(10,$company['Company']['address_1']." ".$company['Company']['address_2']);
+        $pdf->SetXY(29,37);
+        $pdf->Write(10, $name);
+        $pdf->SetFont('Helvetica','',11);
+         $pdf->SetXY(50,79.6);
+        $pdf->Write(10, $data['maddress']);
+         $pdf->SetXY(46.5,144.2);
+        $pdf->Write(10,$sentence.$data['amountDividend']." on ".$data['totalShares']);
+        $pdf->SetXY(20,204);
+        $pdf->Write(10, $data['chairman']);
+       // page 3
+        $pdf->addPage(); // add page
+        $pageCount = $pdf->setSourceFile(WWW_ROOT . $this->template_path . "EOGM_firstFinalDivident_template.pdf"); // load template
+        $tplIdx = $pdf->importPage(3); // import page 1esolution_template
+        $pdf->useTemplate($tplIdx, null, null, 0,0,true); // place the template 
+        // write company name
+        $pdf->SetXY(83,13);
+        $pdf->Write(10,$company['Company']['name']);
+        $pdf->SetFont('Helvetica','',9);
+        $pdf->SetXY(116,17.4);
+        $pdf->Write(10, $company['Company']['register_number']);
+        $pdf->SetXY(93,26.4);
+        $pdf->Write(10,$company['Company']['address_1']." ".$company['Company']['address_2']);
+        $pdf->SetFont('Helvetica','',11);
+         $pdf->SetXY(51.8,53);
+        $pdf->Write(10, $data['maddress']);
+        $pdf->SetXY(23.7,91);
+        $pdf->Write(10, $data['chairman']." was appointed Chairman of the meeting");
+         $pdf->SetXY(19.5,150.8);
+        $pdf->Write(10,$sentence.$data['amountDividend']." on ".$data['totalShares']);
+        $pdf->SetXY(96,240);
+        $pdf->Write(10, $data['chairman']);
+        // page 4
+        $pdf->addPage(); // add page
+        $pageCount = $pdf->setSourceFile(WWW_ROOT . $this->template_path . "EOGM_firstFinalDivident_template.pdf"); // load template
+        $tplIdx = $pdf->importPage(4); // import page 1esolution_template
+        $pdf->useTemplate($tplIdx, null, null, 0,0,true); // place the template 
+        // write company name
+        $pdf->SetXY(80,13);
+        $pdf->Write(10,$company['Company']['name']);
+        $pdf->SetFont('Helvetica','',9);
+        $pdf->SetXY(109,17.4);
+        $pdf->Write(10, $company['Company']['register_number']);
+        $pdf->SetXY(93,26.4);
+        $pdf->Write(10,$company['Company']['address_1']." ".$company['Company']['address_2']);
+        $pdf->SetFont('Helvetica','',12);
+         $pdf->SetXY(40,68);
+        $pdf->Write(10, $data['maddress']);
+       $y = 140;
+            for($i = 0;$i<count($shareholders);$i=$i+2){
+                    $pdf->SetFont('Helvetica','',10);
+                        $x = 27;
+                        $pdf->SetXY($x,$y);
+                         $pdf->Line($x,$y-1,$x+40,$y-1);
+                        $pdf->Write(10,$shareholders[$i]['StakeHolder']['name']);
+                        if($i+1<count($shareholders)){
+                            $k = 140;
+                            //ChromePhp::log($y);
+                            $pdf->SetXY($k,$y);
+                             $pdf->Line($k,$y-1,$k+40,$y-1);
+                            $pdf->Write(10,$shareholders[$i+1]['StakeHolder']['name']);  
+                        }
+                $y += 30;
+            }
+         // page 5
+        $pdf->addPage(); // add page
+        $pageCount = $pdf->setSourceFile(WWW_ROOT . $this->template_path . "EOGM_firstFinalDivident_template.pdf"); // load template
+        $tplIdx = $pdf->importPage(5); // import page 1esolution_template
+        $pdf->useTemplate($tplIdx, null, null, 0,0,true); // place the template 
+        // write company name
+        $pdf->SetXY(84,13);
+        $pdf->Write(10,$company['Company']['name']);
+        $pdf->SetFont('Helvetica','',9);
+        $pdf->SetXY(116,17.4);
+        $pdf->Write(10, $company['Company']['register_number']);
+        $pdf->SetXY(93,26.4);
+        $pdf->Write(10,$company['Company']['address_1']." ".$company['Company']['address_2']);
+        $pdf->SetFont('Helvetica','',12);
+         $pdf->SetXY(22,86);
+        $pdf->Write(10, $data['maddress']);
+         $pdf->SetXY(19.5,130.4);
+        $pdf->Write(10,$sentence.$data['amountDividend']." on ".$data['totalShares']);
+       $y = 220;
+            for($i = 0;$i<count($asIsDirectors);$i=$i+2){
+                    $pdf->SetFont('Helvetica','',10);
+                        $x = 27;
+                        $pdf->SetXY($x,$y);
+                         $pdf->Line($x,$y-1,$x+40,$y-1);
+                        $pdf->Write(10,$asIsDirectors[$i]['StakeHolder']['name']);
+                        if($i+1<count($asIsDirectors)){
+                            $k = 140;
+                            //ChromePhp::log($y);
+                            $pdf->SetXY($k,$y);
+                             $pdf->Line($k,$y-1,$k+40,$y-1);
+                            $pdf->Write(10,$asIsDirectors[$i+1]['StakeHolder']['name']);  
+                        }
+                $y += 30;
+            }
+        // page 6
+        $pdf->addPage(); // add page
+        $pageCount = $pdf->setSourceFile(WWW_ROOT . $this->template_path . "EOGM_firstFinalDivident_template.pdf"); // load template
+        $tplIdx = $pdf->importPage(6); // import page 1esolution_template
+        $pdf->useTemplate($tplIdx, null, null, 0,0,true); // place the template 
+        // write company name
+        $pdf->SetXY(86,5);
+        $pdf->Write(10,$company['Company']['name']);
+        $pdf->SetFont('Helvetica','',9);
+        $pdf->SetXY(116,9);
+        $pdf->Write(10, $company['Company']['register_number']);
+        $pdf->SetFont('Helvetica','',12);
+        $y = 79;
+        $totalNoShares = 0;
+         for($i = 0;$i<count($shareholders);$i=$i+1){
+             $totalNoShares +=$data['noShares'][$i];
+         }
+        for($i = 0;$i<count($shareholders);$i=$i+1){
+                $x = 38;
+                $pdf->SetXY($x,$y);
+                $pdf->Write(10,$shareholders[$i]['StakeHolder']['name']);
+                $pdf->SetXY($x + 60,$y);
+                $pdf->Write(10,$data['noShares'][$i]);
+                $pdf->SetXY($x + 95,$y);
+                $pdf->Write(10,$data['noShares'][$i]);
+                $pdf->SetXY($x + 130,$y);
+                $pdf->Write(10,$data['noShares'][$i]/$totalNoShares*$data['amountDividend']);
+                $y += 6;
+        }
+        $pdf->SetXY($x+130,$y+6);
+        $pdf->Write(10,$data['amountDividend']);
+        $pdf->SetXY($x + 60,$y+6);
+        $pdf->Write(10,$totalNoShares);
+        $pdf->SetXY($x + 95,$y+6);
+        $pdf->Write(10,$totalNoShares);
+        $y = 200;
+            for($i = 0;$i<count($asIsDirectors);$i=$i+2){
+                    $pdf->SetFont('Helvetica','',10);
+                        $x = 27;
+                        $pdf->SetXY($x,$y);
+                         $pdf->Line($x,$y-1,$x+40,$y-1);
+                        $pdf->Write(10,$asIsDirectors[$i]['StakeHolder']['name']);
+                        if($i+1<count($asIsDirectors)){
+                            $k = 140;
+                            //ChromePhp::log($y);
+                            $pdf->SetXY($k,$y);
+                             $pdf->Line($k,$y-1,$k+40,$y-1);
+                            $pdf->Write(10,$asIsDirectors[$i+1]['StakeHolder']['name']);  
+                        }
+                $y += 30;
+            }
+        // page 7,8,9
+        for($i = 0;$i < count($shareholders);$i++){
+            $pdf->addPage(); // add page
+            $pageCount = $pdf->setSourceFile(WWW_ROOT . $this->template_path . "EOGM_firstFinalDivident_template.pdf"); // load template
+            $tplIdx = $pdf->importPage(7); // import page 1esolution_template
+            $pdf->useTemplate($tplIdx, null, null, 0,0,true); // place the template 
+            // write company name
+            $pdf->SetXY(84,2);
+            $pdf->Write(10,$company['Company']['name']);
+            $pdf->SetFont('Helvetica','',9);
+            $pdf->SetXY(116,7);
+            $pdf->Write(10, $company['Company']['register_number']);
+            $pdf->SetXY(94,18);
+            $pdf->Write(10,$company['Company']['address_1']." ".$company['Company']['address_2']);
+            $pdf->SetFont('Helvetica','',10);
+            $pdf->SetXY(29,50);
+            $pdf->Write(10,$shareholders[$i]['StakeHolder']['name']);
+             $pdf->SetXY(29,54);
+            $pdf->Write(10,$shareholders[$i]['StakeHolder']['address_1']);
+            $pdf->SetXY(29,58);
+            $pdf->Write(10,$shareholders[$i]['StakeHolder']['address_2']);
+             $pdf->SetXY(155.5,42.9);
+            $pdf->Write(10, $i+1);
+             $pdf->SetXY(32,143);
+            $pdf->Write(10, $data['dividendNo']);
+             $pdf->SetXY(62,181);
+            $pdf->Write(10, $data['noShares'][$i]);
+            $pdf->SetXY(85,144);
+            $pdf->Write(10, $data['devidendType']=="interim"?"INTERIM":"First And Final");
+             $pdf->SetXY(129,181);
+           $pdf->Write(10,$data['noShares'][$i]/$totalNoShares*$data['amountDividend']);
+            $pdf->SetXY(28,211);
+            $pdf->Write(10, $company['Company']['name']);
+        }
+        $pdf->Output(WWW_ROOT . $this->pdf_path . $pdf_name .'.pdf', 'F');
+        $data_pdf = array(
+            'form_id' => $form_id,
+            'company_id' => $company['Company']['company_id'],
+            'pdf_url' => $this->pdf_path . $pdf_name .'.pdf',
+            'created_at' => date('Y-m-d H:i:s')
+        );
+
+     array_push($this->form_downloads,$data_pdf['pdf_url']);
+    }
 }

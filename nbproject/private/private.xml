@@ -3,11 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/wamp/www/tb001/app/View/FunctionCorps/normal_struck_off.ctp</file>
-            <file>file:/C:/wamp/www/tb001/app/Controller/FormsController.php</file>
+            <file>file:/C:/wamp/www/tb001/app/View/FunctionCorps/allot_director_fee.ctp</file>
+            <file>file:/C:/wamp/www/tb001/app/Model/AllotDirectorFee.php</file>
+            <file>file:/C:/wamp/www/tb001/app/View/Layouts/default.ctp</file>
+            <file>file:/C:/wamp/www/tb001/app/Model/NormalStruckOff.php</file>
+            <file>file:/C:/wamp/www/tb001/app/Controller/DocumentsController.php</file>
+            <file>file:/C:/wamp/www/tb001/app/View/Documents/normal_struck_off.ctp</file>
             <file>file:/C:/wamp/www/tb001/app/Controller/FunctionCorpsController.php</file>
-            <file>file:/C:/wamp/www/tb001/app/webroot/js/normalStruckOff.js</file>
-            <file>file:/C:/wamp/www/tb001/app/Controller/IncorporationsController.php</file>
+            <file>file:/C:/wamp/www/tb001/app/Controller/FormsController.php</file>
         </group>
     </open-files>
 </project-private>

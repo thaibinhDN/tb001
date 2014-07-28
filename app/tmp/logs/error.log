@@ -24247,3 +24247,1039 @@ Stack Trace:
 #1 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
 #2 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #3 {main}
+2014-07-27 15:29:20 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\allot_director_fee.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\allot_director_fee.ctp',
+)
+Request URL: /tb001/FunctionCorps/AllotDirectorFee
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-27 16:28:56 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_allot_director_fee.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_allot_director_fee.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateAllotDirectorFee
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-27 16:31:23 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_allot_director_fee.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_allot_director_fee.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateAllotDirectorFee
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-27 17:03:43 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_allot_director_fee.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_allot_director_fee.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateAllotDirectorFee
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-27 17:06:37 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_allot_director_fee.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_allot_director_fee.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateAllotDirectorFee
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-27 17:08:11 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_allot_director_fee.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_allot_director_fee.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateAllotDirectorFee
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-27 17:12:48 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_allot_director_fee.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_allot_director_fee.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateAllotDirectorFee
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-27 17:23:51 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_allot_director_fee.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_allot_director_fee.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateAllotDirectorFee
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-27 17:27:27 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_allot_director_fee.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_allot_director_fee.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateAllotDirectorFee
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-27 17:29:53 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_allot_director_fee.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_allot_director_fee.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateAllotDirectorFee
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-27 17:31:32 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_allot_director_fee.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_allot_director_fee.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateAllotDirectorFee
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-27 17:36:36 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_allot_director_fee.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_allot_director_fee.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateAllotDirectorFee
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-27 17:37:02 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_allot_director_fee.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_allot_director_fee.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateAllotDirectorFee
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-27 17:37:55 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_allot_director_fee.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_allot_director_fee.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateAllotDirectorFee
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-27 17:38:14 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_allot_director_fee.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_allot_director_fee.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateAllotDirectorFee
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-27 17:50:57 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_allot_director_fee.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_allot_director_fee.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateAllotDirectorFee
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-27 17:53:01 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_allot_director_fee.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_allot_director_fee.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateAllotDirectorFee
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-27 17:55:03 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_allot_director_fee.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_allot_director_fee.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateAllotDirectorFee
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-27 17:56:29 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_allot_director_fee.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_allot_director_fee.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateAllotDirectorFee
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-27 17:57:29 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_allot_director_fee.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_allot_director_fee.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateAllotDirectorFee
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-27 17:58:10 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_allot_director_fee.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_allot_director_fee.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateAllotDirectorFee
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-27 17:58:40 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_allot_director_fee.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_allot_director_fee.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateAllotDirectorFee
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-27 17:59:20 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_allot_director_fee.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_allot_director_fee.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateAllotDirectorFee
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-27 18:08:19 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_allot_director_fee.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_allot_director_fee.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateAllotDirectorFee
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-27 18:10:42 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_allot_director_fee.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_allot_director_fee.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateAllotDirectorFee
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-27 18:12:45 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_allot_director_fee.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_allot_director_fee.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateAllotDirectorFee
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-27 18:13:55 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_allot_director_fee.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_allot_director_fee.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateAllotDirectorFee
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-27 18:14:12 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_allot_director_fee.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_allot_director_fee.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateAllotDirectorFee
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-27 18:15:05 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_allot_director_fee.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_allot_director_fee.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateAllotDirectorFee
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-27 18:16:06 Error: Fatal Error (1): Call to a member function create() on a non-object in [C:\wamp\www\tb001\app\Controller\FunctionCorpsController.php, line 2120]
+2014-07-27 18:16:06 Error: [FatalErrorException] Call to a member function create() on a non-object
+Request URL: /tb001/FunctionCorps/generateAllotDirectorFee
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Call to a membe...', 'C:\\wamp\\www\\tb0...', 2120)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', 'C:\\wamp\\www\\tb0...', 2120, Array)
+#2 C:\wamp\www\tb001\lib\Cake\Core\App.php(929): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', 'C:\\wamp\\www\\tb0...', 2120, Array)
+#3 C:\wamp\www\tb001\lib\Cake\Core\App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-07-28 14:05:26 Error: [MissingActionException] Action DocumentsController::AllotDirectorFee() could not be found.
+Exception Attributes: array (
+  'controller' => 'DocumentsController',
+  'action' => 'AllotDirectorFee',
+)
+Request URL: /tb001/Documents/AllotDirectorFee
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(DocumentsController), Object(CakeRequest), Object(CakeResponse))
+#2 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-07-28 14:06:37 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\Documents\allot_director_fee.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\Documents\\allot_director_fee.ctp',
+)
+Request URL: /tb001/Documents/AllotDirectorFee
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(DocumentsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-28 14:20:38 Error: [MissingActionException] Action FunctionCorpsController::firstFinalDividend() could not be found.
+Exception Attributes: array (
+  'controller' => 'FunctionCorpsController',
+  'action' => 'firstFinalDividend',
+)
+Request URL: /tb001/FunctionCorps/firstFinalDividend
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#2 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-07-28 16:09:04 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\first_final_dividend.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\first_final_dividend.ctp',
+)
+Request URL: /tb001/FunctionCorps/firstFinalDividend
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-28 17:43:17 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_first_final_dividend.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_first_final_dividend.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateFirstFinalDividend
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-28 17:44:08 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_first_final_dividend.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_first_final_dividend.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateFirstFinalDividend
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-28 17:44:51 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_first_final_dividend.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_first_final_dividend.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateFirstFinalDividend
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-28 17:45:56 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_first_final_dividend.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_first_final_dividend.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateFirstFinalDividend
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-28 17:46:20 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_first_final_dividend.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_first_final_dividend.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateFirstFinalDividend
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-28 18:00:50 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_first_final_dividend.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_first_final_dividend.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateFirstFinalDividend
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-28 18:03:29 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_first_final_dividend.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_first_final_dividend.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateFirstFinalDividend
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-28 18:05:33 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_first_final_dividend.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_first_final_dividend.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateFirstFinalDividend
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-28 18:06:06 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_first_final_dividend.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_first_final_dividend.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateFirstFinalDividend
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-28 18:06:42 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_first_final_dividend.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_first_final_dividend.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateFirstFinalDividend
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-28 18:07:12 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_first_final_dividend.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_first_final_dividend.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateFirstFinalDividend
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-28 18:11:42 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_first_final_dividend.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_first_final_dividend.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateFirstFinalDividend
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-28 18:13:41 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_first_final_dividend.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_first_final_dividend.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateFirstFinalDividend
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-28 18:14:33 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_first_final_dividend.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_first_final_dividend.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateFirstFinalDividend
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-28 18:15:13 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_first_final_dividend.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_first_final_dividend.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateFirstFinalDividend
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-28 18:15:36 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_first_final_dividend.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_first_final_dividend.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateFirstFinalDividend
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-28 18:16:11 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_first_final_dividend.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_first_final_dividend.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateFirstFinalDividend
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-28 18:16:40 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_first_final_dividend.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_first_final_dividend.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateFirstFinalDividend
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-28 18:18:55 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_first_final_dividend.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_first_final_dividend.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateFirstFinalDividend
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-28 18:19:52 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_first_final_dividend.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_first_final_dividend.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateFirstFinalDividend
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-28 18:20:52 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_first_final_dividend.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_first_final_dividend.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateFirstFinalDividend
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-28 18:21:20 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_first_final_dividend.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_first_final_dividend.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateFirstFinalDividend
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-28 18:26:41 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_first_final_dividend.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_first_final_dividend.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateFirstFinalDividend
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-28 18:27:51 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_first_final_dividend.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_first_final_dividend.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateFirstFinalDividend
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-28 18:28:54 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_first_final_dividend.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_first_final_dividend.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateFirstFinalDividend
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-28 18:43:30 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_first_final_dividend.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_first_final_dividend.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateFirstFinalDividend
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-28 18:44:15 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_first_final_dividend.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_first_final_dividend.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateFirstFinalDividend
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-28 18:44:38 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_first_final_dividend.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_first_final_dividend.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateFirstFinalDividend
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-28 18:46:07 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_first_final_dividend.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_first_final_dividend.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateFirstFinalDividend
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-28 18:51:57 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_first_final_dividend.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_first_final_dividend.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateFirstFinalDividend
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-28 18:53:56 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_first_final_dividend.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_first_final_dividend.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateFirstFinalDividend
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-28 18:55:03 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_first_final_dividend.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_first_final_dividend.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateFirstFinalDividend
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-28 19:02:14 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_first_final_dividend.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_first_final_dividend.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateFirstFinalDividend
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-28 19:04:23 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_first_final_dividend.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_first_final_dividend.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateFirstFinalDividend
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-28 19:04:46 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_first_final_dividend.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_first_final_dividend.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateFirstFinalDividend
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-28 19:13:04 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_first_final_dividend.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_first_final_dividend.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateFirstFinalDividend
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-28 22:35:12 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_first_final_dividend.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_first_final_dividend.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateFirstFinalDividend
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-28 22:38:06 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_first_final_dividend.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_first_final_dividend.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateFirstFinalDividend
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-28 22:39:19 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_first_final_dividend.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_first_final_dividend.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateFirstFinalDividend
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-28 22:40:15 Error: Fatal Error (1): Call to a member function create() on a non-object in [C:\wamp\www\tb001\app\Controller\FunctionCorpsController.php, line 2183]
+2014-07-28 22:40:15 Error: [FatalErrorException] Call to a member function create() on a non-object
+Request URL: /tb001/FunctionCorps/generateFirstFinalDividend
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Call to a membe...', 'C:\\wamp\\www\\tb0...', 2183)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', 'C:\\wamp\\www\\tb0...', 2183, Array)
+#2 C:\wamp\www\tb001\lib\Cake\Core\App.php(929): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', 'C:\\wamp\\www\\tb0...', 2183, Array)
+#3 C:\wamp\www\tb001\lib\Cake\Core\App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-07-28 22:45:12 Error: [NotFoundException] The requested file C:\wamp\www\tb001\app\C:\wamp\www\tb001\app\webroot\files/zip/FirstFinalDividend2014-07-28 22-44-17.zip was not found or not readable
+Request URL: /tb001/forms/197/download
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\MediaView.php(91): CakeResponse->file('C:\\wamp\\www\\tb0...', Array)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): MediaView->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FormsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-28 22:46:42 Error: [MissingActionException] Action DocumentsController::firstFinalDividend() could not be found.
+Exception Attributes: array (
+  'controller' => 'DocumentsController',
+  'action' => 'firstFinalDividend',
+)
+Request URL: /tb001/Documents/firstFinalDividend
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(DocumentsController), Object(CakeRequest), Object(CakeResponse))
+#2 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-07-28 22:48:06 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\Documents\first_final_dividend.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\Documents\\first_final_dividend.ctp',
+)
+Request URL: /tb001/Documents/firstFinalDividend
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(DocumentsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-28 23:39:05 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_first_final_dividend.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_first_final_dividend.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateFirstFinalDividend
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-28 23:39:51 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_first_final_dividend.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_first_final_dividend.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateFirstFinalDividend
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-28 23:41:00 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_first_final_dividend.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_first_final_dividend.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateFirstFinalDividend
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-28 23:41:25 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_first_final_dividend.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_first_final_dividend.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateFirstFinalDividend
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-28 23:41:44 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_first_final_dividend.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_first_final_dividend.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateFirstFinalDividend
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-28 23:43:31 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_first_final_dividend.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_first_final_dividend.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateFirstFinalDividend
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-28 23:44:02 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_first_final_dividend.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_first_final_dividend.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateFirstFinalDividend
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-28 23:44:48 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_first_final_dividend.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_first_final_dividend.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateFirstFinalDividend
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-28 23:45:55 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_first_final_dividend.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_first_final_dividend.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateFirstFinalDividend
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-07-28 23:51:54 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1048 Le champ 'type' ne peut être vide (null)
+Request URL: /tb001/FunctionCorps/generateFirstFinalDividend
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\wamp\www\tb001\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('INSERT INTO `co...', Array)
+#2 C:\wamp\www\tb001\lib\Cake\Model\Datasource\DboSource.php(1004): DboSource->execute('INSERT INTO `co...')
+#3 C:\wamp\www\tb001\lib\Cake\Model\Model.php(1832): DboSource->create(Object(FirstFinalDividend), Array, Array)
+#4 C:\wamp\www\tb001\app\Controller\FunctionCorpsController.php(2186): Model->save(Array)
+#5 [internal function]: FunctionCorpsController->generateFirstFinalDividend()
+#6 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(FunctionCorpsController), Array)
+#7 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#8 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#9 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
