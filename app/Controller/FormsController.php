@@ -5419,4 +5419,1156 @@ class FormsController extends AppController {
 
      array_push($this->form_downloads,$data_pdf['pdf_url']);
     }
+    public function generateEOGMIncreaseOfShares($data){
+        $form_id = 8;
+        $ids = $data['stakeholder'];
+        $company = $this->Company->find('first',array('conditions'=>array('company_id = '=> $data['company'])));
+        $shareholders = $this->StakeHolder->find("all",array(
+            "conditions"=>array(
+                "StakeHolder.id"=>$ids
+            )
+        ));
+       $asIsStakeHolders = $this->StakeHolder->find("all",array(
+                    "conditions"=>array(
+                        "StakeHolder.company_id"=>$data['company']
+                    )
+                ));
+        $avail_ids=array();
+        foreach($asIsStakeHolders as $asIsStakeHolder){
+            array_push($avail_ids,$asIsStakeHolder['StakeHolder']['id']);
+        };
+        $asIsDirectors = $this->Director->find("all",array(
+            "conditions"=>array(
+                "Director.Mode"=>"appointed",
+                "Director.id"=>$avail_ids
+            )
+        ));
+        $totalShares = 0;
+        $name = "";
+        for($i = 0;$i < count($shareholders);$i++){
+            $totalShares += $data['SharesAlloted'][$i];
+            $name .= $shareholders[$i]['StakeHolder']['name'].",";
+
+        };
+        $pdf_name = 'EOGMIncreaseOfShares'.time(); 
+        // generate PDF
+            $pdf = new FPDI(); // init
+            // create overlays
+            $pdf->SetFont('Helvetica','',12); // set font type
+            $pdf->SetTextColor(0, 0, 0); // set font color
+        // page 1
+        $pdf->addPage(); // add page
+        $pageCount = $pdf->setSourceFile(WWW_ROOT . $this->template_path . "EOGM_increaseShares_template.pdf"); // load template
+        $tplIdx = $pdf->importPage(1); // import page 1esolution_template
+        $pdf->useTemplate($tplIdx, null, null, 0,0,true); // place the template 
+        // write company name
+        $pdf->SetXY(83,19);
+        $pdf->Write(10,$company['Company']['name']);
+        $pdf->SetFont('Helvetica','',9);
+        $pdf->SetXY(116,23.2);
+        $pdf->Write(10, $company['Company']['register_number']);
+        $pdf->SetXY(93.5,34.4);
+        $pdf->Write(10,$company['Company']['address_1']." ".$company['Company']['address_2']);
+        $y = 140;
+            for($i = 0;$i<count($shareholders);$i=$i+2){
+                    $pdf->SetFont('Helvetica','',10);
+                        $x = 27;
+                        $pdf->SetXY($x,$y);
+                         $pdf->Line($x,$y-1,$x+40,$y-1);
+                        $pdf->Write(10,$shareholders[$i]['StakeHolder']['name']);
+                        if($i+1<count($shareholders)){
+                            $k = 140;
+                            //ChromePhp::log($y);
+                            $pdf->SetXY($k,$y);
+                             $pdf->Line($k,$y-1,$k+40,$y-1);
+                            $pdf->Write(10,$shareholders[$i+1]['StakeHolder']['name']);  
+                        }
+                $y += 30;
+            }
+         //page 2
+        $pdf->addPage(); // add page
+        $pageCount = $pdf->setSourceFile(WWW_ROOT . $this->template_path . "EOGM_increaseShares_template.pdf"); // load template
+        $tplIdx = $pdf->importPage(2); // import page 1esolution_template
+        $pdf->useTemplate($tplIdx, null, null, 0,0,true); // place the template 
+        // write company name
+        $pdf->SetXY(83,13);
+        $pdf->Write(10,$company['Company']['name']);
+        $pdf->SetFont('Helvetica','',9);
+        $pdf->SetXY(116,18.8);
+        $pdf->Write(10, $company['Company']['register_number']);
+        $pdf->SetXY(93,28.4);
+        $pdf->Write(10,$company['Company']['address_1']." ".$company['Company']['address_2']);
+        $pdf->SetFont('Helvetica','',11);
+         $pdf->SetXY(75.4,50.7);
+        $pdf->Write(10, $data['maddress']);
+         $pdf->SetXY(21,79);
+        $pdf->Write(10,$data['chairman']." was appointed Chairman of the meeting");
+        $pdf->SetXY(68,152);
+        $pdf->Write(10,$totalShares);
+        $y = 170;
+        for($i = 0;$i<count($shareholders);$i=$i+1){
+                $pdf->SetFont('Helvetica','',10);
+                $x = 45;
+                $pdf->SetXY($x,$y);
+                $pdf->Write(10,$shareholders[$i]['StakeHolder']['name']);
+                $pdf->SetXY($x+60,$y);
+                $pdf->Write(10,$data['SharesAlloted'][$i]);
+                $pdf->SetXY($x+79,$y);
+                $pdf->Write(10,"shares");
+
+            $y += 4;
+        }
+        $pdf->SetXY($x+62,$y+4);
+        $pdf->Write(10, $totalShares);
+        $pdf->Line($x+55,$y+5,$pdf->getX(),$y+5);
+        $pdf->SetXY($x+79,$y+4);
+        $pdf->Write(10,"shares");
+        $pdf->SetXY(96,250);
+        $pdf->Write(10, $data['chairman']);
+       // page 3
+        $pdf->addPage(); // add page
+        $pageCount = $pdf->setSourceFile(WWW_ROOT . $this->template_path . "EOGM_increaseShares_template.pdf"); // load template
+        $tplIdx = $pdf->importPage(3); // import page 1esolution_template
+        $pdf->useTemplate($tplIdx, null, null, 0,0,true); // place the template 
+        // write company name
+        $pdf->SetXY(83,13);
+        $pdf->Write(10,$company['Company']['name']);
+        $pdf->SetFont('Helvetica','',9);
+        $pdf->SetXY(116,18.7);
+        $pdf->Write(10, $company['Company']['register_number']);
+        $pdf->SetXY(97,28.9);
+        $pdf->Write(10,$company['Company']['address_1']." ".$company['Company']['address_2']);
+        $pdf->SetFont('Helvetica','',11);
+        $y = 90;
+        for($i = 0;$i<count($shareholders);$i=$i+1){
+                $x = 92;
+                $pdf->SetXY($x,$y);
+                $pdf->Write(10,$shareholders[$i]['StakeHolder']['name']);
+            $y += 30;
+        }
+        // page 4
+        $pdf->addPage(); // add page
+        $pageCount = $pdf->setSourceFile(WWW_ROOT . $this->template_path . "EOGM_increaseShares_template.pdf"); // load template
+        $tplIdx = $pdf->importPage(4); // import page 1esolution_template
+        $pdf->useTemplate($tplIdx, null, null, 0,0,true); // place the template 
+        // write company name
+        $pdf->SetXY(83,13);
+        $pdf->Write(10,$company['Company']['name']);
+        $pdf->SetFont('Helvetica','',9);
+        $pdf->SetXY(115,18.5);
+        $pdf->Write(10, $company['Company']['register_number']);
+        $pdf->SetXY(94.5,28.9);
+        $pdf->Write(10,$company['Company']['address_1']." ".$company['Company']['address_2']);
+        $pdf->SetFont('Helvetica','',12);
+         $pdf->SetXY(20,72.5);
+        $pdf->Write(10, $data['maddress']);
+        $pdf->SetXY(62,137.5);
+        $pdf->Write(10,$totalShares);
+        $y = 152;
+        for($i = 0;$i<count($shareholders);$i=$i+1){
+                $pdf->SetFont('Helvetica','',10);
+                $x = 43;
+                $pdf->SetXY($x,$y);
+                $pdf->Write(10,$shareholders[$i]['StakeHolder']['name']);
+                $pdf->SetXY($x+60,$y);
+                $pdf->Write(10,$data['SharesAlloted'][$i]);
+                $pdf->SetXY($x+79,$y);
+                $pdf->Write(10,"shares");
+
+            $y += 4;
+        }
+        $pdf->SetXY($x+62,$y+4);
+        $pdf->Write(10, $totalShares);
+        $pdf->Line($x+55,$y+5,$pdf->getX(),$y+5);
+        $pdf->SetXY($x+79,$y+4);
+        $pdf->Write(10,"shares");
+        $pdf->SetFont('Helvetica','',9);
+        $y = 240;
+            for($i = 0;$i<count($asIsDirectors);$i=$i+2){
+                    
+                        $x = 27;
+                        $pdf->SetXY($x,$y);
+                         $pdf->Line($x,$y-1,$x+40,$y-1);
+                        $pdf->Write(10,$asIsDirectors[$i]['StakeHolder']['name']);
+                        if($i+1<count($asIsDirectors)){
+                            $k = 140;
+                            //ChromePhp::log($y);
+                            $pdf->SetXY($k,$y);
+                             $pdf->Line($k,$y-1,$k+40,$y-1);
+                            $pdf->Write(10,$asIsDirectors[$i+1]['StakeHolder']['name']);  
+                        }
+                $y += 20;
+            }
+         // page 5
+        $pdf->addPage(); // add page
+        $pageCount = $pdf->setSourceFile(WWW_ROOT . $this->template_path . "EOGM_increaseShares_template.pdf"); // load template
+        $tplIdx = $pdf->importPage(5); // import page 1esolution_template
+        $pdf->useTemplate($tplIdx, null, null, 0,0,true); // place the template 
+        // write company name
+        $pdf->SetXY(78,9);
+        $pdf->Write(10,$company['Company']['name']);
+        $pdf->SetFont('Helvetica','',9);
+        $pdf->SetXY(103,13.2);
+        $pdf->Write(10, $company['Company']['register_number']);
+        $pdf->SetXY(95,23.8);
+        $pdf->Write(10,$company['Company']['address_1']." ".$company['Company']['address_2']);
+        $pdf->SetFont('Helvetica','',11);
+         $pdf->SetXY(72,88);
+        $pdf->Write(10, $data['maddress']);
+        $pdf->SetXY(85,160);
+        $pdf->Write(10,$totalShares);
+        $y = 175;
+        for($i = 0;$i<count($shareholders);$i=$i+1){
+                $pdf->SetFont('Helvetica','',10);
+                $x = 56;
+                $pdf->SetXY($x,$y);
+                $pdf->Write(10,$shareholders[$i]['StakeHolder']['name']);
+                $pdf->SetXY($x+60,$y);
+                $pdf->Write(10,$data['SharesAlloted'][$i]);
+                $pdf->SetXY($x+79,$y);
+                $pdf->Write(10,"shares");
+
+            $y += 4;
+        }
+        $pdf->SetXY($x+62,$y+4);
+        $pdf->Write(10, $totalShares);
+        $pdf->Line($x+55,$y+5,$pdf->getX(),$y+5);
+        $pdf->SetXY($x+79,$y+4);
+        $pdf->Write(10,"shares");
+        $pdf->SetXY(19,242);
+        $pdf->Write(10,$data["chairman"]);
+        $pdf->SetXY(28,30);
+        $pdf->Write(10,$name);
+        $pdf->Output(WWW_ROOT . $this->pdf_path . $pdf_name .'.pdf', 'F');
+        $data_pdf = array(
+            'form_id' => $form_id,
+            'company_id' => $company['Company']['company_id'],
+            'pdf_url' => $this->pdf_path . $pdf_name .'.pdf',
+            'created_at' => date('Y-m-d H:i:s')
+        );
+
+     array_push($this->form_downloads,$data_pdf['pdf_url']);
+    }
+    public function generateLetterAllotmentIncreaseOfShares($data){
+       $form_id = 31;
+        $ids = $data['stakeholder'];
+        $company = $this->Company->find('first',array('conditions'=>array('company_id = '=> $data['company'])));
+        $shareholders = $this->StakeHolder->find("all",array(
+            "conditions"=>array(
+                "StakeHolder.id"=>$ids
+            )
+        ));
+       $asIsStakeHolders = $this->StakeHolder->find("all",array(
+                    "conditions"=>array(
+                        "StakeHolder.company_id"=>$data['company']
+                    )
+                ));
+        $avail_ids=array();
+        foreach($asIsStakeHolders as $asIsStakeHolder){
+            array_push($avail_ids,$asIsStakeHolder['StakeHolder']['id']);
+        };
+        $asIsDirectors = $this->Director->find("all",array(
+            "conditions"=>array(
+                "Director.Mode"=>"appointed",
+                "Director.id"=>$avail_ids
+            )
+        ));
+        $totalShares = 0;
+        $totalCost = 0;
+        for($i = 0;$i < count($shareholders);$i++){
+            $totalShares += $data['SharesAlloted'][$i];
+            $totalCost += $data['SharesInCash'][$i];
+        };
+        $pdf_name = 'LetterAllotmentIncreaseOfShares'.time(); 
+        // generate PDF
+            $pdf = new FPDI(); // init
+            // create overlays
+            $pdf->SetFont('Helvetica','',12); // set font type
+            $pdf->SetTextColor(0, 0, 0); // set font color
+        for($i = 0;$i < count($shareholders);$i++){
+        // page 1
+        $pdf->addPage(); // add page
+        $pageCount = $pdf->setSourceFile(WWW_ROOT . $this->template_path . "letterOfAllotment_increaseShare_template.pdf"); // load template
+        $tplIdx = $pdf->importPage(1); // import page 1esolution_template
+        $pdf->useTemplate($tplIdx, null, null, 0,0,true); // place the template 
+        $pdf->SetXY(20,31);
+        $pdf->Write(10,$shareholders[$i]['StakeHolder']['name']);
+        $pdf->SetXY(20,35);
+        $pdf->Write(10,$shareholders[$i]['StakeHolder']['address_1']);
+        $pdf->SetXY(20,39);
+        $pdf->Write(10,$shareholders[$i]['StakeHolder']['address_2']);
+        // write company name
+        $pdf->SetXY(20,81);
+        $pdf->Write(10,$company['Company']['name']);
+        $pdf->SetXY(20,85);
+        $pdf->Write(10, $company['Company']['address_1']);
+        $pdf->SetXY(20,89);
+        $pdf->Write(10,$company['Company']['address_2']);
+        $pdf->SetXY(56.5,120.2);
+        $pdf->Write(10,$data['SharesAlloted'][$i]." ORDINARY SHARES");
+         $pdf->SetXY(20,127);
+        $pdf->Write(10,"I,".$shareholders[$i]['StakeHolder']['name']." hereby conifrm");
+        $pdf->SetXY(45,131.5);
+        $pdf->Write(10,$data['SharesAlloted'][$i]);
+        $pdf->SetXY(21,137);
+        $pdf->Write(10,$data['SharesAlloted'][$i]);
+        $pdf->SetXY(23,239);
+        $pdf->Write(10,$shareholders[$i]['StakeHolder']['name']);
+        // page 2
+        $pdf->addPage(); // add page
+        $pageCount = $pdf->setSourceFile(WWW_ROOT . $this->template_path . "letterOfAllotment_increaseShare_template.pdf"); // load template
+        $tplIdx = $pdf->importPage(2); // import page 1esolution_template
+        $pdf->useTemplate($tplIdx, null, null, 0,0,true); // place the template 
+        $pdf->SetXY(44,41);
+        $pdf->Write(10,$company['Company']['name']);
+        $pdf->SetXY(44,45);
+        $pdf->Write(10, $company['Company']['address_1']);
+        $pdf->SetXY(44,49);
+        $pdf->Write(10,$company['Company']['address_2']);
+         $pdf->SetXY(30,99);
+        $pdf->Write(10,$data['SharesAlloted'][$i]);
+        $pdf->SetXY(141,99);
+        $pdf->Write(10,$data['SharesInCash'][$i]);
+        $pdf->SetXY(148,125.5);
+        $pdf->Write(10,$data['SharesAlloted'][$i]);
+        $pdf->SetXY(131,130.5);
+        $pdf->Write(10,$data['SharesInCash'][$i]);
+        $pdf->SetXY(74,130.5);
+        $pdf->Write(10,$data["cheque"][$i]);
+        $pdf->SetXY(142,196);
+        $pdf->Write(10,$shareholders[$i]['StakeHolder']['name']);
+        $pdf->SetXY(87,233);
+        $pdf->Write(10,$shareholders[$i]['StakeHolder']['name']);
+        $pdf->SetXY(43,249.5);
+        $pdf->Write(10,$shareholders[$i]['StakeHolder']['address_1']);
+        $pdf->SetXY(43,253.5);
+        $pdf->Write(10,$shareholders[$i]['StakeHolder']['address_2']);
+        $pdf->SetXY(38,260);
+        $pdf->Write(10,$shareholders[$i]['StakeHolder']['nric']);
+        
+        }
+        $pdf->addPage(); // add page
+        $pageCount = $pdf->setSourceFile(WWW_ROOT . $this->template_path . "letterOfAllotment_increaseShare_template.pdf"); // load template
+        $tplIdx = $pdf->importPage(5); // import page 1esolution_template
+        $pdf->useTemplate($tplIdx, null, null, 0,0,true); // place the template 
+        $pdf->SetXY(87,2);
+        $pdf->Write(10,$company['Company']['name']);
+        $pdf->SetXY(115,7);
+        $pdf->Write(10, $company['Company']['register_number']);
+        $pdf->SetXY(20,29);
+        $pdf->Write(10,$company['Company']['LOName']);
+        $pdf->SetXY(20,34);
+        $pdf->Write(10, $company['Company']['LOAddressline1']);
+        $pdf->SetXY(20,39);
+        $pdf->Write(10,$company['Company']['LOAddressline2']);
+        $pdf->SetXY(56,68.6);
+        $pdf->Write(10,$totalShares." ORDINARY SHARES");
+        $x = 20;
+        $y = 128; 
+        $pdf->SetFont('Helvetica','',10);
+        for($i = 0;$i < count($shareholders);$i++){
+            $pdf->SetXY($x,$y);
+            $pdf->Write(10,$shareholders[$i]['StakeHolder']['name']);
+            $pdf->SetXY($x+44,$y);
+            $pdf->Write(10,$data['SharesAlloted'][$i]);
+            $pdf->SetXY($x+70,$y);
+            $pdf->Write(10,$data['SharesInCash'][$i]);
+            $pdf->SetXY($x+100,$y);
+            $pdf->Write(10,$data['SharesInCash'][$i]);
+            $y += 5.5;
+        }
+        
+        $pdf->SetXY(54,168);
+        $pdf->Write(10,$totalCost);
+        $pdf->SetXY(97,168);
+        $pdf->Write(10,$company['Company']['name']);
+        $pdf->SetXY(52,173.5);
+        $pdf->Write(10,$data['bankAcc']);
+        $pdf->SetXY(20,208);
+        $pdf->Write(10,$company['Company']['name']);
+         $y = 230;
+            for($i = 0;$i<count($asIsDirectors);$i=$i+2){
+                    
+                        $x = 27;
+                        $pdf->SetXY($x,$y);
+                         $pdf->Line($x,$y-1,$x+40,$y-1);
+                        $pdf->Write(10,$asIsDirectors[$i]['StakeHolder']['name']);
+                        if($i+1<count($asIsDirectors)){
+                            $k = 140;
+                            //ChromePhp::log($y);
+                            $pdf->SetXY($k,$y);
+                             $pdf->Line($k,$y-1,$k+40,$y-1);
+                            $pdf->Write(10,$asIsDirectors[$i+1]['StakeHolder']['name']);  
+                        }
+                $y += 20;
+            }
+        $pdf->Output(WWW_ROOT . $this->pdf_path . $pdf_name .'.pdf', 'F');
+        $data_pdf = array(
+            'form_id' => $form_id,
+            'company_id' => $company['Company']['company_id'],
+            'pdf_url' => $this->pdf_path . $pdf_name .'.pdf',
+            'created_at' => date('Y-m-d H:i:s')
+        );
+
+     array_push($this->form_downloads,$data_pdf['pdf_url']);
+    }
+    public function generateForm24_IncreasingOfShares($data){
+        $pdf_name = 'Form24'.time(); 
+        $ids = $data['stakeholder'];
+        $company = $this->Company->find('first',array('conditions'=>array('company_id = '=> $data['company'])));
+        $shareholders = $this->StakeHolder->find("all",array(
+            "conditions"=>array(
+                "StakeHolder.id"=>$ids
+            )
+        ));
+       $asIsStakeHolders = $this->StakeHolder->find("all",array(
+                    "conditions"=>array(
+                        "StakeHolder.company_id"=>$data['company']
+                    )
+                ));
+        $avail_ids=array();
+        foreach($asIsStakeHolders as $asIsStakeHolder){
+            array_push($avail_ids,$asIsStakeHolder['StakeHolder']['id']);
+        };
+        $asIsDirectors = $this->Director->find("all",array(
+            "conditions"=>array(
+                "Director.Mode"=>"appointed",
+                "Director.id"=>$avail_ids
+            )
+        ));
+        $totalShares = 0;
+        $totalCost = 0;
+        for($i = 0;$i < count($shareholders);$i++){
+            $totalShares += $data['SharesAlloted'][$i];
+            $totalCost += $data['SharesInCash'][$i];
+        };
+        $totalpaid = $totalCost + $data['capitalShare'];
+            // generate PDF
+		$pdf = new FPDI(); // init
+		// create overlays
+		$pdf->SetFont('Helvetica','',9); // set font type
+		$pdf->SetTextColor(0, 0, 0); // set font color
+            // page 1
+            $pdf->addPage(); // add page
+            $pageCount = $pdf->setSourceFile(WWW_ROOT . $this->template_path . "form24_IncreaseShares_template.pdf"); // load template
+            $tplIdx = $pdf->importPage(1); 
+            $pdf->useTemplate($tplIdx, 10, 10, 200); // place the template 
+           
+            // write company name
+            $pdf->SetFont('Helvetica','',10 );
+            $pdf->SetXY(58.1,58.9);
+            $pdf->Write(10, $company['Company']['name']);
+            $pdf->SetXY(51.2,65.5);
+            $pdf->Write(10, $company['Company']['register_number']);
+            $pdf->SetXY(126.5,111.3);
+            $pdf->Write(10,$totalShares);
+            $pdf->SetXY(128.3,117.9);
+            $pdf->Write(10,$data['eachShare']);            
+            $pdf->SetXY(126.0,124.2);
+            $pdf->Write(10,$data['eachShare']); 
+             $pdf->SetXY(41.8,220.4);
+            $pdf->Write(10,$company['Company']['LOName']); 
+             $pdf->SetXY(43.8,223.9);
+            $pdf->Write(10,$company['Company']['LOAddressline1']); 
+            $pdf->SetXY(43.8,227.9);
+            $pdf->Write(10,$company['Company']['LOAddressline2']);
+             $pdf->SetXY(80.7,234.3);
+            $pdf->Write(10,$company['Company']['LOTelNo']); 
+             $pdf->SetXY(80.7,238.2);
+            $pdf->Write(10,$company['Company']['LOTelFax']); 
+            
+             // page 2
+            $pdf->addPage(); // add page
+            $pageCount = $pdf->setSourceFile(WWW_ROOT . $this->template_path . "form24_IncreaseShares_template.pdf"); // load template
+            $tplIdx = $pdf->importPage(2); 
+            $pdf->useTemplate($tplIdx, 10, 10, 200); // place the template 
+           
+            // write company name
+            $pdf->SetFont('Helvetica','',10 );
+            $pdf->SetXY(57.8,32.9);
+            $pdf->Write(10, $company['Company']['name']);
+            $pdf->SetXY(50.9,40.0);
+            $pdf->Write(10, $company['Company']['register_number']);
+            $y=75.2;
+            $x=36.8;
+            for($i = 0;$i<count($shareholders);$i++){
+                $pdf->SetXY($x,$y);
+                $pdf->Write(10,$shareholders[$i]['StakeHolder']['name']);
+                $pdf->SetXY($x,$y+4);
+                $pdf->Write(10,$shareholders[$i]['StakeHolder']['address_1']);
+                $pdf->SetXY($x,$y+8);
+                $pdf->Write(10,$shareholders[$i]['StakeHolder']['address_2']);
+                $pdf->SetXY($x,$y+12);
+                $pdf->Write(10,$shareholders[$i]['StakeHolder']['nric']);
+                $pdf->SetXY($x,$y+16);
+                $pdf->Write(10,$shareholders[$i]['StakeHolder']['nationality']);
+                $pdf->SetXY($x+95.4,$y);
+                $pdf->Write(10,$data['SharesAlloted'][$i]);
+                $pdf->SetXY($x+86.4,$y+4);
+                $pdf->Write(10,"ORDINARY");
+                $y += 28;
+            }
+//            
+//
+             // page 3
+            $pdf->addPage(); // add page
+            $pageCount = $pdf->setSourceFile(WWW_ROOT . $this->template_path . "form24_IncreaseShares_template.pdf"); // load template
+            $tplIdx = $pdf->importPage(3); 
+            $pdf->useTemplate($tplIdx, 10, 10, 200); // place the template 
+           
+            // write company name
+            $pdf->SetFont('Helvetica','',10 );
+            $pdf->SetXY(58.5,28.7);
+            $pdf->Write(10, $company['Company']['name']);
+            $pdf->SetXY(57.5,36.0);
+            $pdf->Write(10,$company['Company']['register_number']);
+            
+
+             $pdf->SetFont('Helvetica','',6);
+            $pdf->SetXY(102.4,75.2);
+            $pdf->Write(10, $totalpaid); 
+            
+            $pdf->SetXY(102.4,83.3);
+            $pdf->Write(10, $totalpaid); 
+            $pdf->SetFont('Helvetica','',10 );
+            $pdf->SetXY(116.7,209.9);
+            $pdf->Write(10, $data['chairman']);
+             $pdf->Output(WWW_ROOT . $this->pdf_path . $pdf_name .'.pdf', 'F');
+             // save to database
+        //$this->Pdf->create();
+        $data_pdf = array(
+                'form_id' => 10,
+                'company_id' => $company['Company']['company_id'],
+                'pdf_url' => $this->pdf_path . $pdf_name .'.pdf',
+                'created_at' => date('Y-m-d H:i:s')
+        );
+        //$this->Pdf->save($data_pdf);
+        array_push($this->form_downloads,$data_pdf['pdf_url']);
+    }
+    public function generateForm11_IncreasingOfShares($data){
+         $pdf_name = 'Form11'.time();
+         $ids = $data['stakeholder'];
+        $company = $this->Company->find('first',array('conditions'=>array('company_id = '=> $data['company'])));
+            // generate PDF
+		$pdf = new FPDI(); // init
+		// create overlays
+		$pdf->SetFont('Helvetica','',9); // set font type
+		$pdf->SetTextColor(0, 0, 0); // set font color
+            // page 1
+            $pdf->addPage(); // add page
+            $pageCount = $pdf->setSourceFile(WWW_ROOT . $this->template_path . "form11_increaseOfShares_template.pdf"); // load template
+            $tplIdx = $pdf->importPage(1); 
+            $pdf->useTemplate($tplIdx, 10, 10, 200); // place the template 
+            // write company name
+            $pdf->SetFont('Helvetica','',9 );
+            $pdf->SetXY(60,74);
+            $pdf->Write(10, $company ['Company']['name']);
+            $pdf->SetXY(52,78);
+            $pdf->Write(10, $company['Company']['register_number']);
+            
+
+            $pdf->SetXY(68,108);
+            $pdf->Write(10, $data['maddress']);
+            $asIsStakeHolders = $this->StakeHolder->find("all",array(
+                    "conditions"=>array(
+                        "StakeHolder.company_id"=>$data['company']
+                    )
+                ));
+            $avail_ids=array();
+            foreach($asIsStakeHolders as $asIsStakeHolder){
+                array_push($avail_ids,$asIsStakeHolder['StakeHolder']['id']);
+            };
+            $asIsDirectors = $this->Director->find("all",array(
+                "conditions"=>array(
+                    "Director.Mode"=>"appointed",
+                    "Director.id"=>$avail_ids
+                )
+            ));
+            $name = "";
+            foreach($asIsDirectors as $director){
+                $name .= $director['StakeHolder']['name']." ";
+            }
+            $pdf->SetFont('Helvetica','',8);
+            $pdf->SetXY(43,164);
+            $pdf->Write(10, $name); 
+            $pdf->SetFont('Helvetica','',9 );
+            $pdf->SetXY(43,183);
+            $pdf->Write(10,"DIRECTORS");
+            $pdf->SetXY(140,204);
+            $pdf->Write(10,$data['nameDS']);
+            $pdf->SetXY(41.8,242.2);
+            $pdf->Write(10,$company['Company']['LOName']); 
+             $pdf->SetXY(43.8,246.8);
+            $pdf->Write(10,$company['Company']['LOAddressline1']); 
+            $pdf->SetXY(43.8,250.8);
+            $pdf->Write(10,$company['Company']['LOAddressline2']);
+             $pdf->SetXY(90,258.3);
+            $pdf->Write(10,$company['Company']['LOTelNo']); 
+             $pdf->SetXY(90,262.2);
+            $pdf->Write(10,$company['Company']['LOTelFax']); 
+            
+            
+            $pdf->Output(WWW_ROOT . $this->pdf_path . $pdf_name .'.pdf', 'F');
+
+		// save to database
+	
+		$data_pdf = array(
+			'form_id' => 7,
+			'company_id' => $data['company'],
+			'pdf_url' => $this->pdf_path . $pdf_name .'.pdf',
+			'created_at' => date('Y-m-d H:i:s')
+		);
+		
+                array_push($this->form_downloads,$data_pdf['pdf_url']);
+    }
+    public function generateEOGMIncreaseNonCashCapital($data){
+        $form_id = 8;
+        $ids = $data['stakeholder'];
+        $company = $this->Company->find('first',array('conditions'=>array('company_id = '=> $data['company'])));
+        $shareholders = $this->StakeHolder->find("all",array(
+            "conditions"=>array(
+                "StakeHolder.id"=>$ids
+            )
+        ));
+       $asIsStakeHolders = $this->StakeHolder->find("all",array(
+                    "conditions"=>array(
+                        "StakeHolder.company_id"=>$data['company']
+                    )
+                ));
+        $avail_ids=array();
+        foreach($asIsStakeHolders as $asIsStakeHolder){
+            array_push($avail_ids,$asIsStakeHolder['StakeHolder']['id']);
+        };
+        $asIsDirectors = $this->Director->find("all",array(
+            "conditions"=>array(
+                "Director.Mode"=>"appointed",
+                "Director.id"=>$avail_ids
+            )
+        ));
+
+        $name = "";
+        for($i = 0;$i < count($shareholders);$i++){
+            $name .= $shareholders[$i]['StakeHolder']['name'].",";
+
+        };
+        $pdf_name = 'EOGM'.time(); 
+        // generate PDF
+            $pdf = new FPDI(); // init
+            // create overlays
+            $pdf->SetFont('Helvetica','',12); // set font type
+            $pdf->SetTextColor(0, 0, 0); // set font color
+        // page 1
+        $pdf->addPage(); // add page
+        $pageCount = $pdf->setSourceFile(WWW_ROOT . $this->template_path . "EOGM_CapitalOtherThanCash_template.pdf"); // load template
+        $tplIdx = $pdf->importPage(1); // import page 1esolution_template
+        $pdf->useTemplate($tplIdx, null, null, 0,0,true); // place the template 
+        // write company name
+        $pdf->SetXY(83,19);
+        $pdf->Write(10,$company['Company']['name']);
+        $pdf->SetFont('Helvetica','',9);
+        $pdf->SetXY(114.5,23.2);
+        $pdf->Write(10, $company['Company']['register_number']);
+        $pdf->SetXY(88,34.4);
+        $pdf->Write(10,$company['Company']['address_1']." ".$company['Company']['address_2']);
+        $y = 160;
+            for($i = 0;$i<count($shareholders);$i=$i+2){
+                    $pdf->SetFont('Helvetica','',10);
+                        $x = 27;
+                        $pdf->SetXY($x,$y);
+                         $pdf->Line($x,$y-1,$x+40,$y-1);
+                        $pdf->Write(10,$shareholders[$i]['StakeHolder']['name']);
+                        if($i+1<count($shareholders)){
+                            $k = 140;
+                            //ChromePhp::log($y);
+                            $pdf->SetXY($k,$y);
+                             $pdf->Line($k,$y-1,$k+40,$y-1);
+                            $pdf->Write(10,$shareholders[$i+1]['StakeHolder']['name']);  
+                        }
+                $y += 30;
+            }
+         //page 2
+        $pdf->addPage(); // add page
+        $pageCount = $pdf->setSourceFile(WWW_ROOT . $this->template_path . "EOGM_CapitalOtherThanCash_template.pdf"); // load template
+        $tplIdx = $pdf->importPage(2); // import page 1esolution_template
+        $pdf->useTemplate($tplIdx, null, null, 0,0,true); // place the template 
+        // write company name
+        $pdf->SetXY(83,19);
+        $pdf->Write(10,$company['Company']['name']);
+        $pdf->SetFont('Helvetica','',9);
+        $pdf->SetXY(116,23.5);
+        $pdf->Write(10, $company['Company']['register_number']);
+        $pdf->SetXY(91,34.4);
+        $pdf->Write(10,$company['Company']['address_1']." ".$company['Company']['address_2']);
+        $pdf->SetFont('Helvetica','',11);
+         $pdf->SetXY(61.4,58.7);
+        $pdf->Write(10, $data['maddress']);
+         $pdf->SetXY(20,88);
+        $pdf->Write(10,$data['chairman']." was appointed Chairman of the meeting");
+        $pdf->SetXY(104,144);
+        $pdf->Write(10,$data['totalCash']);
+        $pdf->SetXY(142,148);
+        $pdf->Write(10,$data['totalSharesAlloted']);
+        $pdf->SetXY(86,180);
+        $pdf->Write(10,$data['totalSharesAlloted']);
+        $y = 170;
+        for($i = 0;$i<count($shareholders);$i=$i+1){
+
+
+            $y += 4;
+        }
+
+        $pdf->SetXY(89,246);
+        $pdf->Write(10, $data['chairman']);
+       // page 3
+        $pdf->addPage(); // add page
+        $pageCount = $pdf->setSourceFile(WWW_ROOT . $this->template_path . "EOGM_CapitalOtherThanCash_template.pdf"); // load template
+        $tplIdx = $pdf->importPage(3); // import page 1esolution_template
+        $pdf->useTemplate($tplIdx, null, null, 0,0,true); // place the template 
+        // write company name
+        $pdf->SetXY(83,18);
+        $pdf->Write(10,$company['Company']['name']);
+        $pdf->SetFont('Helvetica','',9);
+        $pdf->SetXY(116,23.7);
+        $pdf->Write(10, $company['Company']['register_number']);
+        $pdf->SetXY(89,33.9);
+        $pdf->Write(10,$company['Company']['address_1']." ".$company['Company']['address_2']);
+        $pdf->SetFont('Helvetica','',11);
+        $pdf->SetXY(41,62);
+        $pdf->Write(10,$data['maddress']);
+        $y = 90;
+        for($i = 0;$i<count($shareholders);$i=$i+1){
+                $x = 69;
+                $pdf->SetXY($x,$y);
+                $pdf->Write(10,$shareholders[$i]['StakeHolder']['name']);
+            $y += 30;
+        }
+        // page 4
+        $pdf->addPage(); // add page
+        $pageCount = $pdf->setSourceFile(WWW_ROOT . $this->template_path . "EOGM_CapitalOtherThanCash_template.pdf"); // load template
+        $tplIdx = $pdf->importPage(4); // import page 1esolution_template
+        $pdf->useTemplate($tplIdx, null, null, 0,0,true); // place the template 
+        // write company name
+        $pdf->SetXY(83,18);
+        $pdf->Write(10,$company['Company']['name']);
+        $pdf->SetXY(66.5,47);
+        $pdf->Write(10,$data['articleNo']);
+        $pdf->SetFont('Helvetica','',9);
+        $pdf->SetXY(115,23.5);
+        $pdf->Write(10, $company['Company']['register_number']);
+        $pdf->SetXY(91.5,34.5);
+        $pdf->Write(10,$company['Company']['address_1']." ".$company['Company']['address_2']);
+        $pdf->SetFont('Helvetica','',11);
+         $pdf->SetXY(20,74.1);
+        $pdf->Write(10, $data['maddress']);
+        $pdf->SetXY(104,136);
+        $pdf->Write(10,$data['totalCash']);
+        $pdf->SetXY(142,142);
+        $pdf->Write(10,$data['totalSharesAlloted']);
+        $pdf->SetXY(88,170);
+        $pdf->Write(10,$data['totalSharesAlloted']);
+        
+        $pdf->SetFont('Helvetica','',9);
+        $y = 240;
+            for($i = 0;$i<count($asIsDirectors);$i=$i+2){
+                    
+                        $x = 27;
+                        $pdf->SetXY($x,$y);
+                         $pdf->Line($x,$y-1,$x+40,$y-1);
+                        $pdf->Write(10,$asIsDirectors[$i]['StakeHolder']['name']);
+                        if($i+1<count($asIsDirectors)){
+                            $k = 140;
+                            //ChromePhp::log($y);
+                            $pdf->SetXY($k,$y);
+                             $pdf->Line($k,$y-1,$k+40,$y-1);
+                            $pdf->Write(10,$asIsDirectors[$i+1]['StakeHolder']['name']);  
+                        }
+                $y += 20;
+            }
+         // page 5
+        $pdf->addPage(); // add page
+        $pageCount = $pdf->setSourceFile(WWW_ROOT . $this->template_path . "EOGM_CapitalOtherThanCash_template.pdf"); // load template
+        $tplIdx = $pdf->importPage(5); // import page 1esolution_template
+        $pdf->useTemplate($tplIdx, null, null, 0,0,true); // place the template 
+        // write company name
+         $pdf->SetFont('Helvetica','',12);
+        $pdf->SetXY(81,13);
+        $pdf->Write(10,$company['Company']['name']);
+        $pdf->SetFont('Helvetica','',9);
+        $pdf->SetXY(117,18.2);
+        $pdf->Write(10, $company['Company']['register_number']);
+        $pdf->SetXY(92,27.8);
+        $pdf->Write(10,$company['Company']['address_1']." ".$company['Company']['address_2']);
+        $pdf->SetXY(29,38);
+        $pdf->Write(10,$name);
+        $pdf->SetFont('Helvetica','',10);
+         $pdf->SetXY(22,63);
+        $pdf->Write(10, $data['maddress']);
+        $pdf->SetXY(104,144.3);
+        $pdf->Write(10,$data['totalCash']);
+        $pdf->SetXY(142,150.2);
+        $pdf->Write(10,$data['totalSharesAlloted']);
+
+        $pdf->SetXY(18,198);
+        $pdf->Write(10,$data["chairman"]);
+        // page 6
+        $pdf->addPage(); // add page
+        $pageCount = $pdf->setSourceFile(WWW_ROOT . $this->template_path . "EOGM_CapitalOtherThanCash_template.pdf"); // load template
+        $tplIdx = $pdf->importPage(6); // import page 1esolution_template
+        $pdf->useTemplate($tplIdx, null, null, 0,0,true); // place the template 
+        // write company name
+         $pdf->SetFont('Helvetica','',12);
+        $pdf->SetXY(81,19);
+        $pdf->Write(10,$company['Company']['name']);
+        $pdf->SetFont('Helvetica','',9);
+        $pdf->SetXY(117,23.2);
+        $pdf->Write(10, $company['Company']['register_number']);
+        $pdf->SetFont('Helvetica','',10);
+        $pdf->SetXY(88,88);
+        $pdf->Write(10,$data['totalCash']);
+        $pdf->SetXY(129,93);
+        $pdf->Write(10,$data['totalSharesAlloted']);
+        $y = 175;
+            for($i = 0;$i<count($asIsDirectors);$i=$i+2){
+                    
+                        $x = 27;
+                        $pdf->SetXY($x,$y);
+                         $pdf->Line($x,$y-1,$x+40,$y-1);
+                        $pdf->Write(10,$asIsDirectors[$i]['StakeHolder']['name']);
+                        if($i+1<count($asIsDirectors)){
+                            $k = 140;
+                            //ChromePhp::log($y);
+                            $pdf->SetXY($k,$y);
+                             $pdf->Line($k,$y-1,$k+40,$y-1);
+                            $pdf->Write(10,$asIsDirectors[$i+1]['StakeHolder']['name']);  
+                        }
+                $y += 35;
+            }
+        $pdf->Output(WWW_ROOT . $this->pdf_path . $pdf_name .'.pdf', 'F');
+        $data_pdf = array(
+            'form_id' => $form_id,
+            'company_id' => $company['Company']['company_id'],
+            'pdf_url' => $this->pdf_path . $pdf_name .'.pdf',
+            'created_at' => date('Y-m-d H:i:s')
+        );
+
+     array_push($this->form_downloads,$data_pdf['pdf_url']);
+    }
+    public function generateForm11IncreaseNonCashCapital($data){
+        $pdf_name = 'Form11'.time();
+         $ids = $data['stakeholder'];
+        $company = $this->Company->find('first',array('conditions'=>array('company_id = '=> $data['company'])));
+            // generate PDF
+		$pdf = new FPDI(); // init
+		// create overlays
+		$pdf->SetFont('Helvetica','',9); // set font type
+		$pdf->SetTextColor(0, 0, 0); // set font color
+            // page 1
+            $pdf->addPage(); // add page
+            $pageCount = $pdf->setSourceFile(WWW_ROOT . $this->template_path . "form11_nonCashCapital_template.pdf"); // load template
+            $tplIdx = $pdf->importPage(1); 
+            $pdf->useTemplate($tplIdx, 10, 10, 200); // place the template 
+            // write company name
+            $pdf->SetFont('Helvetica','',9 );
+            $pdf->SetXY(60,74);
+            $pdf->Write(10, $company ['Company']['name']);
+            $pdf->SetXY(52,78);
+            $pdf->Write(10, $company['Company']['register_number']);
+            
+
+            $pdf->SetXY(68,108);
+            $pdf->Write(10, $data['maddress']);
+            $asIsStakeHolders = $this->StakeHolder->find("all",array(
+                    "conditions"=>array(
+                        "StakeHolder.company_id"=>$data['company']
+                    )
+                ));
+            $avail_ids=array();
+            foreach($asIsStakeHolders as $asIsStakeHolder){
+                array_push($avail_ids,$asIsStakeHolder['StakeHolder']['id']);
+            };
+            $asIsDirectors = $this->Director->find("all",array(
+                "conditions"=>array(
+                    "Director.Mode"=>"appointed",
+                    "Director.id"=>$avail_ids
+                )
+            ));
+            $name = "";
+            foreach($asIsDirectors as $director){
+                $name .= $director['StakeHolder']['name']." ";
+            }
+            $pdf->SetFont('Helvetica','',8);
+            $pdf->SetXY(45,150);
+            $pdf->Write(10, $name); 
+            $pdf->SetFont('Helvetica','',9 );
+            $pdf->SetXY(46,166.3);
+            $pdf->Write(10,"DIRECTORS");
+            $pdf->SetXY(140,193);
+            $pdf->Write(10,$data['nameDS']);
+            $pdf->SetXY(41.8,230.2);
+            $pdf->Write(10,$company['Company']['LOName']); 
+             $pdf->SetXY(43.8,235.8);
+            $pdf->Write(10,$company['Company']['LOAddressline1']); 
+            $pdf->SetXY(43.8,239.8);
+            $pdf->Write(10,$company['Company']['LOAddressline2']);
+             $pdf->SetXY(90,247.3);
+            $pdf->Write(10,$company['Company']['LOTelNo']); 
+             $pdf->SetXY(90,250.2);
+            $pdf->Write(10,$company['Company']['LOTelFax']); 
+            
+            
+            $pdf->Output(WWW_ROOT . $this->pdf_path . $pdf_name .'.pdf', 'F');
+
+		// save to database
+	
+		$data_pdf = array(
+			'form_id' => 7,
+			'company_id' => $data['company'],
+			'pdf_url' => $this->pdf_path . $pdf_name .'.pdf',
+			'created_at' => date('Y-m-d H:i:s')
+		);
+		
+                array_push($this->form_downloads,$data_pdf['pdf_url']);
+    }
+    public function generateForm24IncreaseNonCashCapital($data){
+        $pdf_name = 'Form24'.time(); 
+        $ids = $data['stakeholder'];
+        $company = $this->Company->find('first',array('conditions'=>array('company_id = '=> $data['company'])));
+        $shareholders = $this->StakeHolder->find("all",array(
+            "conditions"=>array(
+                "StakeHolder.id"=>$ids
+            )
+        ));
+       $asIsStakeHolders = $this->StakeHolder->find("all",array(
+                    "conditions"=>array(
+                        "StakeHolder.company_id"=>$data['company']
+                    )
+                ));
+        $avail_ids=array();
+        foreach($asIsStakeHolders as $asIsStakeHolder){
+            array_push($avail_ids,$asIsStakeHolder['StakeHolder']['id']);
+        };
+        $asIsDirectors = $this->Director->find("all",array(
+            "conditions"=>array(
+                "Director.Mode"=>"appointed",
+                "Director.id"=>$avail_ids
+            )
+        ));
+
+        $name = "";
+        for($i = 0;$i < count($shareholders);$i++){
+            $name .= $shareholders[$i]['StakeHolder']['name'].",";
+
+        };
+            // generate PDF
+		$pdf = new FPDI(); // init
+		// create overlays
+		$pdf->SetFont('Helvetica','',9); // set font type
+		$pdf->SetTextColor(0, 0, 0); // set font color
+            // page 1
+            $pdf->addPage(); // add page
+            $pageCount = $pdf->setSourceFile(WWW_ROOT . $this->template_path . "Form24_NonCashCapital_template.pdf"); // load template
+            $tplIdx = $pdf->importPage(1); 
+            $pdf->useTemplate($tplIdx, 10, 10, 200); // place the template 
+           
+            // write company name
+            $pdf->SetFont('Helvetica','',10 );
+            $pdf->SetXY(58.1,58.9);
+            $pdf->Write(10, $company['Company']['name']);
+            $pdf->SetXY(51.2,62.9);
+            $pdf->Write(10, $company['Company']['register_number']);
+            $pdf->SetXY(111,167);
+            $pdf->Write(10,$data['totalCash']);
+            $pdf->SetXY(113.3,172);
+            $pdf->Write(10,$data['eachShare']);            
+            $pdf->SetXY(113.0,177.6);
+            $pdf->Write(10,$data['eachShare']); 
+            $pdf->SetXY(86,189);
+            $pdf->Write(10,$data['totalCash']);
+            $pdf->SetXY(57.3,193);
+            $pdf->Write(10,$data['totalSharesAlloted']);
+             $pdf->SetXY(41.8,234.4);
+            $pdf->Write(10,$company['Company']['LOName']); 
+             $pdf->SetXY(43.8,238.9);
+            $pdf->Write(10,$company['Company']['LOAddressline1']); 
+            $pdf->SetXY(43.8,241.9);
+            $pdf->Write(10,$company['Company']['LOAddressline2']);
+             $pdf->SetXY(84.7,246.3);
+            $pdf->Write(10,$company['Company']['LOTelNo']); 
+             $pdf->SetXY(84.7,250.2);
+            $pdf->Write(10,$company['Company']['LOTelFax']); 
+            
+             // page 2
+            $pdf->addPage(); // add page
+            $pageCount = $pdf->setSourceFile(WWW_ROOT . $this->template_path . "Form24_NonCashCapital_template.pdf"); // load template
+            $tplIdx = $pdf->importPage(2); 
+            $pdf->useTemplate($tplIdx, 10, 10, 200); // place the template 
+           
+            // write company name
+            $pdf->SetFont('Helvetica','',10 );
+            $pdf->SetXY(57.8,32.9);
+            $pdf->Write(10, $company['Company']['name']);
+            $pdf->SetXY(50.9,40.0);
+            $pdf->Write(10, $company['Company']['register_number']);
+            $y=75.2;
+            $x=36.8;
+            for($i = 0;$i<count($shareholders);$i++){
+                $pdf->SetXY($x,$y);
+                $pdf->Write(10,$shareholders[$i]['StakeHolder']['name']);
+                $pdf->SetXY($x,$y+4);
+                $pdf->Write(10,$shareholders[$i]['StakeHolder']['address_1']);
+                $pdf->SetXY($x,$y+8);
+                $pdf->Write(10,$shareholders[$i]['StakeHolder']['address_2']);
+                $pdf->SetXY($x,$y+12);
+                $pdf->Write(10,$shareholders[$i]['StakeHolder']['nric']);
+                $pdf->SetXY($x,$y+16);
+                $pdf->Write(10,$shareholders[$i]['StakeHolder']['nationality']);
+                $pdf->SetXY($x+115.4,$y);
+                $pdf->Write(10,$data['SharesAlloted'][$i]);
+                $pdf->SetXY($x+105.4,$y+4);
+                $pdf->Write(10,"ORDINARY");
+                $y += 28;
+            }
+//            
+////
+             // page 3
+            $pdf->addPage(); // add page
+            $pageCount = $pdf->setSourceFile(WWW_ROOT . $this->template_path . "form24_IncreaseShares_template.pdf"); // load template
+            $tplIdx = $pdf->importPage(3); 
+            $pdf->useTemplate($tplIdx, 10, 10, 200); // place the template 
+           
+            // write company name
+            $pdf->SetFont('Helvetica','',10 );
+            $pdf->SetXY(58.5,28.7);
+            $pdf->Write(10, $company['Company']['name']);
+            $pdf->SetXY(57.5,36.0);
+            $pdf->Write(10,$company['Company']['register_number']);
+            
+
+             $pdf->SetFont('Helvetica','',8);
+            $pdf->SetXY(102.4,75.2);
+            $pdf->Write(10, $data['totalIssuedShare']); 
+            
+            $pdf->SetXY(102.4,83.3);
+            $pdf->Write(10, $data['totalIssuedShare']);  
+            $pdf->SetFont('Helvetica','',10 );
+            $pdf->SetXY(116.7,209.9);
+            $pdf->Write(10, $data['chairman']);
+             $pdf->Output(WWW_ROOT . $this->pdf_path . $pdf_name .'.pdf', 'F');
+             // save to database
+        //$this->Pdf->create();
+        $data_pdf = array(
+                'form_id' => 10,
+                'company_id' => $company['Company']['company_id'],
+                'pdf_url' => $this->pdf_path . $pdf_name .'.pdf',
+                'created_at' => date('Y-m-d H:i:s')
+        );
+        //$this->Pdf->save($data_pdf);
+        array_push($this->form_downloads,$data_pdf['pdf_url']);
+    }
+    public function generateForm25IncreaseNonCashCapital($data){
+        $pdf_name = 'Form25'.time(); 
+        $ids = $data['stakeholder'];
+        $company = $this->Company->find('first',array('conditions'=>array('company_id = '=> $data['company'])));
+        $shareholders = $this->StakeHolder->find("all",array(
+            "conditions"=>array(
+                "StakeHolder.id"=>$ids
+            )
+        ));
+       $asIsStakeHolders = $this->StakeHolder->find("all",array(
+                    "conditions"=>array(
+                        "StakeHolder.company_id"=>$data['company']
+                    )
+                ));
+        $avail_ids=array();
+        foreach($asIsStakeHolders as $asIsStakeHolder){
+            array_push($avail_ids,$asIsStakeHolder['StakeHolder']['id']);
+        };
+        $asIsDirectors = $this->Director->find("all",array(
+            "conditions"=>array(
+                "Director.Mode"=>"appointed",
+                "Director.id"=>$avail_ids
+            )
+        ));
+
+        $name = "";
+        for($i = 0;$i < count($shareholders);$i++){
+            $name .= $shareholders[$i]['StakeHolder']['name'].",";
+
+        };
+            // generate PDF
+		$pdf = new FPDI(); // init
+		// create overlays
+		$pdf->SetFont('Helvetica','',9); // set font type
+		$pdf->SetTextColor(0, 0, 0); // set font color
+            // page 1
+            $pdf->addPage(); // add page
+            $pageCount = $pdf->setSourceFile(WWW_ROOT . $this->template_path . "form25_IncreaseNonCashCapital_template.pdf"); // load template
+            $tplIdx = $pdf->importPage(1); 
+            $pdf->useTemplate($tplIdx, 10, 10, 200); // place the template 
+           
+            // write company name
+            $pdf->SetFont('Helvetica','',10 );
+            $pdf->SetXY(58.1,68.3);
+            $pdf->Write(10, $company['Company']['name']);
+            $pdf->SetXY(51.2,72.9);
+            $pdf->Write(10, $company['Company']['register_number']);
+             $pdf->SetXY(41.8,238.4);
+            $pdf->Write(10,$company['Company']['LOName']); 
+             $pdf->SetXY(43.8,244.9);
+            $pdf->Write(10,$company['Company']['LOAddressline1']); 
+            $pdf->SetXY(43.8,247.9);
+            $pdf->Write(10,$company['Company']['LOAddressline2']);
+             $pdf->SetXY(90.7,250.8);
+            $pdf->Write(10,$company['Company']['LOTelNo']); 
+             $pdf->SetXY(90.7,255.8);
+            $pdf->Write(10,$company['Company']['LOTelFax']); 
+            
+             // page 2
+            $pdf->addPage(); // add page
+            $pageCount = $pdf->setSourceFile(WWW_ROOT . $this->template_path . "form25_IncreaseNonCashCapital_template.pdf"); // load template
+            $tplIdx = $pdf->importPage(2); 
+            $pdf->useTemplate($tplIdx, 10, 10, 200); // place the template 
+           
+            // write company name
+            $pdf->SetFont('Helvetica','',10 );
+            $pdf->SetXY(59.8,34.9);
+            $pdf->Write(10, $company['Company']['name']);
+            $pdf->SetXY(50.9,39.0);
+            $pdf->Write(10, $company['Company']['register_number']);
+            $pdf->SetXY(99,96);
+            $pdf->Write(10,$data['totalCash']);
+            $pdf->SetXY(139,100);
+            $pdf->Write(10,$data['totalSharesAlloted']);
+            $pdf->SetXY(83,130.5);
+            $pdf->Write(10,$data['totalSharesAlloted']);
+             // page 3
+            $pdf->addPage(); // add page
+            $pageCount = $pdf->setSourceFile(WWW_ROOT . $this->template_path . "form25_IncreaseNonCashCapital_template.pdf"); // load template
+            $tplIdx = $pdf->importPage(3); 
+            $pdf->useTemplate($tplIdx, 10, 10, 200); // place the template 
+           
+            // write company name
+            $pdf->SetFont('Helvetica','',10 );
+            $pdf->SetXY(58.9,36.1);
+            $pdf->Write(10, $company['Company']['name']);
+            $pdf->SetXY(50.9,40.1);
+            $pdf->Write(10,$company['Company']['register_number']);
+            $pdf->SetFont('Helvetica','',10 );
+            $pdf->SetXY(141.7,176.9);
+            $pdf->Write(10, $data['chairman']);
+             $pdf->Output(WWW_ROOT . $this->pdf_path . $pdf_name .'.pdf', 'F');
+             // save to database
+        //$this->Pdf->create();
+        $data_pdf = array(
+                'form_id' => 32,
+                'company_id' => $company['Company']['company_id'],
+                'pdf_url' => $this->pdf_path . $pdf_name .'.pdf',
+                'created_at' => date('Y-m-d H:i:s')
+        );
+        //$this->Pdf->save($data_pdf);
+        array_push($this->form_downloads,$data_pdf['pdf_url']);
+    }
+    public function generateLetterAllotmentIncreaseNonCashCapital($data){
+        
+    }
 }

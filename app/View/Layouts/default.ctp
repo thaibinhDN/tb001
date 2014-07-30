@@ -124,6 +124,10 @@
             echo $this->Html->script('allotedToDirector.js');
         }else if ($controller=="FunctionCorps" && $action=="firstFinalDividend") {
             echo $this->Html->script('firstFinalDividend.js');
+        }else if ($controller=="FunctionCorps" && $action=="increaseOfShare") {
+            echo $this->Html->script('increaseOfShare.js');
+        }else if ($controller=="FunctionCorps" && $action=="increaseNonCashCapital") {
+            echo $this->Html->script('increaseNonCashCapital.js');
         }
         else{
             echo $this->Html->script('application.js');

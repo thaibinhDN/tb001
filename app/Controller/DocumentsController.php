@@ -8,7 +8,7 @@
 include 'ChromePhp.php';
 class DocumentsController extends AppController{
     public $components = array('Session', 'Paginator');
-	public $uses = array('FirstFinalDividend','AllotDirectorFee','NormalStruckOff','ResignAuditor','PropertyDisposal','SalesAssetBusiness','ChangeOfRegisteredAddress','ChangeOfPassport','ChangeOfMAA','OptionToPurchase','LoanResolution','ClosureBankAcc','ChangeFinancialYear','IncorporationDocument','ChangeCompanyName','ChangeBankSignatorUob','AppointSecretaryAuditor','AppointResignSecretary','Secretary','Event','User','Company', 'Director','FunctionCorp','Document','AppointResignDirector','StakeHolder');
+	public $uses = array('IncreaseOfShare','FirstFinalDividend','AllotDirectorFee','NormalStruckOff','ResignAuditor','PropertyDisposal','SalesAssetBusiness','ChangeOfRegisteredAddress','ChangeOfPassport','ChangeOfMAA','OptionToPurchase','LoanResolution','ClosureBankAcc','ChangeFinancialYear','IncorporationDocument','ChangeCompanyName','ChangeBankSignatorUob','AppointSecretaryAuditor','AppointResignSecretary','Secretary','Event','User','Company', 'Director','FunctionCorp','Document','AppointResignDirector','StakeHolder');
     public function beforeFilter() {
 		parent::beforeFilter();
 
@@ -181,6 +181,13 @@ class DocumentsController extends AppController{
                 )
             ));
              $function = "FirstFinalDividend";
+        }else if ($function_id == 19){
+             $document = $this->IncreaseOfShare->find("first",array(
+                "conditions"=>array(
+                    "IncreaseOfShare.document_id"=>$document_id
+                )
+            ));
+             $function = "IncreaseOfShare";
         }
       
       
@@ -426,6 +433,16 @@ class DocumentsController extends AppController{
             $this->Document->saveField($type ,null);
              $function = "FirstFinalDividend";
              $action = "FirstFinalDividend";
+        }else if ($function_id == 19){
+            $document = $this->IncreaseOfShare->find("first",array(
+                "conditions"=>array(
+                    "IncreaseOfShare.document_id"=>$document_id
+                )
+        ));
+            $this->Document->id = $document_id;
+            $this->Document->saveField($type ,null);
+             $function = "IncreaseOfShare";
+             $action = "IncreaseOfShare";
         }
 
          $user = $this->User->find("first",array(
@@ -646,6 +663,16 @@ class DocumentsController extends AppController{
              $this->Document->saveField("status","deleted");
              $function = "FirstFinalDividend";
              $action = "FirstFinalDividend";
+        }else if ($function_id == 19){
+            $document = $this->IncreaseOfShare->find("first",array(
+              "conditions"=>array(
+                  "IncreaseOfShare.document_id"=>$document_id
+              )
+          ));
+            $this->Document->id=$document_id;
+             $this->Document->saveField("status","deleted");
+             $function = "IncreaseOfShare";
+             $action = "IncreaseOfShare";
         }
        
         $user = $this->User->find("first",array(
@@ -910,6 +937,18 @@ class DocumentsController extends AppController{
             ));
             $description = "Upload before-submission documents[Function: FirstFinalDividend]";
             $action = "FirstFinalDividend";
+        }else if ($function_id == 19){
+            $this->Document->id = $data['document_id'];
+            $this->Document->saveField('acra_before',$acra);
+            $this->Document->saveField('before',$filePath);
+            $this->Document->saveField('before_time',date('Y-m-d H:i:s'));
+            $ccn = $this->IncreaseOfShare->find("first",array(
+                    "conditions"=>array(
+                        "IncreaseOfShare.document_id" => $data['document_id']
+                    )
+            ));
+            $description = "Upload before-submission documents[Function: IncreaseOfShare]";
+            $action = "IncreaseOfShare";
         }
          
          $user = $this->User->find("first",array(
@@ -1171,6 +1210,18 @@ class DocumentsController extends AppController{
             ));
             $description = "Upload after-submission documents[Function: FirstFinalDividend]";
             $action = "FirstFinalDividend";
+        }else if ($function_id == 19){
+            $this->Document->id = $data['document_id'];
+            $this->Document->saveField('acra_after',$acra);
+            $this->Document->saveField('after',$filePath);
+            $this->Document->saveField('after_time',date('Y-m-d H:i:s'));
+            $ccn = $this->IncreaseOfShare->find("first",array(
+                    "conditions"=>array(
+                        "IncreaseOfShare.document_id" => $data['document_id']
+                    )
+            ));
+            $description = "Upload after-submission documents[Function: IncreaseOfShare]";
+            $action = "IncreaseOfShare";
         }
           $user = $this->User->find("first",array(
                 "conditions"=>array(
@@ -2362,4 +2413,49 @@ class DocumentsController extends AppController{
 	$this->set("company",$data['company']); 
 	$this->set("functionCorp",$data['functionCorp']); 
     }   
+    public function increaseOfShare() {
+        $data = $this->request->data;
+            if(isset($data['company'])){  
+                 $this->Session->write("sessionData",$data);
+            }else{
+                $session_data = $this->Session->read("sessionData");
+                $data = $session_data; 
+            }
+            $docs = $this->Document->find("all",array(
+                         'conditions'=>array(
+                                'Document.company_id'=>$data['company'],
+                                'Document.function_id'=>$data['functionCorp'],
+                                "Document.status"=>"Available",
+                         )
+                ));
+               
+                $ids = array();
+                foreach($docs as $doc){
+                    array_push($ids,$doc['Document']['id']);  
+                }
+
+            $this->Paginator->settings= array(
+                        'conditions'=>array(
+                                "Document.id"=>$ids,
+                          
+                        ),
+                        'limit'=>6, 
+                       'order' => array(
+                            'Document.created_at' => 'DESC'
+                            ),
+            );           
+		 $this->set("company",$data['company'] );
+		 $this->set("functionCorp",$data['functionCorp']);
+
+        $documents = $this->Paginator->paginate('Document');
+        $view_data = $this->IncreaseOfShare->find("all",array(
+            "conditions"=>array(
+                "IncreaseOfShare.document_id"=>$ids
+            )
+        ));
+        $this->set("documents",$documents);
+        $this->set("view_data",$view_data); 
+	$this->set("company",$data['company']); 
+	$this->set("functionCorp",$data['functionCorp']); 
+    }
 }

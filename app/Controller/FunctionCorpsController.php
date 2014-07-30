@@ -9,7 +9,7 @@ App::import('Controller', 'Forms');
 
 class FunctionCorpsController extends AppController{
     public $uses = array('OptionToPurchase','LoanResolution','ClosureBankAcc','ChangeFinancialYear','ChangeCompanyName','ChangeBankSignatorUob','AppointSecretaryAuditor','AppointResignSecretary','AppointResignDirector','StakeHolder','Secretary',
-                        'FirstFinalDividend','AllotDirectorFee','NormalStruckOff','ResignAuditor','Auditor','PropertyDisposal','SalesAssetBusiness','ChangeOfRegisteredAddress','FunctionCorps','User','Event','Document','Form', 'Company', 'Director','Pdf','ChangeOfMAA','ZipFile','ChangeOfPassport');
+                        'IncreaseOfShare','FirstFinalDividend','AllotDirectorFee','NormalStruckOff','ResignAuditor','Auditor','PropertyDisposal','SalesAssetBusiness','ChangeOfRegisteredAddress','FunctionCorps','User','Event','Document','Form', 'Company', 'Director','Pdf','ChangeOfMAA','ZipFile','ChangeOfPassport');
     function generateFunction(){
         $functions = $this->Function->find('all');
     }
@@ -2209,5 +2209,141 @@ class FunctionCorpsController extends AppController{
             "controller"=>'forms',
             "action"=>'index',
         ));
+    }
+    public function increaseOfShare() {
+        $data = $this->request->data;
+        $stakeholders = $this->StakeHolder->find("all",array(
+            "conditions"=>array(
+                "StakeHolder.company_id"=>$data['company'],
+                    "StakeHolder.Shareholder"=>1
+                )
+            )
+        );
+        $this->set("stakeholders",$stakeholders);
+        $this->set("company",$data['company']);
+    }
+    public function generateIncreaseOfShare(){
+        $data = $this->request->data;
+        //ChromePhp::log($data);
+        $form = new FormsController();
+       $form->generateEOGMIncreaseOfShares($data);
+       $form->generateLetterAllotmentIncreaseOfShares($data);
+      $form->generateForm24_IncreasingOfShares($data);
+       $form->generateForm11_IncreasingOfShares($data);
+       $form->generateIndemnityLetter($data);
+        $this->Document->create();
+        $hash_value = sha1($data['company']."generateIncreaseOfShare".date('Y-m-d H:i:s'));
+        $document = array(
+            'company_id'=>$data['company'],
+            'function_id'=>19,
+            'created_at'=>date('Y-m-d H:i:s'),
+            'unique_key'=>$hash_value,
+            'status'=>"Available"
+        );
+        $this->Document->save($document);
+        $data_IncreaseOfShare= array(
+                "document_id"=> $this->Document->id,
+                //"price"=>$data['price']
+                //"event_id"=>null,
+                //Add later
+         );
+        
+        $this->IncreaseOfShare->create();
+
+        $this->IncreaseOfShare->save($data_IncreaseOfShare);
+        
+        $files_to_zip = $form->form_downloads;
+         $time = date('Y-m-d H-i-s');
+        $this->create_zip($files_to_zip,APP . WEBROOT_DIR . DS .'files' . DS . 'zip' . DS . 'IncreaseOfShare'.$time.'.zip');
+        foreach($files_to_zip as $file){ //Delete files after zipping
+            unlink($file);
+        };
+        //Create zip file
+        $this->ZipFile->create();
+        $zip_file = array(
+            "function_id"=>19,
+            "company_id"=>$data['company'],
+            "path"=>'IncreaseOfShare'.$time.'.zip',
+            "created_at"=>date('Y-m-d H:i:s'),
+        );
+        $this->ZipFile->save($zip_file);
+        $this->Session->setFlash(
+		    'Forms are generated!',
+		    'default',
+		    array('class' => 'alert alert-success')
+		);
+        return $this->redirect(array(
+            "controller"=>'forms',
+            "action"=>'index',
+        ));
+    }
+     public function increaseNonCashCapital() {
+        $data = $this->request->data;
+        $stakeholders = $this->StakeHolder->find("all",array(
+            "conditions"=>array(
+                "StakeHolder.company_id"=>$data['company'],
+                    "StakeHolder.Shareholder"=>1
+                )
+            )
+        );
+        $this->set("stakeholders",$stakeholders);
+        $this->set("company",$data['company']); 
+     }
+    public function generateIncreaseNonCashCapital() {
+         $data = $this->request->data;
+        //ChromePhp::log($data);
+        $form = new FormsController();
+//       $form->generateEOGMIncreaseNonCashCapital($data);
+//       $form->generateForm11IncreaseNonCashCapital($data);
+       //$form->generateForm24IncreaseNonCashCapital($data);
+//       $form->generateForm25IncreaseNonCashCapital($data);
+       //$form->generateLetterAllotmentIncreaseNonCashCapital($data);
+//       $form->generateIndemnityLettgenerateLetterAllotmentIncreaseNonCashCapitaler($data);
+       
+//        $this->Document->create();
+//        $hash_value = sha1($data['company']."generateIncreaseOfShare".date('Y-m-d H:i:s'));
+//        $document = array(
+//            'company_id'=>$data['company'],
+//            'function_id'=>19,
+//            'created_at'=>date('Y-m-d H:i:s'),
+//            'unique_key'=>$hash_value,
+//            'status'=>"Available"
+//        );
+//        $this->Document->save($document);
+//        $data_IncreaseOfShare= array(
+//                "document_id"=> $this->Document->id,
+//                //"price"=>$data['price']
+//                //"event_id"=>null,
+//                //Add later
+//         );
+//        
+//        $this->IncreaseOfShare->create();
+//
+//        $this->IncreaseOfShare->save($data_IncreaseOfShare);
+//        
+//        $files_to_zip = $form->form_downloads;
+//         $time = date('Y-m-d H-i-s');
+//        $this->create_zip($files_to_zip,APP . WEBROOT_DIR . DS .'files' . DS . 'zip' . DS . 'IncreaseOfShare'.$time.'.zip');
+//        foreach($files_to_zip as $file){ //Delete files after zipping
+//            unlink($file);
+//        };
+//        //Create zip file
+//        $this->ZipFile->create();
+//        $zip_file = array(
+//            "function_id"=>19,
+//            "company_id"=>$data['company'],
+//            "path"=>'IncreaseOfShare'.$time.'.zip',
+//            "created_at"=>date('Y-m-d H:i:s'),
+//        );
+//        $this->ZipFile->save($zip_file);
+//        $this->Session->setFlash(
+//		    'Forms are generated!',
+//		    'default',
+//		    array('class' => 'alert alert-success')
+//		);
+//        return $this->redirect(array(
+//            "controller"=>'forms',
+//            "action"=>'index',
+//        ));
     }
 }
