@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 30, 2014 at 02:59 PM
+-- Generation Time: Jul 31, 2014 at 09:59 AM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -347,7 +347,7 @@ CREATE TABLE IF NOT EXISTS `documents` (
   PRIMARY KEY (`id`),
   KEY `documents_fk1` (`company_id`),
   KEY `documents_fk2` (`function_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=244 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=247 ;
 
 --
 -- Dumping data for table `documents`
@@ -362,7 +362,7 @@ INSERT INTO `documents` (`id`, `company_id`, `function_id`, `unique_key`, `befor
 (235, 121, 17, '0ba47e3785a1912ff7beaad60af343357ed21ac6', '', '', '2014-07-28 14:13:15', '2014-07-28 14:13:39', '45678', '45678', 'Available', '2014-07-28 14:08:20'),
 (236, 121, 17, '3ee3aff8910fb410d09f7c1f6f995c5a8bb04728', '', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '', '', 'Available', '2014-07-28 17:42:40'),
 (241, 121, 18, '1df9ec6905c09fc353d376b0e417f60d4b44fd2c', '', '', '2014-07-28 23:53:35', '0000-00-00 00:00:00', '45678', '', 'deleted', '2014-07-28 23:52:56'),
-(243, 121, 19, '73cb015ca9d7bbf79818ad6c9bf074fd724b20d8', '', '', '2014-07-29 18:40:11', '2014-07-29 18:40:25', '45678', '45678', 'Available', '2014-07-29 18:29:26');
+(246, 121, 20, '597179f74f404b15b00cf1c6840c7d8199297f7c', '', '', '2014-07-31 14:56:30', '2014-07-31 14:58:16', '45678', '45678', 'deleted', '2014-07-31 12:58:56');
 
 -- --------------------------------------------------------
 
@@ -383,7 +383,7 @@ CREATE TABLE IF NOT EXISTS `events` (
   KEY `events_fk2` (`company_id`),
   KEY `events_fk3` (`user_id`),
   KEY `events_fk1` (`function_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=225 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=238 ;
 
 --
 -- Dumping data for table `events`
@@ -457,7 +457,20 @@ INSERT INTO `events` (`id`, `function_id`, `company_id`, `user_id`, `created_tim
 (221, 19, 121, 1, '2014-07-29 18:40:25', 'Upload after-submission documents[Function: IncreaseOfShare]', '', ''),
 (222, 19, 121, 1, '2014-07-29 18:40:27', ' Download after submission documentsIncreaseOfShare', '', ''),
 (223, 19, 121, 1, '2014-07-29 18:40:29', 'Delete after-submission documents IncreaseOfShare', '', ''),
-(224, 19, 121, 1, '2014-07-29 18:41:14', 'Delete  set of documents fromIncreaseOfShare', '', '');
+(224, 19, 121, 1, '2014-07-29 18:41:14', 'Delete  set of documents fromIncreaseOfShare', '', ''),
+(225, 20, 121, 1, '2014-07-31 14:53:47', 'Upload before-submission documents[Function: IncreasePaidUpCapital]', '', ''),
+(226, 20, 121, 1, '2014-07-31 14:56:15', 'Download before submission documents IncreasePaidUpCapital', '', ''),
+(227, 20, 121, 1, '2014-07-31 14:56:17', 'Download before submission documents IncreasePaidUpCapital', '', ''),
+(228, 20, 121, 1, '2014-07-31 14:56:23', 'Delete before-submission documents IncreasePaidUpCapital', '', ''),
+(229, 20, 121, 1, '2014-07-31 14:56:30', 'Upload before-submission documents[Function: IncreasePaidUpCapital]', '', ''),
+(230, 20, 121, 1, '2014-07-31 14:56:32', 'Download before submission documents IncreasePaidUpCapital', '', ''),
+(231, 20, 121, 1, '2014-07-31 14:56:34', 'Delete before-submission documents IncreasePaidUpCapital', '', ''),
+(232, 20, 121, 1, '2014-07-31 14:56:52', 'Upload after-submission documents[Function: IncreasePaidUpCapital]', '', ''),
+(233, 20, 121, 1, '2014-07-31 14:57:06', 'Upload after-submission documents[Function: IncreasePaidUpCapital]', '', ''),
+(234, 20, 121, 1, '2014-07-31 14:58:16', 'Upload after-submission documents[Function: IncreasePaidUpCapital]', '', ''),
+(235, 20, 121, 1, '2014-07-31 14:58:17', ' Download after submission documentsIncreasePaidUpCapital', '', ''),
+(236, 20, 121, 1, '2014-07-31 14:58:19', 'Delete after-submission documents IncreasePaidUpCapital', '', ''),
+(237, 20, 121, 1, '2014-07-31 14:58:21', 'Delete  set of documents fromIncreasePaidUpCapital', '', '');
 
 -- --------------------------------------------------------
 
@@ -567,7 +580,7 @@ INSERT INTO `function_corps` (`function_id`, `description`, `function_name`) VAL
 (17, 'Alloted to 2 PERSON-Direcotrs'' Fee', 'AllotDirectorFee'),
 (18, 'First Final | Interim Dividend', 'firstFinalDividend'),
 (19, 'Increase Of Shares', 'increaseOfShare\r\n'),
-(20, 'Increase Capital Paid Up Other than Cash', 'increaseNonCashCapital');
+(20, 'Increase Capital Paid Up Other than Cash', 'IncreasePaidUpCapital');
 
 -- --------------------------------------------------------
 
@@ -603,12 +616,23 @@ CREATE TABLE IF NOT EXISTS `increase_of_share` (
   PRIMARY KEY (`document_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+-- --------------------------------------------------------
+
 --
--- Dumping data for table `increase_of_share`
+-- Table structure for table `increase_paidup_capital`
 --
 
-INSERT INTO `increase_of_share` (`document_id`) VALUES
-(243);
+CREATE TABLE IF NOT EXISTS `increase_paidup_capital` (
+  `document_id` int(11) NOT NULL,
+  PRIMARY KEY (`document_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `increase_paidup_capital`
+--
+
+INSERT INTO `increase_paidup_capital` (`document_id`) VALUES
+(246);
 
 -- --------------------------------------------------------
 
@@ -864,7 +888,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`username`, `password`, `firstName`, `lastName`, `id`, `token`, `lastLogin`) VALUES
-('dreamsmart', '2c5778d53d54d71f463640ff6a60147fa449cfdc', 'Jayden', 'Do', 1, '3e698382a2f43221258305d154b251ca95c2f385', '2014-07-30 10:36:16');
+('dreamsmart', '2c5778d53d54d71f463640ff6a60147fa449cfdc', 'Jayden', 'Do', 1, '258a504a485d52d1b4012035ee4f21778a5b6a0a', '2014-07-31 11:42:39');
 
 -- --------------------------------------------------------
 
@@ -881,7 +905,7 @@ CREATE TABLE IF NOT EXISTS `zip_files` (
   PRIMARY KEY (`id`),
   KEY `company_id` (`company_id`),
   KEY `function_id` (`function_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=202 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=205 ;
 
 --
 -- Dumping data for table `zip_files`
@@ -890,7 +914,10 @@ CREATE TABLE IF NOT EXISTS `zip_files` (
 INSERT INTO `zip_files` (`id`, `path`, `company_id`, `function_id`, `created_at`) VALUES
 (199, 'FirstFinalDividend2014-07-28 23-52-56.zip', 121, 18, '2014-07-28 23:52:56'),
 (200, 'IncreaseOfShare2014-07-29 18-27-48.zip', 121, 18, '2014-07-29 18:27:48'),
-(201, 'IncreaseOfShare2014-07-29 18-29-26.zip', 121, 19, '2014-07-29 18:29:26');
+(201, 'IncreaseOfShare2014-07-29 18-29-26.zip', 121, 19, '2014-07-29 18:29:26'),
+(202, 'IncreasePaidUpCapital2014-07-31 12-55-27.zip', 121, 19, '2014-07-31 12:55:27'),
+(203, 'IncreasePaidUpCapital2014-07-31 12-56-23.zip', 121, 19, '2014-07-31 12:56:23'),
+(204, 'IncreasePaidUpCapital2014-07-31 12-58-56.zip', 121, 20, '2014-07-31 12:58:56');
 
 --
 -- Constraints for dumped tables
@@ -1015,6 +1042,12 @@ ALTER TABLE `incorporationdocument`
 --
 ALTER TABLE `increase_of_share`
   ADD CONSTRAINT `increase_of_share_ibfk_1` FOREIGN KEY (`document_id`) REFERENCES `documents` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `increase_paidup_capital`
+--
+ALTER TABLE `increase_paidup_capital`
+  ADD CONSTRAINT `increase_paidup_capital_ibfk_1` FOREIGN KEY (`document_id`) REFERENCES `documents` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `loan_resolution`
