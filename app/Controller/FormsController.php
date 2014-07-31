@@ -6569,6 +6569,154 @@ class FormsController extends AppController {
         array_push($this->form_downloads,$data_pdf['pdf_url']);
     }
     public function generateLetterAllotmentIncreaseNonCashCapital($data){
+         $form_id = 31;
+        $ids = $data['stakeholder'];
+        $company = $this->Company->find('first',array('conditions'=>array('company_id = '=> $data['company'])));
+        $shareholders = $this->StakeHolder->find("all",array(
+            "conditions"=>array(
+                "StakeHolder.id"=>$ids
+            )
+        ));
+       $asIsStakeHolders = $this->StakeHolder->find("all",array(
+                    "conditions"=>array(
+                        "StakeHolder.company_id"=>$data['company']
+                    )
+                ));
+        $avail_ids=array();
+        foreach($asIsStakeHolders as $asIsStakeHolder){
+            array_push($avail_ids,$asIsStakeHolder['StakeHolder']['id']);
+        };
+        $asIsDirectors = $this->Director->find("all",array(
+            "conditions"=>array(
+                "Director.Mode"=>"appointed",
+                "Director.id"=>$avail_ids
+            )
+        ));
+        $totalShares = 0;
+        $totalCost = 0;
+        for($i = 0;$i < count($shareholders);$i++){
+            $totalShares += $data['SharesAlloted'][$i];
+        };
+        $pdf_name = 'LetterAllotmentIncreaseNonCashCapital'.time(); 
+        // generate PDF
+            $pdf = new FPDI(); // init
+            // create overlays
+            $pdf->SetFont('Helvetica','',12); // set font type
+            $pdf->SetTextColor(0, 0, 0); // set font color
+        for($i = 0;$i < count($shareholders);$i++){
+        // page 1
+        $pdf->addPage(); // add page
+        $pageCount = $pdf->setSourceFile(WWW_ROOT . $this->template_path . "letterAllotment_nonCashCapital_template.pdf"); // load template
+        $tplIdx = $pdf->importPage(1); // import page 1esolution_template
+        $pdf->useTemplate($tplIdx, null, null, 0,0,true); // place the template 
+        $pdf->SetXY(20,31);
+        $pdf->Write(10,$shareholders[$i]['StakeHolder']['name']);
+        $pdf->SetXY(20,35);
+        $pdf->Write(10,$shareholders[$i]['StakeHolder']['address_1']);
+        $pdf->SetXY(20,39);
+        $pdf->Write(10,$shareholders[$i]['StakeHolder']['address_2']);
+        // write company name
+        $pdf->SetXY(20,81);
+        $pdf->Write(10,$company['Company']['name']);
+        $pdf->SetXY(20,85);
+        $pdf->Write(10, $company['Company']['address_1']);
+        $pdf->SetXY(20,89);
+        $pdf->Write(10,$company['Company']['address_2']);
+         $pdf->SetXY(20,128);
+        //$pdf->Write(10,"I,".$shareholders[$i]['StakeHolder']['name']." hereby conifrm");
+        $pdf->MultiCell(0,6,"I, ".$shareholders[$i]['StakeHolder']['name']." hereby confirm that am applying for ".$data['SharesAlloted'][$i]." shares in the capital of ".$company['Company']['name'].". The Share Application Form for ".$data['SharesAlloted'][$i]." shares is attached hereto.  I hereby authorise you to deduct S$".$data['SharesNonCash'][$i]." from the amount due to me from you for full payment for the said shares applied.",0,'L');
+        $pdf->SetXY(20,219);
+        $pdf->Write(10,$shareholders[$i]['StakeHolder']['name']);
+        // page 2
+        $pdf->addPage(); // add page
+        $pageCount = $pdf->setSourceFile(WWW_ROOT . $this->template_path . "letterAllotment_nonCashCapital_template.pdf"); // load template
+        $tplIdx = $pdf->importPage(2); // import page 1esolution_template
+        $pdf->useTemplate($tplIdx, null, null, 0,0,true); // place the template 
+        $pdf->SetXY(34,41);
+        $pdf->Write(10,$company['Company']['name']);
+        $pdf->SetXY(34,45);
+        $pdf->Write(10, $company['Company']['address_1']);
+        $pdf->SetXY(34,49);
+        $pdf->Write(10,$company['Company']['address_2']);
+         $pdf->SetXY(30,103.5);
+        $pdf->Write(10,$data['SharesAlloted'][$i]);
+        $pdf->SetXY(154,103.5);
+        $pdf->Write(10,$data['SharesNonCash'][$i]);
+        $pdf->SetXY(33,115.8);
+        $pdf->MultiCell(0,6,"I/We hereby apply for the above-mentioned numbers of shares subject to the Company's Memorandum & Articles of Association. A letter dated                from me/us authorising that the consideration for allotting the ".$data['SharesAlloted'][$i]." shares to me/us be made by deducting the amount of S$".$data['SharesNonCash'][$i]." from the amount due to me from you.",0,'L');
+        $pdf->SetXY(127,200);
+        $pdf->Write(10,$shareholders[$i]['StakeHolder']['name']);
+        $pdf->SetXY(82,241);
+        $pdf->Write(10,$shareholders[$i]['StakeHolder']['name']);
+        $pdf->SetFont('Helvetica','',11);
+        $pdf->SetXY(43,255.5);
+        $pdf->Write(10,$shareholders[$i]['StakeHolder']['address_1']);
+        $pdf->SetXY(43,259.5);
+        $pdf->Write(10,$shareholders[$i]['StakeHolder']['address_2']);
+        $pdf->SetXY(38,265);
+        $pdf->Write(10,$shareholders[$i]['StakeHolder']['nric']);
         
+        }
+        //page3
+        $pdf->addPage(); // add page
+        $pageCount = $pdf->setSourceFile(WWW_ROOT . $this->template_path . "letterAllotment_nonCashCapital_template.pdf"); // load template
+        $tplIdx = $pdf->importPage(5); // import page 1esolution_template
+        $pdf->useTemplate($tplIdx, null, null, 0,0,true); // place the template 
+        $pdf->SetFont('Helvetica','',12);
+        $pdf->SetXY(72,27);
+        $pdf->Write(10,$company['Company']['name']);
+        $pdf->SetFont('Helvetica','',11);
+        $pdf->SetXY(107,32);
+        $pdf->Write(10, $company['Company']['register_number']);
+        $pdf->SetXY(19,53);
+        $pdf->Write(10,$company['Company']['LOName']);
+        $pdf->SetXY(19,57);
+        $pdf->Write(10, $company['Company']['LOAddressline1']);
+        $pdf->SetXY(19,61);
+        $pdf->Write(10,$company['Company']['LOAddressline2']);
+        $pdf->SetFont('Helvetica','',12);
+        $pdf->SetXY(55,102);
+        $pdf->Write(10,$totalShares." ORDINARY SHARES");
+        $x = 20;
+        $y = 157; 
+        $pdf->SetFont('Helvetica','',10);
+        for($i = 0;$i < count($shareholders);$i++){
+            $pdf->SetXY($x,$y);
+            $pdf->Write(10,$shareholders[$i]['StakeHolder']['name']);
+            $pdf->SetXY($x+44,$y);
+            $pdf->Write(10,$data['SharesAlloted'][$i]);
+            $pdf->SetXY($x+75,$y);
+            $pdf->Write(10,$data['SharesNonCash'][$i]);
+            $pdf->SetXY($x+136,$y);
+            $pdf->Write(10,$data['SharesNonCash'][$i]);
+            $y += 5.5;
+        }
+        $pdf->SetXY(20,208);
+        $pdf->Write(10,$company['Company']['name']);
+         $y = 230;
+            for($i = 0;$i<count($asIsDirectors);$i=$i+2){
+                    
+                        $x = 27;
+                        $pdf->SetXY($x,$y);
+                         $pdf->Line($x,$y-1,$x+40,$y-1);
+                        $pdf->Write(10,$asIsDirectors[$i]['StakeHolder']['name']);
+                        if($i+1<count($asIsDirectors)){
+                            $k = 140;
+                            //ChromePhp::log($y);
+                            $pdf->SetXY($k,$y);
+                             $pdf->Line($k,$y-1,$k+40,$y-1);
+                            $pdf->Write(10,$asIsDirectors[$i+1]['StakeHolder']['name']);  
+                        }
+                $y += 20;
+            }
+        $pdf->Output(WWW_ROOT . $this->pdf_path . $pdf_name .'.pdf', 'F');
+        $data_pdf = array(
+            'form_id' => $form_id,
+            'company_id' => $company['Company']['company_id'],
+            'pdf_url' => $this->pdf_path . $pdf_name .'.pdf',
+            'created_at' => date('Y-m-d H:i:s')
+        );
+
+     array_push($this->form_downloads,$data_pdf['pdf_url']);
     }
 }
