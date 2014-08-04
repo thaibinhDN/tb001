@@ -199,7 +199,7 @@ class FormsController extends AppController {
                     if ($directors[$i]['type']=="appointment"){
                     $director = $this->StakeHolder->find('first', array('conditions' => array('StakeHolder.id' => $director_ids[$i])));
                     $company_id = $director['StakeHolder']['company_id'];
-                    $pdf_name = 'Form_45_'.time().$director_ids[$i];
+                    $pdf_name = 'Form_45_'.$i;
                     $pdf = new FPDI(); // init
 		// create overlays
                     $pdf->SetFont('Helvetica', '', 9); // set font type
@@ -401,6 +401,7 @@ class FormsController extends AppController {
 		//$this->Pdf->save($data); 
                 array_push($this->form_downloads,$data['pdf_url']);
         }
+   
         public function generateIndemnityLetter($data){
             $form_id = 5;
             $company = $this->Company->find('first',array('conditions'=>array('company_id = '=> $data['company'])));
@@ -417,10 +418,13 @@ class FormsController extends AppController {
                 foreach($asIsStakeHolders as $asIsStakeHolder){
                     array_push($avail_ids,$asIsStakeHolder['StakeHolder']['id']);
                 };
-                
-                $asIsDirectors = $this->Director->find("all",array(
+   
+               $asIsDirectors = $this->Director->find("all",array(
                     "conditions"=>array(
-                        "Director.Mode"=>"appointed",
+                        "OR"=>array(
+                            array("Director.Mode"=>Null),
+                            array("Director.Mode"=>"appointed")
+                        ),
                         "Director.id"=>$avail_ids
                     )
                 ));
@@ -459,7 +463,7 @@ class FormsController extends AppController {
                         $pdf->SetXY($x,$y);
                          $pdf->Line($x,$y-1,$x+40,$y-1);
                         $pdf->Write(10,$asIsDirectors[$i]['StakeHolder']['name']);
-                        if($i+1<count($asIsDirectors)){
+                        if(!empty($asIsDirectors[$i+1])){
                             $k = 140;
                             //ChromePhp::log($y);
                             $pdf->SetXY($k,$y);
@@ -467,38 +471,12 @@ class FormsController extends AppController {
                             $pdf->Write(10,$asIsDirectors[$i+1]['StakeHolder']['name']);
                             
                         }
-                   
-                    $y += 30;
-             }
+                }
                     
-                    
-                   
-
-            // page 2
-		$pdf->addPage(); // add page
-		$pageCount = $pdf->setSourceFile(WWW_ROOT . $this->template_path . "indemnityLetter_template.pdf"); // load template
-		$tplIdx = $pdf->importPage(2); // import page 2
-		$pdf->useTemplate($tplIdx, 10, 10, 200); // place the template
-                    // save to database
-                    //$this->Pdf->create();
-                 $y = 70;
-                 for($i = 2;$i<count($asIsDirectors);$i=$i+2){
-                    $pdf->SetFont('Helvetica','',10);
-                        $x = 30;
-                        $pdf->SetXY($x,$y);
-                         $pdf->Line($x,$y-1,$x+40,$y-1);
-                        $pdf->Write(10,$asIsDirectors[$i]['StakeHolder']['name']);
-                        if($i+1<count($asIsDirectors)){
-                            $k = 140;
-                            //ChromePhp::log($y);
-                            $pdf->SetXY($k,$y);
-                             $pdf->Line($k,$y-1,$k+40,$y-1);
-                            $pdf->Write(10,$asIsDirectors[$i+1]['StakeHolder']['name']);
-                            
-                        }
-                   
-                    $y += 30;
-             }
+                if(count($asIsDirectors)>2){
+                        $new_count = count($asIsDirectors) - 2;
+                        $this->generateExtraResolution($asIsDirectors,$pdf,$new_count,2);
+                 }    
                  $pdf->Output(WWW_ROOT . $this->pdf_path . $pdf_name .'.pdf', 'F');
                     $data = array(
                             'form_id' => $form_id,
@@ -581,15 +559,9 @@ class FormsController extends AppController {
                    //Write MainContent
                      $pdf->SetFont('Helvetica','',10);
                      $pdf->setXY(33,144.5);
-                     $pdf->Write(10,$name);
                      
-                      $pdf->setXY(74,144.5);
-                     $pdf->Write(10,$nric);
+                     $pdf->MultiCell(0,6,"I, ".$name." NRIC No.: ".$nric.", hereby tender my resignation as a director of ".$company['Company']['name'].", Co. Reg. No.: ".$company['Company']['register_number']." with immediate effect.",0,'L');
                      
-                     $pdf->setXY(48,149.5);
-                    $pdf->Write(10,$company['Company']['name']);
-                    $pdf->setXY(110,149.5);
-                    $pdf->Write(10,$company['Company']['register_number']);
                     
                     $pdf->Output(WWW_ROOT . $this->pdf_path . $pdf_name .'.pdf', 'F');
 
@@ -607,9 +579,47 @@ class FormsController extends AppController {
             }
             
         }
+        public function generateExtraResolution($asIsDirectors,$pdf,$new_count,$initial){
+                $number_page = (int)($new_count/18) + ($new_count%18 == 0?0:1);
+                
+            for($i = 0;$i < $number_page;$i++){
+               
+               $pdf->addPage(); // add page
+               $pageCount = $pdf->setSourceFile(WWW_ROOT . $this->template_path . "empty_page.pdf"); // load template
+               $tplIdx = $pdf->importPage(1); // import page 2
+               $pdf->useTemplate($tplIdx, 10, 10, 200); // place the template
+     
+                $y = 50;
+                for($i = 0;$i<18;$i=$i+2){
+                   if (!empty($asIsDirectors[$i+$initial])) {
+                        $pdf->SetFont('Helvetica','',10);
+                         $x = 30;
+                         $pdf->SetXY($x,$y);
+                         $pdf->Line($x,$y-1,$x+40,$y-1);
+                         $pdf->Write(10,$asIsDirectors[$i+$initial]['StakeHolder']['name']);
+                         if ($i < 17) {
+                             if(!empty($asIsDirectors[$i+$initial+1]['StakeHolder']['name'])){
+                                $k = 140;
+                                //ChromePhp::log($y);
+                                $pdf->SetXY($k,$y);
+                                $pdf->Line($k,$y-1,$k+40,$y-1);
+                                $pdf->Write(10,$asIsDirectors[$i+$initial+1]['StakeHolder']['name']);
+                             }
+
+                         }
+
+                        $y += 30;
+                       
+                   }
+                    
+                    
+                }
+                $initial += 18;
+            }
+        }
         public function generateResolution($data){
             $form_id = 3;
-            
+            $pdf_name = "Resolution".time();
             $company = $this->Company->find('first',array('conditions'=>array('company_id = '=> $data['company'])));
             //ChromePhp::log($company);
             $company_id = $company['Company']['company_id'];
@@ -622,41 +632,12 @@ class FormsController extends AppController {
                         
 			array_push($directors, $director);
             }
- 
-            $pdf_name = 'Resolution_'.time();
-            
             // generate PDF
 		$pdf = new FPDI(); // init
 		// create overlays
 		$pdf->SetFont('Helvetica','',9); // set font type
 		$pdf->SetTextColor(0, 0, 0); // set font color
-            // page 1
-            $pdf->addPage(); // add page
-            $pageCount = $pdf->setSourceFile(WWW_ROOT . $this->template_path . "resolution_template.pdf"); // load template
-            $tplIdx = $pdf->importPage(1); // import page 1
-            $pdf->useTemplate($tplIdx, 10, 10, 200); // place the template 
-            // write company name
-                $pdf->SetFont('Helvetica','',15 );
-		$pdf->SetXY(93,24);
-		$pdf->Write(10, $company['Company']['name']);
-                $pdf->SetXY(124,32);
-		$pdf->Write(10, $company['Company']['register_number']);
-                
-                $y1 = 78;
-            //Write Director resigned
-            for($i = 0;$i<count($director_ids);$i++){
-                if($directors[$i]['type']=='cessation'){
-                    $pdf->SetFont('Helvetica','',10);
-                    $pdf->SetXY(30,$y1);
-                    $pdf->Write(10,"IT WAS RESOLVED that the resignation of " .$directors[$i]['StakeHolder']['name']);
-                    $pdf->SetXY(30,$y1 + 8);
-                    $pdf->Write(10,"as the directors of the Company, be and are hereby accepted with immediate effect.");
-                     $y1 = $y1 + 18;
-                }
-            }
-            
-            //write AsIs Directors(The directors which are neither resigned or 
-            //just be promoted
+               //write AsIs Directors(The directors which are not resigned
                $asIsStakeHolders = $this->StakeHolder->find("all",array(
                     "conditions"=>array(
                         "StakeHolder.company_id"=>$company_id
@@ -669,72 +650,120 @@ class FormsController extends AppController {
                 
                 $asIsDirectors = $this->Director->find("all",array(
                     "conditions"=>array(
-                        "Director.Mode"=>"appointed",
+                        "OR"=>array(
+                            array("Director.Mode"=>Null),
+                            array("Director.Mode"=>"appointed")
+                        ),
                         "Director.id"=>$avail_ids
                     )
                 ));
-                 $y = 187;
-                 for($i = 0;$i<count($asIsDirectors);$i=$i+2){
-                    $pdf->SetFont('Helvetica','',15);
-                        $x = 30;
-                        $pdf->SetXY($x,$y);
-                        $pdf->Line($x,$y-1,$x+40,$y-1);
-                        $pdf->Write(10,$asIsDirectors[$i]['StakeHolder']['name']);
-                        if($i+1<count($asIsDirectors)){
-                            $k = 140;
-                            //ChromePhp::log($y);
-                            $pdf->SetXY($k,$y);
-                            $pdf->Line($k,$y-1,$k+40,$y-1);
-                            $pdf->Write(10,$asIsDirectors[$i+1]['StakeHolder']['name']);
-                            
-                        }
-                   
-                    $y += 30;
-               }
+             
+            // page 1
+            for($i = 0;$i<count($director_ids);$i++){    
+                 if($directors[$i]['type']=='cessation'){
+                    $pdf->addPage(); // add page
+                    $pageCount = $pdf->setSourceFile(WWW_ROOT . $this->template_path . "resolution_template.pdf"); // load template
+                    $tplIdx = $pdf->importPage(1); // import page 1
+                    $pdf->useTemplate($tplIdx, 10, 10, 200); // place the template 
+                // write company name
+                    $pdf->SetFont('Helvetica','',15 );
+                    $pdf->SetXY(93,24);
+                    $pdf->Write(10, $company['Company']['name']);
+                    $pdf->SetXY(124,32);
+                    $pdf->Write(10, $company['Company']['register_number']);
                 
+             
+            //Write Director resigned
+          
+                    $y1 = 78;
+                    $pdf->SetFont('Helvetica','',10);
+                    $pdf->SetXY(30,78);
+                    $pdf->Write(10,"IT WAS RESOLVED that the resignation of " .$directors[$i]['StakeHolder']['name']);
+                    $pdf->SetXY(30,$y1 + 8);
+                    $pdf->Write(10,"as the directors of the Company, be and are hereby accepted with immediate effect.");
+                    $y = 187;
+                    for ($j = 0; $j < 6; $j = $j + 2) {
+			if (!empty($asIsDirectors[$j])) {
+                           
+                       
+                               $pdf->SetFont('Helvetica','',10);
+                                   $x = 30;
+                                   $pdf->SetXY($x,$y);
+                                   $pdf->Line($x,$y-1,$x+40,$y-1);
+                                   $pdf->Write(10,$asIsDirectors[$j]['StakeHolder']['name']);
+                                   if ($j < 5) {
+                                       if(!empty($asIsDirectors[$j+1])){
+                                            $k = 140;
+                                            //ChromePhp::log($y);
+                                            $pdf->SetXY($k,$y);
+                                            $pdf->Line($k,$y-1,$k+40,$y-1);
+                                            $pdf->Write(10,$asIsDirectors[$j+1]['StakeHolder']['name']);    
+                                       }
+
+                                   }
+                                  
+                        }
+                        $y += 30;  
+                    }
+                    if(count($asIsDirectors)>6){
+                        $new_count = count($asIsDirectors) - 6;
+                        $this->generateExtraResolution($asIsDirectors,$pdf,$new_count,6);
+                    }
+                }
+            }    
                 //ChromePhp::log($asIsDirectors);
             //page 2
-            $pdf->addPage();// add page
-            $pageCount = $pdf->setSourceFile(WWW_ROOT . $this->template_path . "resolution_template.pdf"); // load template
-            $tplIdx = $pdf->importPage(2); // import page 1
-            $pdf->useTemplate($tplIdx, 10, 10, 200); // place the template 
-            // write company name
-                $pdf->SetFont('Helvetica','',15 );
-		$pdf->SetXY(93,24);
-		$pdf->Write(10, $company['Company']['name']);
-                $pdf->SetXY(124,32);
-		$pdf->Write(10, $company['Company']['register_number']);
-                //$x2 = 75;
-                $y1 = 78;
-            for($i = 0;$i<count($director_ids);$i++){
-                if($directors[$i]['type']=='appointment'){
-                    $pdf->SetFont('Helvetica','',10);
-                    $pdf->SetXY(30,$y1);
-                    $pdf->Write(10,"IT WAS RESOLVED that " .$directors[$i]['StakeHolder']['name']);
-                    $pdf->SetXY(30,$y1 + 8);
-                    $pdf->Write(10,"having consented to act as the directors of the Company, be and are hereby appointed as directors.");
-                    $y1 = $y1 + 18;
-                }
-            }
-            
-            $y = 187;
-                 for($i = 0;$i<count($asIsDirectors);$i=$i+2){
-                    $pdf->SetFont('Helvetica','',15);
-                        $x = 30;
-                        $pdf->SetXY($x,$y);
-                         $pdf->Line($x,$y-1,$x+40,$y-1);
-                        $pdf->Write(10,$asIsDirectors[$i]['StakeHolder']['name']);
-                        if($i+1<count($asIsDirectors)){
-                            $k = 140;
-                            //ChromePhp::log($y);
-                            $pdf->SetXY($k,$y);
-                             $pdf->Line($k,$y-1,$k+40,$y-1);
-                            $pdf->Write(10,$asIsDirectors[$i+1]['StakeHolder']['name']);
-                            
-                        }
+            for($i = 0;$i<count($director_ids);$i++){ 
+                 if($directors[$i]['type']=='appointment'){
+                $pdf->addPage();// add page
+                $pageCount = $pdf->setSourceFile(WWW_ROOT . $this->template_path . "resolution_template.pdf"); // load template
+                $tplIdx = $pdf->importPage(2); // import page 1
+                $pdf->useTemplate($tplIdx, 10, 10, 200); // place the template 
+                // write company name
+                    $pdf->SetFont('Helvetica','',15 );
+                    $pdf->SetXY(93,24);
+                    $pdf->Write(10, $company['Company']['name']);
+                    $pdf->SetXY(124,32);
+                    $pdf->Write(10, $company['Company']['register_number']);
+                    //$x2 = 75;
+                    $y1 = 78;
+
                    
-                    $y += 30;
-             }
+                        $pdf->SetFont('Helvetica','',10);
+                        $pdf->SetXY(30,$y1);
+                        $pdf->Write(10,"IT WAS RESOLVED that " .$directors[$i]['StakeHolder']['name']);
+                        $pdf->SetXY(30,$y1 + 8);
+                        $pdf->Write(10,"having consented to act as the directors of the Company, be and are hereby appointed as directors.");
+                        $y1 = $y1 + 18;
+                  
+                    $y = 187;
+                    for ($j = 0; $j < 6; $j = $j + 2) {
+			if (!empty($asIsDirectors[$j])) {
+                          
+                           
+                               $pdf->SetFont('Helvetica','',10);
+                                $x = 30;
+                                $pdf->SetXY($x,$y);
+                                $pdf->Line($x,$y-1,$x+40,$y-1);
+                                $pdf->Write(10,$asIsDirectors[$j]['StakeHolder']['name']);
+                                if ($j < 5) {
+                                    if(!empty($asIsDirectors[$j+1])){
+                                        $k = 140;
+                                        //ChromePhp::log($y);
+                                        $pdf->SetXY($k,$y);
+                                        $pdf->Line($k,$y-1,$k+40,$y-1);
+                                        $pdf->Write(10,$asIsDirectors[$j+1]['StakeHolder']['name']);
+                                    }
+                                }     
+			}
+                        $y += 30;
+                    }
+                    if(count($asIsDirectors)>6){
+                        $new_count = count($asIsDirectors) - 6;
+                        $this->generateExtraResolution($asIsDirectors,$pdf,$new_count,6);
+                     }
+                 }
+            }
             $pdf->Output(WWW_ROOT . $this->pdf_path . $pdf_name .'.pdf', 'F');
 
 		// save to database
@@ -748,6 +777,74 @@ class FormsController extends AppController {
 		);
 		//$this->Pdf->save($data);
                 array_push($this->form_downloads,$data['pdf_url']);
+            }
+        
+        public function generateExtraForm49($directors,$pdf,$new_count){
+            $company_name = $directors[0]['Company']['name'];
+	    $company_number = $directors[0]['Company']['register_number'];
+            $number_page = (int)($new_count/7) + ($new_count%7 == 0?0:1);
+            $initial = 3;
+            for($i = 0;$i < $number_page;$i++){
+               
+                $pdf->addPage(); // add page
+               $pageCount = $pdf->setSourceFile(WWW_ROOT . $this->template_path . "form49_template.pdf"); // load template
+               $tplIdx = $pdf->importPage(2); // import page 2
+               $pdf->useTemplate($tplIdx, 10, 10, 200); // place the template
+
+               $pdf->SetXY(64, 33);
+               $pdf->Write(10, $company_name);
+
+               // write company number
+               $pdf->SetXY(56, 45);
+               $pdf->Write(10, $company_number);
+
+               // write directors
+               $y_pos = 90;
+                for($j = 0;$j < 7;$j++){
+                    if (!empty($directors[$j+$initial])) {
+                           // write director name
+
+                        $name = $directors[$j+$initial]['StakeHolder']['name'];
+                        $address_1 = $directors[$j+$initial]['StakeHolder']['address_1'];
+                        $address_2 = $directors[$j+$initial]['StakeHolder']['address_2'];
+                        $nric = $directors[$j+$initial]['StakeHolder']['nric'];
+                        $nationality = $directors[$j+$initial]['StakeHolder']['nationality'];
+                        $occupation = "DIRECTOR";
+                        $type = $directors[$j+$initial]['type'];
+
+                        $pdf->SetXY(40, $y_pos);
+                        $pdf->Write(10,  $name);
+
+                        // write director address
+                        $pdf->SetXY(40, $y_pos+5);
+                        $pdf->Write(10, $address_1);
+                        $pdf->SetXY(40, $y_pos+10);
+                        $pdf->Write(10, $address_2);
+
+                        // write director nric
+                        $pdf->SetXY(105, $y_pos);
+                        $pdf->Write(10, $nric);
+
+                        // write director nationality
+                        $pdf->SetXY(105, $y_pos+5);
+                        $pdf->Write(10,$nationality );
+
+                        // write director occupationoccupation
+                        $pdf->SetXY(105, $y_pos+10);
+                        $pdf->Write(10, $occupation );
+
+                        // write type
+                        $pdf->SetXY(145, $y_pos);
+                        $pdf->Write(10, ucfirst($type).' with');
+
+                        $pdf->SetXY(145, $y_pos+5);
+                        $pdf->Write(10, 'effect from');
+                        $y_pos += 25;
+                    }
+                }
+                $initial += 7;
+            }
+           
         }
 	public function generateForm49($data) {
 		$form_id =2;
@@ -883,67 +980,71 @@ class FormsController extends AppController {
 				$y_pos += 25;
 			}
 		}
-
-		// page 2
-		$pdf->addPage(); // add page
-		$pageCount = $pdf->setSourceFile(WWW_ROOT . $this->template_path . "form49_template.pdf"); // load template
-		$tplIdx = $pdf->importPage(2); // import page 2
-		$pdf->useTemplate($tplIdx, 10, 10, 200); // place the template
-		
-		$pdf->SetXY(64, 33);
-		$pdf->Write(10, $company_name);
-
-		// write company number
-		$pdf->SetXY(56, 45);
-		$pdf->Write(10, $company_number);
-
-		// write directors
-		$y_pos = 90;
-		for ($i = 3; $i < count($directors); $i++) {
-			if (!empty($directors[$i])) {
-				// write director name
-                            
-                            $name = $directors[$i]['StakeHolder']['name'];
-                            $address_1 = $directors[$i]['StakeHolder']['address_1'];
-                            $address_2 = $directors[$i]['StakeHolder']['address_2'];
-                            $nric = $directors[$i]['StakeHolder']['nric'];
-                            $nationality = $directors[$i]['StakeHolder']['nationality'];
-                            $occupation = $directors[$i]['StakeHolder']['occupation'];
-                            $type = $directors[$i]['type'];
-                            
-				$pdf->SetXY(40, $y_pos);
-				$pdf->Write(10,  $name);
-
-				// write director address
-				$pdf->SetXY(40, $y_pos+5);
-				$pdf->Write(10, $address_1);
-				$pdf->SetXY(40, $y_pos+10);
-				$pdf->Write(10, $address_2);
-
-				// write director nric
-				$pdf->SetXY(105, $y_pos);
-				$pdf->Write(10, $nric);
-
-				// write director nationality
-				$pdf->SetXY(105, $y_pos+5);
-				$pdf->Write(10,  $nationality );
-
-				// write director occupationoccupation
-				$pdf->SetXY(105, $y_pos+10);
-				$pdf->Write(10, $occupation );
-
-				// write type
-				$pdf->SetXY(145, $y_pos);
-				$pdf->Write(10, ucfirst($type).' with');
-				
-				$pdf->SetXY(145, $y_pos+5);
-				$pdf->Write(10, 'effect from');
-
-			
-
-				$y_pos += 25;
-			}
-		}
+                if(count($directors)>3){
+                    // page 2,..
+                    $new_count = count($directors) - 3;
+                 
+                        $this->generateExtraForm49($directors,$pdf,$new_count);
+                   
+//                       $pdf->addPage(); // add page
+//                        $pageCount = $pdf->setSourceFile(WWW_ROOT . $this->template_path . "form49_template.pdf"); // load template
+//                        $tplIdx = $pdf->importPage(2); // import page 2
+//                        $pdf->useTemplate($tplIdx, 10, 10, 200); // place the template
+//
+//                        $pdf->SetXY(64, 33);
+//                        $pdf->Write(10, $company_name);
+//
+//                        // write company number
+//                        $pdf->SetXY(56, 45);
+//                        $pdf->Write(10, $company_number);
+//
+//                        // write directors
+//                        $y_pos = 90;
+//                        for ($i = 3; $i < count($directors); $i++) {
+//                            if (!empty($directors[$i])) {
+//                                    // write director name
+//
+//                                $name = $directors[$i]['StakeHolder']['name'];
+//                                $address_1 = $directors[$i]['StakeHolder']['address_1'];
+//                                $address_2 = $directors[$i]['StakeHolder']['address_2'];
+//                                $nric = $directors[$i]['StakeHolder']['nric'];
+//                                $nationality = $directors[$i]['StakeHolder']['nationality'];
+//                                $occupation = "DIRECTOR";
+//                                $type = $directors[$i]['type'];
+//
+//                                    $pdf->SetXY(40, $y_pos);
+//                                    $pdf->Write(10,  $name);
+//
+//                                    // write director address
+//                                    $pdf->SetXY(40, $y_pos+5);
+//                                    $pdf->Write(10, $address_1);
+//                                    $pdf->SetXY(40, $y_pos+10);
+//                                    $pdf->Write(10, $address_2);
+//
+//                                    // write director nric
+//                                    $pdf->SetXY(105, $y_pos);
+//                                    $pdf->Write(10, $nric);
+//
+//                                    // write director nationality
+//                                    $pdf->SetXY(105, $y_pos+5);
+//                                    $pdf->Write(10,  $nationality );
+//
+//                                    // write director occupationoccupation
+//                                    $pdf->SetXY(105, $y_pos+10);
+//                                    $pdf->Write(10, $occupation );
+//
+//                                    // write type
+//                                    $pdf->SetXY(145, $y_pos);
+//                                    $pdf->Write(10, ucfirst($type).' with');
+//
+//                                    $pdf->SetXY(145, $y_pos+5);
+//                                    $pdf->Write(10, 'effect from');
+//
+//
+//
+//                                    $y_pos += 25;
+                                     
+                }
 
 		$pdf->Output(WWW_ROOT . $this->pdf_path . $pdf_name .'.pdf', 'F');
 
@@ -958,7 +1059,8 @@ class FormsController extends AppController {
 		);
 		//$this->Pdf->save($data);
                 array_push($this->form_downloads,$data['pdf_url']);
-	}
+
+        }
 
 	public function downloadForm() {
 		$id = $this->request->params['id'];

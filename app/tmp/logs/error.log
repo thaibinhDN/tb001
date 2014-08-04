@@ -27518,3 +27518,696 @@ Stack Trace:
 #3 C:\wamp\www\tb001\lib\Cake\Core\App.php(902): App::_checkFatalError()
 #4 [internal function]: App::shutdown()
 #5 {main}
+2014-08-01 14:35:57 Error: [PDOException] SQLSTATE[42S22]: Column not found: 1054 Champ 'Array' inconnu dans field list
+Request URL: /tb001/directors/add
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\wamp\www\tb001\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('INSERT INTO `co...', Array)
+#2 C:\wamp\www\tb001\lib\Cake\Model\Datasource\DboSource.php(1004): DboSource->execute('INSERT INTO `co...')
+#3 C:\wamp\www\tb001\lib\Cake\Model\Model.php(1832): DboSource->create(Object(StakeHolder), Array, Array)
+#4 C:\wamp\www\tb001\app\Controller\CompaniesController.php(243): Model->save(Array)
+#5 [internal function]: CompaniesController->addDirector()
+#6 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(CompaniesController), Array)
+#7 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#8 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(CompaniesController), Object(CakeRequest), Object(CakeResponse))
+#9 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2014-08-01 14:36:56 Error: [PDOException] SQLSTATE[42S22]: Column not found: 1054 Champ 'Array' inconnu dans field list
+Request URL: /tb001/directors/add
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\wamp\www\tb001\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('INSERT INTO `co...', Array)
+#2 C:\wamp\www\tb001\lib\Cake\Model\Datasource\DboSource.php(1004): DboSource->execute('INSERT INTO `co...')
+#3 C:\wamp\www\tb001\lib\Cake\Model\Model.php(1832): DboSource->create(Object(StakeHolder), Array, Array)
+#4 C:\wamp\www\tb001\app\Controller\CompaniesController.php(238): Model->save(Array)
+#5 [internal function]: CompaniesController->addDirector()
+#6 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(CompaniesController), Array)
+#7 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#8 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(CompaniesController), Object(CakeRequest), Object(CakeResponse))
+#9 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2014-08-01 14:38:56 Error: [PDOException] SQLSTATE[42S22]: Column not found: 1054 Champ 'Array' inconnu dans field list
+Request URL: /tb001/directors/add
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\wamp\www\tb001\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('INSERT INTO `co...', Array)
+#2 C:\wamp\www\tb001\lib\Cake\Model\Datasource\DboSource.php(1004): DboSource->execute('INSERT INTO `co...')
+#3 C:\wamp\www\tb001\lib\Cake\Model\Model.php(1832): DboSource->create(Object(StakeHolder), Array, Array)
+#4 C:\wamp\www\tb001\app\Controller\CompaniesController.php(238): Model->save(Array)
+#5 [internal function]: CompaniesController->addDirector()
+#6 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(CompaniesController), Array)
+#7 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#8 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(CompaniesController), Object(CakeRequest), Object(CakeResponse))
+#9 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2014-08-01 14:51:03 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_appoint_resign_director.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_appoint_resign_director.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateAppointResignDirector
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-08-01 16:38:35 Error: Fatal Error (4): syntax error, unexpected 'public' (T_PUBLIC) in [C:\wamp\www\tb001\app\Controller\FormsController.php, line 802]
+2014-08-01 16:38:35 Error: [FatalErrorException] syntax error, unexpected 'public' (T_PUBLIC)
+Request URL: /tb001/FunctionCorps/generateAppointResignDirector
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(4, 'syntax error, u...', 'C:\\wamp\\www\\tb0...', 802)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', 'C:\\wamp\\www\\tb0...', 802, Array)
+#2 C:\wamp\www\tb001\lib\Cake\Core\App.php(929): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', 'C:\\wamp\\www\\tb0...', 802, Array)
+#3 C:\wamp\www\tb001\lib\Cake\Core\App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-08-01 16:39:34 Error: [PDOException] SQLSTATE[42S22]: Column not found: 1054 Champ 'Director.Mode!=' inconnu dans where clause
+Request URL: /tb001/FunctionCorps/generateAppointResignDirector
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\wamp\www\tb001\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('SELECT `Directo...', Array)
+#2 C:\wamp\www\tb001\lib\Cake\Model\Datasource\DboSource.php(665): DboSource->execute('SELECT `Directo...', Array, Array)
+#3 C:\wamp\www\tb001\lib\Cake\Model\Datasource\DboSource.php(1077): DboSource->fetchAll('SELECT `Directo...', false)
+#4 C:\wamp\www\tb001\lib\Cake\Model\Model.php(2900): DboSource->read(Object(Director), Array)
+#5 C:\wamp\www\tb001\lib\Cake\Model\Model.php(2872): Model->_readDataSource('all', Array)
+#6 C:\wamp\www\tb001\app\Controller\FormsController.php(684): Model->find('all', Array)
+#7 C:\wamp\www\tb001\app\Controller\FunctionCorpsController.php(358): FormsController->generateResolution(Array)
+#8 [internal function]: FunctionCorpsController->generateAppointResignDirector()
+#9 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(FunctionCorpsController), Array)
+#10 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#11 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#12 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
+2014-08-01 17:43:09 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_appoint_resign_director.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_appoint_resign_director.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateAppointResignDirector
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-08-01 17:43:42 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_appoint_resign_director.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_appoint_resign_director.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateAppointResignDirector
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-08-01 17:45:16 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_appoint_resign_director.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_appoint_resign_director.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateAppointResignDirector
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-08-01 18:07:27 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1048 Le champ 'user_id' ne peut être vide (null)
+Request URL: /tb001/FunctionCorps/generateAppointResignDirector
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\wamp\www\tb001\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('INSERT INTO `co...', Array)
+#2 C:\wamp\www\tb001\lib\Cake\Model\Datasource\DboSource.php(1004): DboSource->execute('INSERT INTO `co...')
+#3 C:\wamp\www\tb001\lib\Cake\Model\Model.php(1832): DboSource->create(Object(Event), Array, Array)
+#4 C:\wamp\www\tb001\app\Controller\FunctionCorpsController.php(251): Model->save(Array)
+#5 [internal function]: FunctionCorpsController->generateAppointResignDirector()
+#6 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(FunctionCorpsController), Array)
+#7 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#8 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#9 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2014-08-01 18:40:48 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\FunctionCorps\generate_appoint_resign_director.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\FunctionCorps\\generate_appoint_resign_director.ctp',
+)
+Request URL: /tb001/FunctionCorps/generateAppointResignDirector
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-08-04 02:27:50 Error: Fatal Error (1): Class 'ChromePhp' not found in [C:\wamp\www\tb001\app\Controller\EmailController.php, line 19]
+2014-08-04 02:27:51 Error: [FatalErrorException] Class 'ChromePhp' not found
+Request URL: /tb001/Email/checkFinancialYear
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Class 'ChromePh...', 'C:\\wamp\\www\\tb0...', 19)
+#1 [internal function]: ErrorHandler::handleError(1, 'Class 'ChromePh...', 'C:\\wamp\\www\\tb0...', 19, Array)
+#2 C:\wamp\www\tb001\lib\Cake\Core\App.php(929): call_user_func('ErrorHandler::h...', 1, 'Class 'ChromePh...', 'C:\\wamp\\www\\tb0...', 19, Array)
+#3 C:\wamp\www\tb001\lib\Cake\Core\App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-08-04 02:28:24 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\Email\check_financial_year.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\Email\\check_financial_year.ctp',
+)
+Request URL: /tb001/Email/checkFinancialYear
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(EmailController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-08-04 02:30:30 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\Email\check_financial_year.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\Email\\check_financial_year.ctp',
+)
+Request URL: /tb001/Email/checkFinancialYear
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(EmailController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-08-04 02:30:46 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\Email\check_financial_year.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\Email\\check_financial_year.ctp',
+)
+Request URL: /tb001/Email/checkFinancialYear
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(EmailController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-08-04 02:39:45 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\Email\check_financial_year.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\Email\\check_financial_year.ctp',
+)
+Request URL: /tb001/Email/checkFinancialYear
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(EmailController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-08-04 02:44:43 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1064 Erreur de syntaxe près de '8= (extract(month from FinancialYear) - 1)' à la ligne 1
+Request URL: /tb001/Email/checkFinancialYear
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\wamp\www\tb001\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('Select email fr...', Array)
+#2 C:\wamp\www\tb001\lib\Cake\Model\Datasource\DboSource.php(665): DboSource->execute('Select email fr...', Array, Array)
+#3 C:\wamp\www\tb001\lib\Cake\Model\Datasource\DboSource.php(537): DboSource->fetchAll('Select email fr...')
+#4 [internal function]: DboSource->query('Select email fr...')
+#5 C:\wamp\www\tb001\lib\Cake\Model\Model.php(3304): call_user_func_array(Array, Array)
+#6 C:\wamp\www\tb001\app\Controller\EmailController.php(20): Model->query('Select email fr...')
+#7 [internal function]: EmailController->checkFinancialYear()
+#8 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(EmailController), Array)
+#9 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#10 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(EmailController), Object(CakeRequest), Object(CakeResponse))
+#11 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2014-08-04 02:44:57 Error: [PDOException] SQLSTATE[42S22]: Column not found: 1054 Champ 'email' inconnu dans field list
+Request URL: /tb001/Email/checkFinancialYear
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\wamp\www\tb001\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('Select email fr...', Array)
+#2 C:\wamp\www\tb001\lib\Cake\Model\Datasource\DboSource.php(665): DboSource->execute('Select email fr...', Array, Array)
+#3 C:\wamp\www\tb001\lib\Cake\Model\Datasource\DboSource.php(537): DboSource->fetchAll('Select email fr...')
+#4 [internal function]: DboSource->query('Select email fr...')
+#5 C:\wamp\www\tb001\lib\Cake\Model\Model.php(3304): call_user_func_array(Array, Array)
+#6 C:\wamp\www\tb001\app\Controller\EmailController.php(20): Model->query('Select email fr...')
+#7 [internal function]: EmailController->checkFinancialYear()
+#8 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(EmailController), Array)
+#9 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#10 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(EmailController), Object(CakeRequest), Object(CakeResponse))
+#11 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2014-08-04 02:49:25 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\Email\check_financial_year.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\Email\\check_financial_year.ctp',
+)
+Request URL: /tb001/Email/checkFinancialYear
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(EmailController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-08-04 02:50:17 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\Email\check_financial_year.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\Email\\check_financial_year.ctp',
+)
+Request URL: /tb001/Email/checkFinancialYear
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(EmailController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-08-04 02:50:53 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\Email\check_financial_year.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\Email\\check_financial_year.ctp',
+)
+Request URL: /tb001/Email/checkFinancialYear
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(EmailController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-08-04 03:11:11 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\Email\check_financial_year.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\Email\\check_financial_year.ctp',
+)
+Request URL: /tb001/Email/checkFinancialYear
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(EmailController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-08-04 04:09:18 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1064 Erreur de syntaxe près de '' à la ligne 1
+Request URL: /tb001/Email/checkFinancialYear
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\wamp\www\tb001\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('Select email,Fi...', Array)
+#2 C:\wamp\www\tb001\lib\Cake\Model\Datasource\DboSource.php(665): DboSource->execute('Select email,Fi...', Array, Array)
+#3 C:\wamp\www\tb001\lib\Cake\Model\Datasource\DboSource.php(537): DboSource->fetchAll('Select email,Fi...')
+#4 [internal function]: DboSource->query('Select email,Fi...')
+#5 C:\wamp\www\tb001\lib\Cake\Model\Model.php(3304): call_user_func_array(Array, Array)
+#6 C:\wamp\www\tb001\app\Controller\EmailController.php(22): Model->query('Select email,Fi...')
+#7 [internal function]: EmailController->checkFinancialYear()
+#8 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(EmailController), Array)
+#9 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#10 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(EmailController), Object(CakeRequest), Object(CakeResponse))
+#11 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2014-08-04 04:09:38 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1064 Erreur de syntaxe près de '' à la ligne 1
+Request URL: /tb001/Email/checkFinancialYear
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\wamp\www\tb001\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('Select email,Fi...', Array)
+#2 C:\wamp\www\tb001\lib\Cake\Model\Datasource\DboSource.php(665): DboSource->execute('Select email,Fi...', Array, Array)
+#3 C:\wamp\www\tb001\lib\Cake\Model\Datasource\DboSource.php(537): DboSource->fetchAll('Select email,Fi...')
+#4 [internal function]: DboSource->query('Select email,Fi...')
+#5 C:\wamp\www\tb001\lib\Cake\Model\Model.php(3304): call_user_func_array(Array, Array)
+#6 C:\wamp\www\tb001\app\Controller\EmailController.php(22): Model->query('Select email,Fi...')
+#7 [internal function]: EmailController->checkFinancialYear()
+#8 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(EmailController), Array)
+#9 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#10 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(EmailController), Object(CakeRequest), Object(CakeResponse))
+#11 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2014-08-04 04:55:30 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\Email\check_financial_year.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\Email\\check_financial_year.ctp',
+)
+Request URL: /tb001/Email/checkFinancialYear
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(EmailController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-08-04 04:56:06 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\Email\check_financial_year.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\Email\\check_financial_year.ctp',
+)
+Request URL: /tb001/Email/checkFinancialYear
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(EmailController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-08-04 04:56:37 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\Email\check_financial_year.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\Email\\check_financial_year.ctp',
+)
+Request URL: /tb001/Email/checkFinancialYear
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(EmailController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-08-04 04:57:59 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\Email\check_financial_year.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\Email\\check_financial_year.ctp',
+)
+Request URL: /tb001/Email/checkFinancialYear
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(EmailController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-08-04 04:58:14 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\Email\check_financial_year.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\Email\\check_financial_year.ctp',
+)
+Request URL: /tb001/Email/checkFinancialYear
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(EmailController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-08-04 04:58:33 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\Email\check_financial_year.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\Email\\check_financial_year.ctp',
+)
+Request URL: /tb001/Email/checkFinancialYear
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(EmailController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-08-04 04:58:45 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\Email\check_financial_year.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\Email\\check_financial_year.ctp',
+)
+Request URL: /tb001/Email/checkFinancialYear
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(EmailController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-08-04 04:58:50 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\Email\check_financial_year.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\Email\\check_financial_year.ctp',
+)
+Request URL: /tb001/Email/checkFinancialYear
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(EmailController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-08-04 04:58:58 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\Email\check_financial_year.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\Email\\check_financial_year.ctp',
+)
+Request URL: /tb001/Email/checkFinancialYear
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(EmailController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-08-04 13:01:16 Error: Fatal Error (4): syntax error, unexpected '}' in [C:\wamp\www\tb001\app\Controller\EmailController.php, line 85]
+2014-08-04 13:01:17 Error: [FatalErrorException] syntax error, unexpected '}'
+Request URL: /tb001/Email/checkFinancialYear
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(4, 'syntax error, u...', 'C:\\wamp\\www\\tb0...', 85)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', 'C:\\wamp\\www\\tb0...', 85, Array)
+#2 C:\wamp\www\tb001\lib\Cake\Core\App.php(929): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', 'C:\\wamp\\www\\tb0...', 85, Array)
+#3 C:\wamp\www\tb001\lib\Cake\Core\App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-08-04 05:01:36 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\Email\check_financial_year.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\Email\\check_financial_year.ctp',
+)
+Request URL: /tb001/Email/checkFinancialYear
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(EmailController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-08-04 05:01:53 Error: Fatal Error (1): Call to undefined function days_in_month() in [C:\wamp\www\tb001\app\Controller\EmailController.php, line 48]
+2014-08-04 05:01:54 Error: [FatalErrorException] Call to undefined function days_in_month()
+Request URL: /tb001/Email/checkFinancialYear
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Call to undefin...', 'C:\\wamp\\www\\tb0...', 48)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to undefin...', 'C:\\wamp\\www\\tb0...', 48, Array)
+#2 C:\wamp\www\tb001\lib\Cake\Core\App.php(929): call_user_func('ErrorHandler::h...', 1, 'Call to undefin...', 'C:\\wamp\\www\\tb0...', 48, Array)
+#3 C:\wamp\www\tb001\lib\Cake\Core\App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-08-04 05:02:10 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\Email\check_financial_year.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\Email\\check_financial_year.ctp',
+)
+Request URL: /tb001/Email/checkFinancialYear
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(EmailController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-08-04 05:05:43 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\Email\check_financial_year.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\Email\\check_financial_year.ctp',
+)
+Request URL: /tb001/Email/checkFinancialYear
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(EmailController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-08-04 05:05:51 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\Email\check_financial_year.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\Email\\check_financial_year.ctp',
+)
+Request URL: /tb001/Email/checkFinancialYear
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(EmailController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-08-04 05:05:57 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\Email\check_financial_year.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\Email\\check_financial_year.ctp',
+)
+Request URL: /tb001/Email/checkFinancialYear
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(EmailController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-08-04 05:06:02 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\Email\check_financial_year.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\Email\\check_financial_year.ctp',
+)
+Request URL: /tb001/Email/checkFinancialYear
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(EmailController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-08-04 05:06:25 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\Email\check_financial_year.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\Email\\check_financial_year.ctp',
+)
+Request URL: /tb001/Email/checkFinancialYear
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(EmailController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-08-04 05:06:35 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\Email\check_financial_year.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\Email\\check_financial_year.ctp',
+)
+Request URL: /tb001/Email/checkFinancialYear
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(EmailController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-08-04 05:06:41 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\Email\check_financial_year.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\Email\\check_financial_year.ctp',
+)
+Request URL: /tb001/Email/checkFinancialYear
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(EmailController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-08-04 05:06:49 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\Email\check_financial_year.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\Email\\check_financial_year.ctp',
+)
+Request URL: /tb001/Email/checkFinancialYear
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(EmailController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-08-04 05:08:03 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\Email\check_financial_year.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\Email\\check_financial_year.ctp',
+)
+Request URL: /tb001/Email/checkFinancialYear
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(EmailController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-08-04 05:08:38 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\Email\check_financial_year.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\Email\\check_financial_year.ctp',
+)
+Request URL: /tb001/Email/checkFinancialYear
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(EmailController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-08-04 05:08:46 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\Email\check_financial_year.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\Email\\check_financial_year.ctp',
+)
+Request URL: /tb001/Email/checkFinancialYear
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(EmailController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-08-04 05:08:57 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\Email\check_financial_year.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\Email\\check_financial_year.ctp',
+)
+Request URL: /tb001/Email/checkFinancialYear
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(EmailController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-08-04 05:09:01 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\Email\check_financial_year.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\Email\\check_financial_year.ctp',
+)
+Request URL: /tb001/Email/checkFinancialYear
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(EmailController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-08-04 05:18:23 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\Email\check_financial_year.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\Email\\check_financial_year.ctp',
+)
+Request URL: /tb001/Email/checkFinancialYear
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(EmailController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-08-04 05:18:50 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\Email\check_financial_year.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\Email\\check_financial_year.ctp',
+)
+Request URL: /tb001/Email/checkFinancialYear
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(EmailController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-08-04 05:18:55 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\Email\check_financial_year.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\Email\\check_financial_year.ctp',
+)
+Request URL: /tb001/Email/checkFinancialYear
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(EmailController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-08-04 05:19:02 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\Email\check_financial_year.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\Email\\check_financial_year.ctp',
+)
+Request URL: /tb001/Email/checkFinancialYear
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(EmailController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-08-04 05:19:12 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\Email\check_financial_year.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\Email\\check_financial_year.ctp',
+)
+Request URL: /tb001/Email/checkFinancialYear
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(EmailController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-08-04 05:19:17 Error: [MissingViewException] View file "C:\wamp\www\tb001\app\View\Email\check_financial_year.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\tb001\\app\\View\\Email\\check_financial_year.ctp',
+)
+Request URL: /tb001/Email/checkFinancialYear
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\View\View.php(457): View->_getViewFileName(NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#2 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(EmailController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}

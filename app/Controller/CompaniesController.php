@@ -186,31 +186,55 @@ class CompaniesController extends AppController {
 	public function addDirector() {
             $data = $this->request->data;
             $company_id = $this->request->data['Director']['company_id'];
-            $count = 0;
-            $created_datas = array();
+
          
            
-            for($i = 0;$i<count($data['name']);$i++){
-                
-		$name = $data['name'][$i];
-		$nric = $data['nric'][$i];
-		$address1 = $data['address_1'][$i];
-		$address2 = $data['address_2'][$i];
-		$nationality = $data['nationality'][$i];
-		
+
+
+		$dData= array(
+                    "name"=>$data['DNameoftheAppointDirector'],
+                    "addressline1_Singapore"=>$data['DAddressline1S'],
+                    "addressline2_Singapore"=>$data['DAddressline2S'],
+                    "addressline3_Singapore"=>$data['DAddressline3S'],
+//                    "addressline1_OverSea"=>$data['DAddressline1OS'],
+//                    "addressline2_OverSea"=>$data['DAddressline2OS'],
+//                    "addressline3_OverSea"=>$data['DAddressline3OS'],
+//                    "addressline1_Other"=>$data['DAddressline1OT'],
+//                    "addressline2_Other"=>$data['DAddressline2OT'],
+//                    "addressline3_Other"=>$data['DAddressline3OT'],
+                    "NRIC/Passport"=>$data['DNRIC/Passport'],
+                    "NationalityatBirth"=>$data['DNationalityatBirth'],
+                    "NationalityCurrent"=>$data['DNationalityCurrent'],
+                    "Occupation"=>$data['DOccupation'],
+                    "NumberofShares"=>$data['DNumberofShares'],
+                    "NumberofSharesInwords"=>$data['DNumberofSharesInwords'],
+                    "CertificateNo"=>$data['DCertificateNo'],
+                    "DateofBirth"=>$data['DDateofBirth'],
+                    "ClassofShares"=>$data['DClassofShares'],
+                    "Currency"=>$data['DCurrency'],
+                    "Placeofbirth"=>$data['DPlaceofbirth'],
+                    "Nricdateofissue"=>$data['DNricdateofissues'],
+                    "nricplaceofissue"=>$data['DNricplaceofissue'],
+                    "passportno"=>$data['DPassportno'],
+                    "passportdateofissue"=>$data['DPassportDateOfIssue'],
+                    "passportplaceofissue"=>$data['DPassportPlaceOfIssue'],
+                    "NatureOfContract"=>$data['DNatureofContract'],
+                    "Remarks"=>$data['DRemarks'],
+                    "ConsentToActAsDirector"=>$data['DConsenttoactasdirectorofthecompany'],
+                    "FormerName"=>$data['DFormerNameifany']
+            );
                 //ChromePhp::log($name." ".$nric.$address1.$address2.$nationality.$occupation);
                 $this->StakeHolder->create();
                 $stakeholder_data = array(
-				'company_id' => $company_id,
-				'name' => $name,
-				'nric' => $nric,
-				'address_1' => $address1,
-				'address_2' => $address2,
-				'nationality' => $nationality,
-				'Director' => 1,
-				'created_at' => date('Y-m-d H:i:s'),
-				'updated_at' => date('Y-m-d H:i:s')
-			);
+                    "company_id"=>$company_id,
+                    "name"=>$dData['name'],
+                    "address_1"=>$dData['addressline1_Singapore'],
+                    "address_2"=>$dData['addressline2_Singapore']." ".$dData['addressline3_Singapore'],
+                    "nric"=>$dData["NRIC/Passport"],
+                    "created_at"=>date('Y-m-d H:i:s'),
+                    "nationality"=>$dData['NationalityCurrent'],
+                    "Director"=>1       
+                 );
                 $this->StakeHolder->save($stakeholder_data);
 //                $director=$this->StakeHolder->find("first",array(
 //                    "conditions"=>array(
@@ -218,26 +242,48 @@ class CompaniesController extends AppController {
 //                    )
 //                ));
                 $this->Director->create();
-                $director_data = array(
-                        'id'=>$this->StakeHolder->id,
-                        'Mode'=>null
-                );
-                $this->Director->save($director_data);
-                
-                $create_data=array(
-                    "company"=>$company_id,
-                    "functionCorp"=>1,
-                    "director_id"=> $this->Director->id
-                );
-                array_push($created_datas,$create_data);
-            }
-            $this->Session->write('created_director', $created_datas);
-           
-
+            $director_data = array(
+                "id"=>$this->StakeHolder->id,
+                "Mode"=>"appointed",
+                "primary_address"=>1,
+                "addressline1_Singapore"=>$dData['addressline1_Singapore'],
+                "addressline2_Singapore"=>$dData['addressline2_Singapore'],
+                "addressline3_Singapore"=>$dData['addressline3_Singapore'],
+//                "addressline1_OverSea"=>$dData['addressline1_OverSea'],
+//                "addressline2_OverSea"=>$dData['addressline2_OverSea'],
+//                "addressline3_OverSea"=>$dData['addressline3_OverSea'],
+//                "addressline1_Other"=>$dData['addressline1_Other'],
+//                "addressline2_Other"=>$dData['addressline2_Other'],
+//                "addressline3_Other"=>$dData['addressline3_Other'],
+                "CertificateNo"=>$dData['CertificateNo'],
+                "NationalityatBirth"=>$dData['NationalityatBirth'],
+                "Occupation"=>$dData['Occupation'],
+                "NumberofShares"=>$dData['NumberofShares'],
+                "NumberofSharesInwords"=>$dData['NumberofSharesInwords'],
+                "DateofBirth"=>$dData['DateofBirth'],
+                "ClassofShares"=>$dData['ClassofShares'],
+                "Currency"=>$dData['Currency'],
+                "Placeofbirth"=>$dData['Placeofbirth'],
+                "Nricdateofissue"=>$dData['Nricdateofissue'],
+                "nricplaceofissue"=>$dData['nricplaceofissue'],
+                "passportno"=>$dData['passportno'],
+                "passportdateofissue"=>$dData['passportdateofissue'],
+                "passportplaceofissue"=>$dData['passportplaceofissue'],
+                "NatureOfContract"=>$dData['NatureOfContract'],
+                "Remarks"=>$dData['Remarks'],
+                "ConsentToActAsDirector"=>$dData['ConsentToActAsDirector'],
+                "FormerName"=>$dData['FormerName'],
+            );
+            $this->Director->save($director_data );
+//                $create_data=array(
+//                    "company"=>$company_id,
+//                    "functionCorp"=>1,
+//                    "director_id"=> $this->Director->id
+//                );
+//                array_push($created_datas,$create_data);
+//
+//            $this->Session->write('created_director', $created_datas);
 //                
-
-
-
 //
            $this->Session->setFlash(
 			    'Director created',

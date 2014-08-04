@@ -128,9 +128,6 @@ class FunctionCorpsController extends AppController{
      
 //Appoint & Resgin Directors
      function AppointResignD(){
-         $created_data=$this->Session->read('created_director');
-         
-         if($created_data == null){
              $directors_created = null;
              $data = $this->request->data;
              $company = isset($data['company'])?$data['company']:$this->params['url']['company'];
@@ -140,34 +137,10 @@ class FunctionCorpsController extends AppController{
                     'StakeHolder.Director'=>1 
                 ) 
              ));
-         }else{
-             $directors_created = array();
-             $data = $created_data;
-             for($i = 0;$i < count($data);$i++){
-                $id = $data[$i]['director_id'];
-                $director = $this->StakeHolder->find('first',array(
-               "conditions"=>array(
-                   'StakeHolder.id'=> $id,
-                   'StakeHolder.Director'=>1 
-                   ) 
-                ));  
-                array_push($directors_created,$director);
-             }
-             //ChromePhp::log($directors_created);
-            $company = $data[0]['company'];
-                $directors = $this->StakeHolder->find('all',array(
-                   "conditions"=>array(
-                   'StakeHolder.company_id'=>$company,
-                   'StakeHolder.Director'=>1 
-                ) 
-             ));
-        }
          $form = new FormsController();
          $this->set('title', 'Appoint&Resign Directors');
          $this->set('directors',$directors);
          $this->set('company',$company);
-         $this->set('directors_created',$directors_created);
-         $this->Session->delete('created_director');
     }
      function preview1(){
          if(isset($this->params['url']['edit'])){
