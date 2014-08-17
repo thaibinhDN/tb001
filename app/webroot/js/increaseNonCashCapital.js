@@ -6,7 +6,7 @@
 
 $(document).ready(function() {
     console.log("Welcome to increaseNonCashCapital");
-    var DOMAIN_URL = 'http://127.0.0.1/tb001/';
+   var DOMAIN_URL = 'http://127.0.0.1/tb001/';
         $( "#add_stakeholders" ).click(function(e) {
             var new_row = "<div class=\"stakeholder-block\">"
                     + "<label>Name of Allottee</label>" 

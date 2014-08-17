@@ -6,6 +6,7 @@
  * and open the template in the editor.
  */
 App::import('Controller', 'Forms');
+App::import('Controller', 'Documents');
 
 class FunctionCorpsController extends AppController{
     public $uses = array('OptionToPurchase','LoanResolution','ClosureBankAcc','ChangeFinancialYear','ChangeCompanyName','ChangeBankSignatorUob','AppointSecretaryAuditor','AppointResignSecretary','AppointResignDirector','StakeHolder','Secretary',
@@ -73,10 +74,18 @@ class FunctionCorpsController extends AppController{
               'StakeHolder.Secretary'=>1
            ) 
         ));
+        $auditors= $this->StakeHolder->find('all',array(
+              "conditions"=>array(
+              'StakeHolder.company_id'=>$company,
+              'StakeHolder.Auditor'=>1
+           ) 
+        ));
         
+       // ChromePhp::log($auditors);
         //ChromePhp::log($secretaries);
         $this->set('title', 'Appoint both Secretary and Auditor');
          $this->set('secretaries',$secretaries);
+         $this->set('auditors',$auditors);
          $this->set('company',$company);      
     }
     
@@ -96,18 +105,9 @@ class FunctionCorpsController extends AppController{
                 ) 
              ));
          }else{
-             $secretaries_created = array();
+
              $data = $created_data;
-             for($i = 0;$i < count($data);$i++){
-                $id = $data[$i]['secretary_id'];
-                $secretary = $this->Secretary->find('first',array(
-                    "conditions"=>array(
-                   'Secretary.id'=> $id 
-                   ) 
-                ));  
-                array_push($secretaries_created , $secretary);
-             }
-                $company = $data[0]['company'];
+             $company = $data[0]['company'];
                 
                 $secretaries = $this->StakeHolder->find('all',array(
                    "conditions"=>array(
@@ -122,68 +122,132 @@ class FunctionCorpsController extends AppController{
          $this->set('title', 'Appoint&Resign Secretaries');
          $this->set('secretaries',$secretaries);
          $this->set('company',$company);      
-         $this->set('secretaries_created',$secretaries_created );
          $this->Session->delete('created_secretary');
     }
      
 //Appoint & Resgin Directors
      function AppointResignD(){
-             $directors_created = null;
-             $data = $this->request->data;
-             $company = isset($data['company'])?$data['company']:$this->params['url']['company'];
-             $directors = $this->StakeHolder->find('all',array(
-                   "conditions"=>array(
-                   'StakeHolder.company_id'=>$company,
-                    'StakeHolder.Director'=>1 
-                ) 
-             ));
-         $form = new FormsController();
+   
+        $data = $this->request->data;
+        $company = isset($data['company'])?$data['company']:$this->params['url']['company'];
+        $directors = $this->StakeHolder->find('all',array(
+              "conditions"=>array(
+              'StakeHolder.company_id'=>$company,
+               'StakeHolder.Director'=>1 
+           ) 
+        ));
+
          $this->set('title', 'Appoint&Resign Directors');
          $this->set('directors',$directors);
          $this->set('company',$company);
     }
-     function preview1(){
-         if(isset($this->params['url']['edit'])){
-            $event_id = $this->request['url']['id'];
-             $company_id = $this->request['url']['company'];
-             $submissions = $this->AppointResignDirector->find("all",array(
-                 "conditions"=>array(
-                     "AppointResignDirector.event_id"=>$event_id
-                 )
-             ));
-              $directors = array();
-             $preview_data = array();
-             
-             $preview_data['title']="Edit Last Submission";
-             $preview_data['data']['company']=$company_id;
-             $preview_data['data']['prepared_by']=$submissions[0]['AppointResignDirector']['NameSDs'];
-             $types = array();
-             $attns = array();
-             foreach($submissions as $submission){
-                 array_push($types,$submission['AppointResignDirector']['type']);
-                 array_push($attns,$submission['AppointResignDirector']['attn']);
-                 $d_id = $submission['StakeHolder']['id'];
-                 $director = $this->Director->find("first",array(
-                     "conditions"=>array(
-                         "Director.id"=>$d_id
-                     )
-                 ));
-                 if($submission['AppointResignDirector']['type']=="cessation"){
-                    $director['reportedTo']= $submission['AppointResignDirector']['attn'];
-                 }
-                 array_push($directors,$director);
-             };
-              $preview_data['data']['type']=$types;  
-               $preview_data['data']['attn']=$attns;
-               $preview_data['Director'] = $directors;
-               $preview_data['edit'] = "y";
-         }else{
-            $data = $this->request->data;
-             
-           $form = new FormsController();
-            $preview_data=$form->previewForm($data);
+    function editAppointResignS(){
+        $data = $this->params['url'];
+         $documents = $this->AppointResignSecretary->find("all",array(
+            "conditions"=>array(
+                "Event.id"=>$data['id']
+            )
+        ));
+         $secretaries = $this->StakeHolder->find('all',array(
+              "conditions"=>array(
+              'StakeHolder.company_id'=>$data['company'],
+               'StakeHolder.Secretary'=>1 
+           ) 
+        ));
+        $lastSubmitSecretaries = array();
+        $doc_ids = array();
+        foreach($documents as $document){
+            $d = $this->StakeHolder->find("first",array(
+                "conditions"=>array(
+                    "StakeHolder.id"=>$document['AppointResignSecretary']['secretary_id']
+                )
+            ));
+            $d['type']=$document['AppointResignSecretary']['type'];
+            $d['attn']=$document['AppointResignSecretary']['attn'];
+            $d['NameDS']=$document['AppointResignSecretary']['NameDS'];
+            array_push($lastSubmitSecretaries,$d);
+            array_push($doc_ids,$document['Document']['id']);
         }
-        $total_directors = $this->StakeHolder->find("all",array(
+        $types = array("appointment","cessation");
+        //ChromePhp::log($lastSubmitSecretaries);
+        $this->set('title', 'Edit Appoint&Resign Secretaries');
+        $this->set("lastSubmitSecretaries",$lastSubmitSecretaries);
+         $this->set('secretaries',$secretaries);
+         $this->set('types',$types);
+         $this->set('company',$data['company']);
+         $this->set('event_id',$data['id']);
+         $this->set("doc_ids",$doc_ids);
+    }
+    function editAppointResignD(){
+        $data = $this->params['url'];
+        $documents = $this->AppointResignDirector->find("all",array(
+            "conditions"=>array(
+                "Event.id"=>$data['id']
+            )
+        ));
+        $directors = $this->StakeHolder->find('all',array(
+              "conditions"=>array(
+              'StakeHolder.company_id'=>$data['company'],
+               'StakeHolder.Director'=>1 
+           ) 
+        ));
+        $lastSubmitDirectors = array();
+        $doc_ids = array();
+        foreach($documents as $document){
+            $d = $this->StakeHolder->find("all",array(
+                "conditions"=>array(
+                    "StakeHolder.id"=>$document['AppointResignDirector']['director_id']
+                )
+            ));
+            $d['type']=$document['AppointResignDirector']['type'];
+            $d['attn']=$document['AppointResignDirector']['attn'];
+            array_push($lastSubmitDirectors,$d);
+            array_push($doc_ids,$document['Document']['id']);
+        }
+        $types = array("appointment","cessation");
+        //ChromePhp::log($lastSubmitDirectors);
+        $this->set('title', 'Edit Appoint&Resign Directors');
+        $this->set("lastSubmitDirectors",$lastSubmitDirectors);
+         $this->set('directors',$directors);
+         $this->set('types',$types);
+         $this->set('company',$data['company']);
+         $this->set('event_id',$data['id']);
+         $this->set("doc_ids",$doc_ids);
+         
+    }
+     function preview1(){
+            $data = $this->request->data;
+            ChromePhp::log($data);
+            $director_ids = $data['director'];
+               
+            $directors = array();
+            $attn = $data['attn'];
+            $types = $data['type'];
+            foreach ($director_ids as $director_id) {
+                    if (!empty($director_id)) {
+
+                            $director = $this->Director->find('first', array('conditions' => array('Director.id = ' => $director_id)));
+                            array_push($directors,$director);
+                    }
+            }
+
+            for($i = 0;$i < count($directors);$i++){
+                if($types[$i]==="cessation"){
+                    $directors[$i]["reportedTo"] = $attn[$i];
+                }else{
+                    $directors[$i]["reportedTo"]="";
+                }
+           }
+          
+           
+            $preview_data = array(
+                    "title"=>'Preview Form',
+                    "data"=>$data, //Remove or not
+
+                    "Director"=>$directors,
+                );
+ 
+         $total_directors = $this->StakeHolder->find("all",array(
             "conditions"=>array(
                 "StakeHolder.Director"=>1,
                 "StakeHolder.company_id"=>$data['company']
@@ -191,11 +255,17 @@ class FunctionCorpsController extends AppController{
         ));
    
         $this->set('preview_data', $preview_data);
-        $this->set('total_directors', $total_directors);   
+        $this->set('total_directors', $total_directors);  
+        if(isset($data['edit'])){
+            $this->set('edit', $data['edit']);
+            $this->set('event_id',$data['event_id']);
+            $this->set("doc_ids",$data['doc_ids']);
+        }
     }
     
     function generateAppointResignDirector(){
         $form = new FormsController();
+        $documentControl = new DocumentsController();
         $data = $this->request->data;
         $directors = $data['director'];
         $types = $data['type'];
@@ -236,6 +306,15 @@ class FunctionCorpsController extends AppController{
         
         
         //Save to Documents,Events,Appoint&Resign Directors table for document tracking, logging purposes
+        //Change previous event to inedible mode
+       if(isset($data['edit'])){
+           $this->Event->id=$data['event_id'];
+           $this->Event->saveField("mode","");
+           $document_ids = $data["doc_ids"];
+           foreach($document_ids as $id){
+               $this->Document->delete($id);
+           }
+       }
         $this->Event->create();
         $created_time = date('Y-m-d H:i:s');
         $unique_hash = sha1(date('Y-m-d H:i:s').$user['User']['id'].$data['company']."1");
@@ -260,8 +339,9 @@ class FunctionCorpsController extends AppController{
         
       
        // Change Mode of directors to resigned in databases
+        $array_documents_id = array();
              for ($i = 0; $i < count($types); $i++) {
-                 
+                  
                  if(strcmp($types[$i],"cessation")==0){
                      //ChromePhp::log($directors[$i]);
                    
@@ -271,16 +351,21 @@ class FunctionCorpsController extends AppController{
                             'Director.id' => $directors[$i]
                         )
                      );
-                     
+                     $director = $this->StakeHolder->find("first",array(
+                        "conditions"=>array(
+                            "StakeHolder.id"=>$directors[$i]
+                        )
+                    ));
                      //save to Document table
                     $this->Document->create();
-                    $hash_value = sha1($directors[$i]."cessation".date('Y-m-d H:i:s'));
+                    $hash_value = sha1($i."cessation".date('Y-m-d H:i:s'));
                     $document = array(
                         'company_id'=>$data['company'],
                         'function_id'=>1,
                         'created_at'=>date('Y-m-d H:i:s'),
                         'unique_key'=>$hash_value,
-                        'status'=>"Available"
+                        'status'=>"Available",
+                        "description"=>"Cessation of Director ".$director['StakeHolder']['name'],
                     );
                     $this->Document->save($document);
                     //Save to DocumentDirector table
@@ -289,13 +374,16 @@ class FunctionCorpsController extends AppController{
                                 'Document.unique_key'=>$hash_value
                         )
                     ));
+                    array_push($array_documents_id,$documentDirectorEntry['Document']['id']);
+                   
                         $data_ARD = array(
                             "document_id"=>$documentDirectorEntry['Document']['id'],
                             "event_id"=>$event['Event']['id'],
                             "director_id"=>$directors[$i],
                             "type"=>"cessation",
                             "attn"=>$data['reportedTo'][$i],
-                            "NameSDs"=>$data['prepared_by']
+                            "NameSDs"=>$data['prepared_by'],
+                            
                         );
                         $this->AppointResignDirector->create();
 
@@ -311,7 +399,11 @@ class FunctionCorpsController extends AppController{
                  
                  if(strcmp($types[$i],"appointment")==0){
                     
-                   
+                     $director = $this->StakeHolder->find("first",array(
+                        "conditions"=>array(
+                            "StakeHolder.id"=>$directors[$i]
+                        )
+                    ));
                      $this->Director->updateAll(array(
                             'Director.Mode'=>null
                         ),array(
@@ -321,13 +413,14 @@ class FunctionCorpsController extends AppController{
                      
                      //save to Document table
                     $this->Document->create();
-                    $hash_value = sha1($directors[$i]."appointment".date('Y-m-d H:i:s'));
+                    $hash_value = sha1($i."appointment".date('Y-m-d H:i:s'));
                     $document = array(
                         'company_id'=>$data['company'],
                         'function_id'=>1,
                         'created_at'=>date('Y-m-d H:i:s'),
                         'unique_key'=>$hash_value,
-                        'status'=>"Available"
+                        'status'=>"Available",
+                        "description"=>"Appointment of Director ".$director['StakeHolder']['name']
                     );
                     $this->Document->save($document);
                     //Save to DocumentDirector table
@@ -336,13 +429,15 @@ class FunctionCorpsController extends AppController{
                                 'Document.unique_key'=>$hash_value
                         )
                     ));
+                     array_push($array_documents_id,$documentDirectorEntry['Document']['id']);
                      $data_ARD = array(
                             "document_id"=>$documentDirectorEntry['Document']['id'],
                             "event_id"=>$event['Event']['id'],
                             "director_id"=>$directors[$i],
                             "type"=>"appointment",
                             "attn"=>"",
-                            "NameSDs"=>$data['prepared_by']
+                            "NameSDs"=>$data['prepared_by'],
+                  
                         );
                         $this->AppointResignDirector->create();
 
@@ -374,6 +469,11 @@ class FunctionCorpsController extends AppController{
             "created_at"=>date('Y-m-d H:i:s'),
         );
         $this->ZipFile->save($zip_file);
+        //Inititaing 5 steps tracking
+        foreach($array_documents_id as $id){
+            $documentControl->initiateStatusChecking($id);
+        }
+        
         $this->Session->setFlash(
 		    'Forms are generated!',
 		    'default',
@@ -432,7 +532,8 @@ class FunctionCorpsController extends AppController{
                'function_id'=>3,
                'created_at'=>date('Y-m-d H:i:s'),
                'unique_key'=>$hash_value,
-               'status'=>"Available"
+               'status'=>"Available",
+               'description'=>"Change of Banking Signatories [".$data['bankName']."]"
            );
            $this->Document->save($document);
          
@@ -442,6 +543,7 @@ class FunctionCorpsController extends AppController{
                )
            ));
            $document_id = $documentBankSignatorEntry['Document']['id'];
+           
             $data_UOB = array(
                 'document_id'=>$document_id ,
                 "event_id"=>$event['Event']['id'],
@@ -474,6 +576,8 @@ class FunctionCorpsController extends AppController{
             "path"=>'ChangeOfBankingUOB'.$time.'.zip',
             "created_at"=>date('Y-m-d H:i:s'),
         );
+        $documentControl = new DocumentsController();
+        $documentControl->initiateStatusChecking($document_id);
         $this->ZipFile->save($zip_file);
         $this->Session->setFlash(
 		    'Forms are generated!',
@@ -485,6 +589,43 @@ class FunctionCorpsController extends AppController{
             "action"=>'index'
         ));
     }
+    public function editAppointAs() {
+        $data = $this->params['url'];
+         $documents = $this->AppointSecretaryAuditor->find("all",array(
+            "conditions"=>array(
+                "Event.id"=>$data['id']
+            )
+        ));
+         $secretaries = $this->StakeHolder->find('all',array(
+              "conditions"=>array(
+              'StakeHolder.company_id'=>$data['company'],
+               'StakeHolder.Secretary'=>1 
+           ) 
+        ));
+        $lastSubmitSecretaries = array();
+        $doc_ids = array();
+        foreach($documents as $document){
+            $d = $this->StakeHolder->find("first",array(
+                "conditions"=>array(
+                    "StakeHolder.id"=>$document['AppointResignSecretary']['secretary_id']
+                )
+            ));
+            $d['type']=$document['AppointResignSecretary']['type'];
+            $d['attn']=$document['AppointResignSecretary']['attn'];
+            $d['NameDS']=$document['AppointResignSecretary']['NameDS'];
+            array_push($lastSubmitSecretaries,$d);
+            array_push($doc_ids,$document['Document']['id']);
+        }
+        $types = array("appointment","cessation");
+        //ChromePhp::log($lastSubmitSecretaries);
+        $this->set('title', 'Edit Appoint&Resign Secretaries');
+        $this->set("lastSubmitSecretaries",$lastSubmitSecretaries);
+         $this->set('secretaries',$secretaries);
+         $this->set('types',$types);
+         $this->set('company',$data['company']);
+         $this->set('event_id',$data['id']);
+         $this->set("doc_ids",$doc_ids);
+    }
     function generateAppointAs(){
         $form = new FormsController();
         $data = $this->request->data;
@@ -493,82 +634,28 @@ class FunctionCorpsController extends AppController{
                    "User.token"=>$this->Session->read('token')
                )
         ));
-        $secretary_id = $data['sec_id'];
+        $secretary_id = $data['secretary'][0];
+        $auditor_id = $data['auditor'][0];
         //Save Secretary Info
         
-            $data_secretaries = array(
-                "StakeHolder.name"=>"'".$data['sec_name']."'",
-                "StakeHolder.nric"=>"'".$data['sec_nric']."'",
-                "StakeHolder.address_1"=>"'".$data['sec_addr1']."'",
-                "StakeHolder.address_2"=>"'".$data['sec_addr2']."'",
-                "StakeHolder.nationality"=>"'".$data['sec_nationality']."'",
-                "StakeHolder.updated_at"=>"'".date('Y-m-d H:i:s')."'",
-            );
-            
-            $this->StakeHolder->updateAll($data_secretaries,array(
-                   "StakeHolder.id"=>$secretary_id
-            ));
-            $secretary = $this->Secretary->find("first",array(
-                    "conditions"=>array(
-                        "Secretary.id"=>$secretary_id
-                    )
-            ));
-        $postfix = "Secretary:".$secretary['StakeHolder']['name'].",Auditor:".$data['a_name'];
-        //Save to Events tables. For logging purpose
-        $this->Event->create();
-        $created_time = date('Y-m-d H:i:s');
-        $unique_hash = sha1($created_time.$postfix."2");
-        $event_data = array(
-            "function_id"=>2,
-            "company_id"=>$data['company'],
-            "user_id"=>$user['User']['id'],
-            "created_time"=>$created_time ,
-            "description"=>isset($data['edit'])?"Edit Appointing-both-secretary-and-auditor documents[".$postfix."]":"Create Appointing-both-secretary-and-auditor documents[".$postfix."]",
-            "mode"=>"editable",
-            "unique_hash"=>$unique_hash
-        );
-        $this->Event->save($event_data);
+//            $data_secretaries = array(
+//                "StakeHolder.name"=>"'".$data['sec_name']."'",
+//                "StakeHolder.nric"=>"'".$data['sec_nric']."'",
+//                "StakeHolder.address_1"=>"'".$data['sec_addr1']."'",
+//                "StakeHolder.address_2"=>"'".$data['sec_addr2']."'",
+//                "StakeHolder.nationality"=>"'".$data['sec_nationality']."'",
+//                "StakeHolder.updated_at"=>"'".date('Y-m-d H:i:s')."'",
+//            );
+//            
+//            $this->StakeHolder->updateAll($data_secretaries,array(
+//                   "StakeHolder.id"=>$secretary_id
+//            ));
         
-        
-        $event = $this->Event->find("first",array(
-            "conditions"=>array(
-                "unique_hash"=>$unique_hash
-            )
-        ));
-       //save to Document table
-           $this->Document->create();
-           $hash_value = sha1($data['a_name'].$data['sec_id']."appointment".date('Y-m-d H:i:s'));
-           $document = array(
-               'company_id'=>$data['company'],
-               'function_id'=>2,
-               'created_at'=>date('Y-m-d H:i:s'),
-               'unique_key'=>$hash_value,
-               'status'=>"Available"
-           );
-           $this->Document->save($document);
-           //Save to DocumentDirector table
-           $documentSecretaryEntry = $this->Document->find('first',array(
-               'conditions'=>array(
-                       'Document.unique_key'=>$hash_value
-               )
-           ));
-           $document_id = $documentSecretaryEntry['Document']['id'];
-            $this->AppointSecretaryAuditor->create();
-           $documentSA = array(
-               'document_id'=>$document_id ,
-               "event_id"=>$event['Event']['id'],
-               "secretary_id"=> $data['sec_id'],
-                "auditor_name"=>$data['a_name'],
-                "auditor_address"=>$data['a_address'],
-                "NameDS"=>$data['prepared_by'],  
-           );
-        $this->AppointSecretaryAuditor->save($documentSA);
-
                  
   
         $data['function']=2;
            //ChromePhp::log($data); 
-          $form->generateForm45B_ASA($data);
+         $form->generateForm45B_ASA($data);
           $form->generateForm49ASA($data);
          $form->generateResolutionASA($data);
         $form->generateIndemnityLetter($data);
@@ -588,6 +675,72 @@ class FunctionCorpsController extends AppController{
             "created_at"=>date('Y-m-d H:i:s'),
         );
         $this->ZipFile->save($zip_file);
+        //for($i = 0;$i < count();$i++){
+            $secretary = $this->Secretary->find("first",array(
+                    "conditions"=>array(
+                        "Secretary.id"=>$secretary_id
+                    )
+            ));
+            $auditor = $this->Auditor->find("first",array(
+                    "conditions"=>array(
+                        "Auditor.id"=>$auditor_id
+                    )
+            ));
+            $postfix = "Secretary:".$secretary['StakeHolder']['name'].",Auditor:".$auditor['StakeHolder']['name'];
+            //Save to Events tables. For logging purpose
+            $this->Event->create();
+            $created_time = date('Y-m-d H:i:s');
+            $unique_hash = sha1($created_time.$postfix."2");
+            $event_data = array(
+                "function_id"=>2,
+                "company_id"=>$data['company'],
+                "user_id"=>$user['User']['id'],
+                "created_time"=>$created_time ,
+                "description"=>isset($data['edit'])?"Edit Appointing-both-secretary-and-auditor documents[".$postfix."]":"Create Appointing-both-secretary-and-auditor documents[".$postfix."]",
+                "mode"=>"editable",
+                "unique_hash"=>$unique_hash
+            );
+            $this->Event->save($event_data);
+
+
+            $event = $this->Event->find("first",array(
+                "conditions"=>array(
+                    "unique_hash"=>$unique_hash
+                )
+            ));
+           //save to Document table
+               $this->Document->create();
+               $hash_value = sha1(time()."appointment".date('Y-m-d H:i:s'));
+               $document = array(
+                   'company_id'=>$data['company'],
+                   'function_id'=>2,
+                   'created_at'=>date('Y-m-d H:i:s'),
+                   'unique_key'=>$hash_value,
+                   'status'=>"Available",
+                   'description'=>"Appoint Auditor[".$auditor['StakeHolder']['name']."] with Secretary[".$secretary['StakeHolder']['name']."]"
+               );
+               $this->Document->save($document);
+               //Save to DocumentDirector table
+//               $documentSecretaryEntry = $this->Document->find('first',array(
+//                   'conditions'=>array(
+//                           'Document.unique_key'=>$hash_value
+//                   )
+//               ));
+               //$document_id = $documentSecretaryEntry['Document']['id'];
+               $documentControl = new DocumentsController();
+               $documentControl->initiateStatusChecking($this->Document->id);
+                $this->AppointSecretaryAuditor->create();
+               $documentSA = array(
+                   'document_id'=>$this->Document->id ,
+                   "event_id"=>$event['Event']['id'],
+                   "secretary_id"=> $secretary['StakeHolder']['id'],
+                    "auditor_name"=>$auditor['StakeHolder']['name'],
+                    "auditor_address"=>$auditor['StakeHolder']['address_1'],
+                    "NameDS"=>$data['prepared_by'],  
+               );
+            $this->AppointSecretaryAuditor->save($documentSA);
+        
+        
         $this->Session->setFlash(
 		    'Forms are generated!',
 		    'default',
@@ -633,7 +786,14 @@ class FunctionCorpsController extends AppController{
             ));
             $postfix .=  ($i != (count($secretaries)-1))?$sec['StakeHolder']['name'].",":$sec['StakeHolder']['name'];
         };
-        
+        if(isset($data['edit'])){
+           $this->Event->id=$data['event_id'];
+           $this->Event->saveField("mode","");
+           $document_ids = $data["doc_ids"];
+           foreach($document_ids as $id){
+               $this->Document->delete($id);
+           }
+       }
         
         //Save to Events and $postfix EventsDirector table. For logging purpose
         $this->Event->create();
@@ -659,9 +819,14 @@ class FunctionCorpsController extends AppController{
      
         $secs = $data['secretary'];
         $types = $data['type'];
+        $array_documents_id = array();
         // Change Mode of secretary to resigned in databases
              for ($i = 0; $i < count($types); $i++) {
-                 
+                 $secretary = $this->StakeHolder->find("first",array(
+                     "conditions"=>array(
+                         "StakeHolder.id"=>$secs[$i]
+                     )
+                 ));
                  if(strcmp($types[$i],"cessation")==0){
                      //ChromePhp::log($directors[$i]);
                    
@@ -674,13 +839,14 @@ class FunctionCorpsController extends AppController{
                      
                      //save to Document table
                     $this->Document->create();
-                    $hash_value = sha1($secs[$i]."cessation".date('Y-m-d H:i:s'));
+                    $hash_value = sha1($i."cessation".date('Y-m-d H:i:s'));
                     $document = array(
                         'company_id'=>$data['company'],
                         'function_id'=>0,
                         'created_at'=>date('Y-m-d H:i:s'),
                         'unique_key'=>$hash_value,
-                        'status'=>"Available"
+                        'status'=>"Available",
+                        "description"=>"Resignation of Secretary ".$secretary['StakeHolder']['name']
                     );
                     $this->Document->save($document);
                     // Save to AppointResignSecretary table
@@ -690,7 +856,7 @@ class FunctionCorpsController extends AppController{
                         )
                     ));
                     $document_id = $documentSecretaryEntry['Document']['id'];   
-              
+                    array_push($array_documents_id,$document_id);
                             $data_ARS = array(
                                 "document_id"=>$document_id, 
                                 "event_id"=>$event['Event']['id'],
@@ -708,8 +874,13 @@ class FunctionCorpsController extends AppController{
              }
              
               //Change Mode of secretaries to appointed in databases
+             
              for ($i = 0; $i < count($types); $i++) {
-                 
+                 $secretary = $this->StakeHolder->find("first",array(
+                     "conditions"=>array(
+                         "StakeHolder.id"=>$secs[$i]
+                     )
+                 ));
                  if(strcmp($types[$i],"appointment")==0){
                     
                    
@@ -722,13 +893,14 @@ class FunctionCorpsController extends AppController{
                      
                      //save to Document table
                     $this->Document->create();
-                    $hash_value = sha1($secs[$i]."appointment".date('Y-m-d H:i:s'));
+                    $hash_value = sha1($i."appointment".date('Y-m-d H:i:s'));
                     $document = array(
                         'company_id'=>$data['company'],
                         'function_id'=>0,
                         'created_at'=>date('Y-m-d H:i:s'),
                         'unique_key'=>$hash_value,
-                        'status'=>"Available"
+                        'status'=>"Available",
+                        "description"=>"Appointment of Secretary ".$secretary['StakeHolder']['name']
                     );
                     $this->Document->save($document);
                     //Save to DocumentDirector table
@@ -738,13 +910,14 @@ class FunctionCorpsController extends AppController{
                         )
                     ));
                     $document_id = $documentSecretaryEntry['Document']['id'];
+                    array_push($array_documents_id,$document_id);
                     $secs = $data['secretary'];
                             $data_ARS = array(
                                 "document_id"=>$document_id,
                                 "event_id"=>$event['Event']['id'],
                                 "secretary_id"=>$secs[$i],
                                 "type"=>"appointment",
-                                "attn"=>$data['reportedTo'][$i],
+                                "attn"=>"",
                                 "NameDS"=>$data['prepared_by']
                             );
                             $this->AppointResignSecretary->create();
@@ -766,6 +939,10 @@ class FunctionCorpsController extends AppController{
         foreach($files_to_zip as $file){ //Delete files after zipping
             unlink($file);
         };
+        $documentControl = new DocumentsController();
+        foreach($array_documents_id as $id){
+            $documentControl->initiateStatusChecking($id);
+        }
         //Create zip file
         $this->ZipFile->create();
         $zip_file = array(
@@ -787,118 +964,91 @@ class FunctionCorpsController extends AppController{
         
     }
     
-    function preview2(){
-        if(isset($this->params['url']['edit'])){
-            $event_id = $this->request['url']['id'];
-             $company_id = $this->request['url']['company'];
-             $submission = $this->AppointSecretaryAuditor->find("first",array(
-                 "conditions"=>array(
-                     "AppointSecretaryAuditor.event_id"=>$event_id
-                 )
-             ));
-           
-             $preview_data = array();
-             
-             $preview_data['title']="Edit Last Submission";
-             $preview_data['function']=2;
-             $preview_data['company']=$company_id;
-             $preview_data['prepared_by']=$submission['AppointSecretaryAuditor']['NameDS'];
-             $secretary = $this->Secretary->find('first', array('conditions' => array('Secretary.id = ' => $submission['StakeHolder']['id'])));
-             $preview_data["auditor"]=array(
-                    "name"=>$submission['AppointSecretaryAuditor']['auditor_name'],
-                    "address"=>$submission['AppointSecretaryAuditor']['auditor_address']
-             );
-                
-               $preview_data['Secretary'] = $secretary ;
-               $preview_data['edit'] = "y";
-        }else{
-            $data = $this->request->data;
-
-            $id = $data['secretary'];
-
-            $secretary = $this->Secretary->find('first', array('conditions' => array('Secretary.id' =>  $id )));    
-            $preview_data = array(
-                        "title"=>'Preview Form',
-                        "Secretary"=>$secretary,
-                        "prepared_by"=>$data['prepared_by'],
-                        "auditor"=>array(
-                             "name"=>$data['auditorName'],
-                            "address"=>$data['auditorAddress']
-                        ),
-                        "company"=>$data['company'],
-                        "function"=>$data['function']
-                    );
-        }
-        
-           $total_secretaries = $this->Secretary->find("all");     
-        $this->set('preview_data', $preview_data);
-         $this->set('total_secretaries', $total_secretaries);
-    }
+//    function preview2(){
+//        if(isset($this->params['url']['edit'])){
+//            $event_id = $this->request['url']['id'];
+//             $company_id = $this->request['url']['company'];
+//             $submission = $this->AppointSecretaryAuditor->find("first",array(
+//                 "conditions"=>array(
+//                     "AppointSecretaryAuditor.event_id"=>$event_id
+//                 )
+//             ));
+//           
+//             $preview_data = array();
+//             
+//             $preview_data['title']="Edit Last Submission";
+//             $preview_data['function']=2;
+//             $preview_data['company']=$company_id;
+//             $preview_data['prepared_by']=$submission['AppointSecretaryAuditor']['NameDS'];
+//             $secretary = $this->Secretary->find('first', array('conditions' => array('Secretary.id = ' => $submission['StakeHolder']['id'])));
+//             $preview_data["auditor"]=array(
+//                    "name"=>$submission['AppointSecretaryAuditor']['auditor_name'],
+//                    "address"=>$submission['AppointSecretaryAuditor']['auditor_address']
+//             );
+//                
+//               $preview_data['Secretary'] = $secretary ;
+//               $preview_data['edit'] = "y";
+//        }else{
+//            $data = $this->request->data;
+//
+//            $id = $data['secretary'];
+//
+//            $secretary = $this->Secretary->find('first', array('conditions' => array('Secretary.id' =>  $id )));    
+//            $auditor = $this->Auditor->find('first', array('conditions' => array('Auditor.id' =>  $id ))); 
+//            $preview_data = array(
+//                        "title"=>'Preview Form',
+//                        "Secretary"=>$secretary,
+//                        "prepared_by"=>$data['prepared_by'],
+//                        "Auditor"=>$auditor,
+//                        "company"=>$data['company'],
+//                        "function"=>$data['function']
+//                    );
+//        }
+//        
+//           $total_secretaries = $this->Secretary->find("all");  
+//           $total_auditors = $this->Secretary->find("all"); 
+//        $this->set('preview_data', $preview_data);
+//         $this->set('total_secretaries', $total_secretaries);
+//    }
     function preview0(){
-        if(isset($this->params['url']['edit'])){
-            $event_id = $this->request['url']['id'];
-             $company_id = $this->request['url']['company'];
-             $submissions = $this->AppointResignSecretary->find("all",array(
-                 "conditions"=>array(
-                     "AppointResignSecretary.event_id"=>$event_id
-                 )
-             ));
-              $secretaries = array();
-             $preview_data = array();
-             
-             $preview_data['title']="Edit Last Submission";
-             $preview_data['function']=0;
-             $preview_data['company']=$company_id;
-             $preview_data['prepared_by']=$submissions[0]['AppointResignSecretary']['NameDS'];
-             
-             foreach($submissions as $submission){
-                $secretary = $this->Secretary->find('first', array('conditions' => array('Secretary.id = ' => $submission['StakeHolder']['id'])));
-                 
-                 if($submission['AppointResignSecretary']['type']=="cessation"){
-                    $secretary['reportedTo']= $submission['AppointResignSecretary']['attn'];
-                    $secretary['type']= "cessation";
-                 }else{
-                     $secretary['reportedTo']= "";
-                    $secretary['type']= "appointment";
-                 }
+       
+        $data = $this->request->data;
+        $ids = $data['director'];
+        $secretaries = array();
+        foreach ($ids as $sec_id) {
+                $secretary = $this->Secretary->find('first', array('conditions' => array('Secretary.id = ' => $sec_id)));
                 array_push($secretaries, $secretary);
-              }
 
-               $preview_data['Secretary'] = $secretaries;
-               $preview_data['edit'] = "y";
-        }else{
-            $data = $this->request->data;
-            $ids = $data['director'];
-            $secretaries = array();
-            foreach ($ids as $sec_id) {
-                    $secretary = $this->Secretary->find('first', array('conditions' => array('Secretary.id = ' => $sec_id)));
-                    array_push($secretaries, $secretary);
-
-            }
-
-            for($i = 0;$i < count($secretaries);$i++){
-                if($data['type'][$i]==="cessation"){
-                    $secretaries[$i]["reportedTo"] = $data['attn'][$i];
-                    $secretaries[$i]["type"] = "cessation";
-                }else{
-                    $secretaries[$i]["reportedTo"] = "";
-                    $secretaries[$i]["type"] = "appointment";
-                }
-           }  
-           
-             $preview_data = array(
-                    "title"=>'Preview Form',
-                    "Secretary"=>$secretaries,
-                    "prepared_by"=>$data['prepared_by'],
-                    "company"=>$data['company'],
-                    "function"=>$data['function']
-             );
         }
+
+        for($i = 0;$i < count($secretaries);$i++){
+            if($data['type'][$i]==="cessation"){
+                $secretaries[$i]["reportedTo"] = $data['attn'][$i];
+                $secretaries[$i]["type"] = "cessation";
+            }else{
+                $secretaries[$i]["reportedTo"] = "";
+                $secretaries[$i]["type"] = "appointment";
+            }
+       }  
+
+         $preview_data = array(
+                "title"=>'Preview Form',
+                "Secretary"=>$secretaries,
+                "prepared_by"=>$data['prepared_by'],
+                "company"=>$data['company'],
+              
+         );
+        
         
         $total_secretaries = $this->Secretary->find("all");
       
         $this->set('preview_data', $preview_data);
         $this->set('total_secretaries', $total_secretaries);
+        if(isset($data['edit'])){
+            $this->set('edit', $data['edit']);
+            $this->set('event_id',$data['event_id']);
+            $this->set("doc_ids",$data['doc_ids']);
+        }
         
     }
     function displayLastSubmissions(){
@@ -1101,7 +1251,8 @@ class FunctionCorpsController extends AppController{
                    'function_id'=>4,
                    'created_at'=>date('Y-m-d H:i:s'),
                    'unique_key'=>$hash_value,
-                   'status'=>"Available"
+                   'status'=>"Available",
+                   "description"=>"Change of Company Name from ".$company['Company']['name']." to ".$data['new_company_name']
                );
                $this->Document->save($document);
              
@@ -1143,8 +1294,8 @@ class FunctionCorpsController extends AppController{
            $form->generateEOGM($input);
 		   
 		   //Save new company
-		   $this->Company->id = $data['company'];
-		   $this->Company->saveField("name",$data['new_company_name']);
+//		   $this->Company->id = $data['company'];
+//		   $this->Company->saveField("name",$data['new_company_name']);
                     $files_to_zip = $form->form_downloads;
                     $time = date('Y-m-d H-i-s');
         $this->create_zip($files_to_zip,APP . WEBROOT_DIR . DS .'files' . DS . 'zip' . DS . 'ChangeCompanyName'.$time.'.zip');
@@ -1166,6 +1317,8 @@ class FunctionCorpsController extends AppController{
 		    'default',
 		    array('class' => 'alert alert-success')
 		);
+        $documentControl = new DocumentsController();
+        $documentControl->initiateStatusChecking($documentEntry['Document']['id']);
         return $this->redirect(array(
             "controller"=>'forms',
             "action"=>'index',
@@ -1217,7 +1370,8 @@ class FunctionCorpsController extends AppController{
             'function_id'=>5,
             'created_at'=>date('Y-m-d H:i:s'),
             'unique_key'=>$hash_value,
-            'status'=>"Available"
+            'status'=>"Available",
+            'description'=>"Change financial year from ".$pre_FY." to ".$new_FY
         );
         $this->Document->save($document);//end
   
@@ -1251,6 +1405,9 @@ class FunctionCorpsController extends AppController{
             "created_at"=>date('Y-m-d H:i:s'),
         );
         $this->ZipFile->save($zip_file);
+        $documentControl = new DocumentsController();
+        $documentControl->initiateStatusChecking($documentEntry['Document']['id']);
+
         $this->Session->setFlash(
 		    'Forms are generated!',
 		    'default',
@@ -1394,7 +1551,8 @@ class FunctionCorpsController extends AppController{
             'function_id'=>6,
             'created_at'=>date('Y-m-d H:i:s'),
             'unique_key'=>$hash_value,
-            'status'=>"Available"
+            'status'=>"Available",
+            'description'=>"Change Of MAA"
         );
         $this->Document->save($document);//end
   
@@ -1426,6 +1584,8 @@ class FunctionCorpsController extends AppController{
             "path"=>'ChangeOfMAA'.$time.'.zip',
             "created_at"=>date('Y-m-d H:i:s'),
         );
+        $documentControl = new DocumentsController();
+        $documentControl->initiateStatusChecking($documentEntry['Document']['id']);
         $this->ZipFile->save($zip_file);
 
 		   $this->Session->setFlash(
@@ -1446,8 +1606,9 @@ class FunctionCorpsController extends AppController{
     public function generateClosureOfBankAccResolution(){
         $form = new FormsController();
         $data=$this->request->data;
+//        ChromePhp:: log($data);
         $form->generateClosureOfBankAccResolution($data);
-        //Create Document
+       //Create Document
         $this->Document->create();
         $hash_value = sha1($data['company_id']."generateClosureOfBankAccResolution".date('Y-m-d H:i:s'));
         $document = array(
@@ -1455,7 +1616,8 @@ class FunctionCorpsController extends AppController{
             'function_id'=>7,
             'created_at'=>date('Y-m-d H:i:s'),
             'unique_key'=>$hash_value,
-            'status'=>"Available"
+            'status'=>"Available",
+            'description'=>"Closure of Bank Account Resolution"
         );
         $this->Document->save($document);
   
@@ -1488,6 +1650,8 @@ class FunctionCorpsController extends AppController{
             "created_at"=>date('Y-m-d H:i:s'),
         );
         $this->ZipFile->save($zip_file);
+        $documentControl = new DocumentsController();
+        $documentControl->initiateStatusChecking($documentEntry['Document']['id']);
         $this->Session->setFlash(
 		    'Forms are generated!',
 		    'default',
@@ -1514,7 +1678,8 @@ class FunctionCorpsController extends AppController{
             'function_id'=>8,
             'created_at'=>date('Y-m-d H:i:s'),
             'unique_key'=>$hash_value,
-            'status'=>"Available"
+            'status'=>"Available",
+            'description'=>"Loan Resolution"
         );
         $this->Document->save($document);
   
@@ -1529,7 +1694,7 @@ class FunctionCorpsController extends AppController{
                 //Add later
          );
         $this->LoanResolution->create();
-
+        
         $this->LoanResolution->save($data_LoanResolution);//end
          $files_to_zip = $form->form_downloads;
           $time = date('Y-m-d H-i-s');
@@ -1547,6 +1712,8 @@ class FunctionCorpsController extends AppController{
             "created_at"=>date('Y-m-d H:i:s'),
         );
         $this->ZipFile->save($zip_file);
+        $documentControl = new DocumentsController();
+        $documentControl->initiateStatusChecking($documentEntry['Document']['id']);
         $this->Session->setFlash(
 		    'Forms are generated!',
 		    'default',
@@ -1574,7 +1741,8 @@ class FunctionCorpsController extends AppController{
             'function_id'=>9,
             'created_at'=>date('Y-m-d H:i:s'),
             'unique_key'=>$hash_value,
-            'status'=>"Available"
+            'status'=>"Available",
+            'description'=>'Option To Purchase'
         );
         $this->Document->save($document);
   
@@ -1607,6 +1775,8 @@ class FunctionCorpsController extends AppController{
             "created_at"=>date('Y-m-d H:i:s'),
         );
         $this->ZipFile->save($zip_file);
+        $documentControl = new DocumentsController();
+        $documentControl->initiateStatusChecking($documentEntry['Document']['id']);
         $this->Session->setFlash(
 		    'Forms are generated!',
 		    'default',
@@ -1622,7 +1792,7 @@ class FunctionCorpsController extends AppController{
         $data = $this->request->data;
         $stakeholders = $this->StakeHolder->find("all",array(
             "conditions"=>array(
-                "Stakeholder.company_id"=>$data['company']    
+                "StakeHolder.company_id"=>$data['company']    
             )
         ));
         $this->set("title","Change of Passport");
@@ -1644,7 +1814,8 @@ class FunctionCorpsController extends AppController{
             'function_id'=>11,
             'created_at'=>date('Y-m-d H:i:s'),
             'unique_key'=>$hash_value,
-            'status'=>"Available"
+            'status'=>"Available",
+            'description'=>'Change of Passport'
         );
         $this->Document->save($document);
   
@@ -1659,7 +1830,7 @@ class FunctionCorpsController extends AppController{
                 //Add later
          );
         $this->ChangeOfPassport->create();
-
+        
         $this->ChangeOfPassport->save($data_ChangeOfPassport);//end
          $files_to_zip = $form->form_downloads;
          $time = date('Y-m-d H-i-s');
@@ -1668,6 +1839,8 @@ class FunctionCorpsController extends AppController{
         foreach($files_to_zip as $file){ //Delete files after zipping
             unlink($file);
         };
+        $documentControl = new DocumentsController();
+        $documentControl->initiateStatusChecking($documentEntry['Document']['id']);
         //Create zip file
         $this->ZipFile->create();
         $zip_file = array(
@@ -1677,6 +1850,7 @@ class FunctionCorpsController extends AppController{
             "created_at"=>date('Y-m-d H:i:s'),
         );
         $this->ZipFile->save($zip_file);
+        
         $this->Session->setFlash(
 		    'Forms are generated!',
 		    'default',
@@ -1718,7 +1892,8 @@ class FunctionCorpsController extends AppController{
             'function_id'=>12,
             'created_at'=>date('Y-m-d H:i:s'),
             'unique_key'=>$hash_value,
-            'status'=>"Available"
+            'status'=>"Available",
+            'description'=>'Change Register Address'
         );
         $this->Document->save($document);
   
@@ -1727,6 +1902,8 @@ class FunctionCorpsController extends AppController{
                     'Document.unique_key'=>$hash_value
             )
         ));
+        $documentControl = new DocumentsController();
+        $documentControl->initiateStatusChecking($documentEntry['Document']['id']);
         $company=$this->Company->find("first",array(
             "conditions"=>array(
                 "Company.company_id"=>$data['company']
@@ -1798,10 +1975,12 @@ class FunctionCorpsController extends AppController{
             'function_id'=>13,
             'created_at'=>date('Y-m-d H:i:s'),
             'unique_key'=>$hash_value,
-            'status'=>"Available"
+            'status'=>"Available",
+            'description'=>'Sales Asset Business'
         );
         $this->Document->save($document);
-  
+        $documentControl = new DocumentsController();
+        $documentControl->initiateStatusChecking($this->Document->id);
       
         $data_SalesAssetBusiness= array(
                 "document_id"=> $this->Document->id,
@@ -1857,10 +2036,12 @@ class FunctionCorpsController extends AppController{
             'function_id'=>14,
             'created_at'=>date('Y-m-d H:i:s'),
             'unique_key'=>$hash_value,
-            'status'=>"Available"
+            'status'=>"Available",
+            'description'=>"Property Disposal"
         );
         $this->Document->save($document);
-  
+        $documentControl = new DocumentsController();
+        $documentControl->initiateStatusChecking($this->Document->id);
       
         $data_PropertyDisposal= array(
                 "document_id"=> $this->Document->id,
@@ -1940,7 +2121,8 @@ class FunctionCorpsController extends AppController{
             'function_id'=>15,
             'created_at'=>date('Y-m-d H:i:s'),
             'unique_key'=>$hash_value,
-            'status'=>"Available"
+            'status'=>"Available",
+            'description'=>'Resign Auditor'
         );
         $this->Document->save($document);
   
@@ -1967,6 +2149,8 @@ class FunctionCorpsController extends AppController{
         foreach($files_to_zip as $file){ //Delete files after zipping
             unlink($file);
         };
+        $documentControl = new DocumentsController();
+        $documentControl->initiateStatusChecking($this->Document->id);
         //Create zip file
         $this->ZipFile->create();
         $zip_file = array(
@@ -2017,9 +2201,12 @@ class FunctionCorpsController extends AppController{
             'function_id'=>16,
             'created_at'=>date('Y-m-d H:i:s'),
             'unique_key'=>$hash_value,
-            'status'=>"Available"
+            'status'=>"Available",
+            'description'=>'Normal Struck Off'
         );
         $this->Document->save($document);
+        $documentControl = new DocumentsController();
+        $documentControl->initiateStatusChecking($this->Document->id);
         $data_NormalStruckOff= array(
                 "document_id"=> $this->Document->id,
                 //"price"=>$data['price']
@@ -2080,7 +2267,8 @@ class FunctionCorpsController extends AppController{
             'function_id'=>17,
             'created_at'=>date('Y-m-d H:i:s'),
             'unique_key'=>$hash_value,
-            'status'=>"Available"
+            'status'=>"Available",
+            'description'=>'Allot Director Fee'
         );
         $this->Document->save($document);
         $data_AllotDirectorFee= array(
@@ -2089,7 +2277,8 @@ class FunctionCorpsController extends AppController{
                 //"event_id"=>null,
                 //Add later
          );
-        
+        $documentControl = new DocumentsController();
+        $documentControl->initiateStatusChecking($this->Document->id);
         $this->AllotDirectorFee->create();
 
         $this->AllotDirectorFee->save($data_AllotDirectorFee);
@@ -2143,7 +2332,8 @@ class FunctionCorpsController extends AppController{
             'function_id'=>18,
             'created_at'=>date('Y-m-d H:i:s'),
             'unique_key'=>$hash_value,
-            'status'=>"Available"
+            'status'=>"Available",
+            'description'=>"First Final Dividend"
         );
         $this->Document->save($document);
         $data_FirstFinalDividend= array(
@@ -2153,7 +2343,8 @@ class FunctionCorpsController extends AppController{
                 //"event_id"=>null,
                 //Add later
          );
-        
+        $documentControl = new DocumentsController();
+        $documentControl->initiateStatusChecking($this->Document->id);
         $this->FirstFinalDividend->create();
 
         $this->FirstFinalDividend->save($data_FirstFinalDividend);
@@ -2211,7 +2402,8 @@ class FunctionCorpsController extends AppController{
             'function_id'=>19,
             'created_at'=>date('Y-m-d H:i:s'),
             'unique_key'=>$hash_value,
-            'status'=>"Available"
+            'status'=>"Available",
+            'description'=>'Increase of Share'
         );
         $this->Document->save($document);
         $data_IncreaseOfShare= array(
@@ -2220,7 +2412,8 @@ class FunctionCorpsController extends AppController{
                 //"event_id"=>null,
                 //Add later
          );
-        
+        $documentControl = new DocumentsController();
+        $documentControl->initiateStatusChecking($this->Document->id);
         $this->IncreaseOfShare->create();
 
         $this->IncreaseOfShare->save($data_IncreaseOfShare);
@@ -2280,7 +2473,8 @@ class FunctionCorpsController extends AppController{
             'function_id'=>20,
             'created_at'=>date('Y-m-d H:i:s'),
             'unique_key'=>$hash_value,
-            'status'=>"Available"
+            'status'=>"Available",
+            'description'=>"Increase Non Cash Capital"
         );
         $this->Document->save($document);
         $data_IncreasePaidUpCapital= array(
@@ -2289,7 +2483,8 @@ class FunctionCorpsController extends AppController{
                 //"event_id"=>null,
                 //Add later
          );
-        
+        $documentControl = new DocumentsController();
+        $documentControl->initiateStatusChecking($this->Document->id);
         $this->IncreasePaidUpCapital->create();
 
         $this->IncreasePaidUpCapital->save($data_IncreasePaidUpCapital);
@@ -2319,4 +2514,5 @@ class FunctionCorpsController extends AppController{
             "action"=>'index',
         ));
     }
+  
 }

@@ -1,12 +1,12 @@
 $(document).ready(function() {
         
-	var DOMAIN_URL = 'http://127.0.0.1/tb001/'
+	var DOMAIN_URL = 'http://127.0.0.1/tb001/';
         console.log("welcome to main application.js");
-        var count = 0;
+       
         
         $('#paging_container').pajinate();
 	$('.datepicker').datepicker({
-	  	format:'m/d/Y',
+	  	dateFormat:'yy-mm-dd',
 	  	date: $('#datepicker').val(),
 	  	current: $('#datepicker').val(),
 	  	starts: 1,
@@ -81,10 +81,10 @@ $(document).ready(function() {
         //Add directors in appoint_assign view
         $( "#add_directors" ).click(function(e) {
   
-            count++;
+       
             var new_row = "<div class=\"director-block\">" 
-				+ "<label>Director "+count+"</label>"
-				+ "<br />"
+				
+			
 				+"<select name=\"director[]\" class=\"form-control\" >"
 					+"<option value=\"\"> -- Select Director -- </option>"
 				

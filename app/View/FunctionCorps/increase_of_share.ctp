@@ -10,6 +10,7 @@
                 <label>Current Capital Shares</label><input  style="margin-bottom:10px" name="capitalShare" class="form-control"  required/><br>
                 <label>Issued Paid</label><input  style="margin-bottom:10px" name="issuedPaid" class="form-control"  required/><br>
                  <label>Each Share paid</label><input  style="margin-bottom:10px" name="eachShare" class="form-control"  required/><br>
+                 <label>Currency</label><input  style="margin-bottom:10px" name="currency" class="form-control"  placeholder="Eg; S$" required/><br>
                 
             </div>
 		<div id="container-stakeholder-block">
@@ -25,7 +26,10 @@
 				</select> 
                              <input class="form-control" name="SharesAlloted[]" value="" required></input>
                              <input style="margin-bottom:2em" class="form-control" name="SharesInCash[]" value="" required></input><br>
-                             <label >Cheque(if any)</label><input  value="" class="form-control" name="cheque[]"/>
+                             <label >Cheque(if any)</label><label style="padding-left:4.5em" >Class of Share</label><br>
+                             
+                             <input  value="" class="form-control" name="cheque[]"/>
+                             <input  placeholder="Eg. Ordinary" class="form-control" name="class[]" required/>
                                 <button class="btn btn-danger remove_stakeholders" type="button">Remove</button>
                             </div>
                 </div>

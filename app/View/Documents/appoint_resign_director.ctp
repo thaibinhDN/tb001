@@ -40,7 +40,7 @@
                 
 	</thead>
 	<tbody>
-            
+            <?php ChromePhp::log($documents) ?>
             <?php foreach($documents as $document){ ?>
             <!-- Data for filtering -->
        

@@ -44,9 +44,15 @@
 					<li>
 						<?php echo $this->Html->link('Company Management', array('controller' => 'companies', 'action' => 'index')); ?>
 					</li>
-					<li>
-						<?php echo $this->Html->link('Document Management', array('controller' => 'documents', 'action' => 'index')); ?>
+			
+					<li data-toggle="collapse" data-target="#doc_info"><a href="#">Document Management</a>
+					<ul class="collapse" id="doc_info">
+						<li><?php echo $this->Html->link('Submit Documents', array('controller' => 'documents', 'action' => 'index')); ?></li>
+						<li><?php echo $this->Html->link('Tracking Documents', array('controller' => 'documents', 'action' => 'documentTracking')); ?></li>
+					   
+					</ul>
 					</li>
+					
 					<li>
 						<?php echo $this->Html->link('Generating Form', array('controller' => 'forms', 'action' => 'generateForm')); ?>
 					</li>
@@ -109,8 +115,8 @@
              echo $this->Html->script('application.js');
          }
         
-        if( ($this->params['controller']== "FunctionCorps" && $this->action=="AppointResignS") || ($this->params['controller']== "secretaries" && $this->action=="secretaryForm")){
-            
+        if( ($this->params['controller']== "FunctionCorps" && $this->action=="AppointResignS") || ($this->params['controller']== "FunctionCorps" && $this->action=="editAppointResignS") || ($this->params['controller']== "secretaries" && $this->action=="secretaryForm")){
+          
             echo $this->Html->script('AppointResignS.js');
         }else if ($this->params['controller']== "documents"){
             echo $this->Html->script('applicationDocument.js');
@@ -126,10 +132,11 @@
             echo $this->Html->script('firstFinalDividend.js');
         }else if ($controller=="FunctionCorps" && $action=="increaseOfShare") {
             echo $this->Html->script('increaseOfShare.js');
-        }else if ($controller=="FunctionCorps" && $action=="increaseNonCashCapital") {
+        }else if ($controller=="FunctionCorps" && $action=="IncreasePaidUpCapital") {
             echo $this->Html->script('increaseNonCashCapital.js');
-        }
-        else{
+        }else if ($this->params['controller']== "FunctionCorps" && $this->action=="preview1"){
+             echo $this->Html->script('appointResignDirectorPreview.js');
+        }else{
             echo $this->Html->script('application.js');
         }
        // ChromePhp::log($this->action);

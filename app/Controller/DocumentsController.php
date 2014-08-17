@@ -1,14 +1,16 @@
 <?php
-
+App::uses('AppController', 'Controller');
 /* 
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+//App::uses('CakeEmail', 'Network/Email');
+App::import('Controller', 'Email');
 include 'ChromePhp.php';
 class DocumentsController extends AppController{
     public $components = array('Session', 'Paginator');
-	public $uses = array('IncreasePaidUpCapital','IncreaseOfShare','FirstFinalDividend','AllotDirectorFee','NormalStruckOff','ResignAuditor','PropertyDisposal','SalesAssetBusiness','ChangeOfRegisteredAddress','ChangeOfPassport','ChangeOfMAA','OptionToPurchase','LoanResolution','ClosureBankAcc','ChangeFinancialYear','IncorporationDocument','ChangeCompanyName','ChangeBankSignatorUob','AppointSecretaryAuditor','AppointResignSecretary','Secretary','Event','User','Company', 'Director','FunctionCorp','Document','AppointResignDirector','StakeHolder');
+	public $uses = array('Status','DocumentStatus','IncreasePaidUpCapital','IncreaseOfShare','FirstFinalDividend','AllotDirectorFee','NormalStruckOff','ResignAuditor','PropertyDisposal','SalesAssetBusiness','ChangeOfRegisteredAddress','ChangeOfPassport','ChangeOfMAA','OptionToPurchase','LoanResolution','ClosureBankAcc','ChangeFinancialYear','IncorporationDocument','ChangeCompanyName','ChangeBankSignatorUob','AppointSecretaryAuditor','AppointResignSecretary','Secretary','Event','User','Company', 'Director','FunctionCorp','Document','AppointResignDirector','StakeHolder');
     public function beforeFilter() {
 		parent::beforeFilter();
 
@@ -33,7 +35,7 @@ class DocumentsController extends AppController{
             $functions = $this->FunctionCorp->find('all');
             $companies = $this->Company->find('all');
 
-            $this->set('title', 'Document Management');
+            $this->set('title', 'Submitting Documents');
 
             $this->set('functions', $functions);
             $this->set('companies', $companies);
@@ -729,7 +731,7 @@ class DocumentsController extends AppController{
          $data = $this->request->data;
          $function_id = $data ['function_id'];
           $acra = $data['acra'];
-         ChromePhp::log($data);
+        // ChromePhp::log($data);
        $filePath = "files/before/".$data['Documents']['Browse']['name'].time().".pdf"; 
        //ChromePhp::log($filePath);
        move_uploaded_file($data['Documents']['Browse']['tmp_name'], $filePath);//save files to directory
@@ -1005,7 +1007,15 @@ class DocumentsController extends AppController{
             "description"=>$description
         );
         $this->Event->save($event_data);
+        //Change tracking status
+        //ChromePhp::log($data);
+        $this->updateStatus($this->Document->id,4,$action,$data['company_id'],$data['function_id']);
          
+       $this->Session->setFlash(
+		    'Uploaded Sucessfully. Your document\'s status has been changed to Acra Submitted!',
+		    'default',
+		    array('class' => 'alert alert-success')
+		);
        return $this->redirect(array(
            "controller"=>"Documents",
            "action"=>$action
@@ -1289,6 +1299,14 @@ class DocumentsController extends AppController{
             "description"=>$description
         );
         $this->Event->save($event_data);
+        
+        $this->updateStatus($this->Document->id,5,$action,$data['company_id'],$data['function_id']);
+         
+       $this->Session->setFlash(
+		    'Uploaded Sucessfully. Your document\'s status has been changed to Acra Approved!',
+		    'default',
+		    array('class' => 'alert alert-success')
+		);
        return $this->redirect(array(
            "controller"=>"Documents",
            "action"=>$action
@@ -2554,4 +2572,232 @@ class DocumentsController extends AppController{
 	$this->set("company",$data['company']); 
 	$this->set("functionCorp",$data['functionCorp']); 
     }
+    public function sendEmail(){
+        $receiver = $this->params['url']['email'];
+        $Email = new CakeEmail('default');
+                $Email->to($receiver);
+                $Email->subject('Automagically generated email');
+                $Email->from ('thaibinh@dreamsmart.com.sg');
+                $Email->send("This email is to inform the financial year coming in within 7 days' time");
+      
+        
+        
+    }
+    public function documentTracking(){
+        $session_token = $this->Session->read('token');
+        $token = $this->User->find("first",array(
+                "conditions"=>array(
+                        "User.token"=>$session_token
+                )
+        ));
+        if(!$token){
+           return $this->redirect(array(
+                "controller"=>"users",
+                "action"=>"index",
+               "?"=>array(
+                   "item"=>"documents"
+               )
+            ));
+        }else{
+            $functions = $this->FunctionCorp->find('all');
+            $companies = $this->Company->find('all');
+
+            $this->set('title', 'Tracking Documents');
+
+            $this->set('functions', $functions);
+            $this->set('companies', $companies);
+        }
+    }
+   public function trackingPage() {
+       if(isset($this->params['url']['company'])&&isset($this->params['url']['functionCorp'])){
+           $data=array();
+           $data['company']=$this->params['url']['company'];
+           $data['functionCorp']=$this->params['url']['functionCorp'];
+          
+       }else{
+            $data= $this->request->data;
+           
+       }
+        $docs = $this->Document->find("all",array(
+                     'conditions'=>array(
+                            'Document.company_id'=>$data['company'],
+                            'Document.function_id'=>$data['functionCorp'],
+                            "Document.status"=>"Available"
+                     )
+            ));
+            $ids = array();
+            foreach($docs as $doc){
+                array_push($ids,$doc['Document']['id']);  
+            }
+           
+            
+           $this->Paginator->settings= array(
+                    'conditions'=>array(
+                            "Document.id"=>$ids,
+
+                    ),
+                    'limit'=>6, 
+                   'order' => array(
+                        'Document.created_at' => 'DESC'
+                        ),
+                );
+           
+         $this->set("company",$data['company'] );
+         $this->set("functionCorp",$data['functionCorp']);
+         $documents = $this->Paginator->paginate('Document');
+         $documents_withInfo = array();
+         $actions = array();
+          $statuses = $this->Status->find("all");
+          
+          foreach ($documents as $document){
+                $docs_status = $this->DocumentStatus->find("all",array(
+                    "conditions"=>array(
+                        "DocumentStatus.document_id"=>$document['Document']['id']
+                    )
+                ));
+       
+                foreach($docs_status as $doc_status){
+                    if($document['Document']['id']==$doc_status['DocumentStatus']['document_id']){
+                        if($doc_status['DocumentStatus']['current_status']==1){
+                        
+                            $document['currentStatus']=$doc_status;
+                          
+                            break;
+                        }     
+                    }
+                 
+                }
+
+                foreach($statuses as $status){
+                    if($document['currentStatus']['Status']['id']==$status['Status']['id']){
+                        $actions = $this->retrieveCurrentAndPreviousStatus($status['Status']['id'],$statuses);
+                        $document['actions']=$actions;
+                        break;
+                    }
+                }
+                
+                array_push($documents_withInfo,$document);
+          }   
+            //ChromePhp::log($documents_withInfo);
+//            ChromePhp::log($documents);
+         $this->set("documents",$documents);
+         $this->set("documents_withInfo",$documents_withInfo);
+       
+         
+
+        
+    }
+   public function retrieveCurrentAndPreviousStatus($id,$allStatuses){
+       //$this->autoRender=false;
+       $statuses = array();
+       foreach($allStatuses as $each){
+           if($each['Status']['id']<=$id){
+               array_push($statuses,$each);
+           }
+       }
+       return $statuses;
+   }
+   public function trackingDetails() {
+       $id = $this->params['url']['id'];
+       $docs = $this->DocumentStatus->find("all",array(
+                     'conditions'=>array(
+                            'DocumentStatus.document_id'=>$id,
+                            'DocumentStatus.Available'=>1
+                     ),
+                    "order"=>array(
+                        "DocumentStatus.status_id"=>"Asc"
+                    )
+            ));
+        $ids = array();
+        foreach($docs as $doc){
+            array_push($ids,$doc['Document']['id']);  
+        }
+     $this->set("documents",$docs);
+    //ChromePhp:: log($docs);  
+   }
+   public function initiateStatusChecking($document_id){
+       //Create 6 status for a specific document whenever a set of forms are generated
+       //$document_id = $this->params['url']['id'];
+       $records = array();
+       $array_data = array();
+       for($i = 0;$i<6;$i++){
+           $array_data['document_id']=$document_id;
+           $array_data['status_id']= ($i + 1);
+           $array_data['updated_at']=date('Y-m-d H:i:s');
+            if($i == 0){        
+                $array_data['current_status']=1;
+                $array_data['available']=1;     
+            }else{
+                $array_data['current_status']=0;
+                $array_data['available']=0;  
+            }
+            array_push($records,$array_data);
+       }
+       $this->DocumentStatus->create();
+       $this->DocumentStatus->saveMany($records);
+        //$email = new EmailController();
+        //$email->sendEmailStatusTracking($document_id);
+
+   }
+   public function updateStatus($d_id = null,$s_id = null,$action = null,$company = null,$functionCorp=null){
+       $this->autoRender = false;
+       //ChromePhp::log($d_id);
+       if(isset($d_id)){
+           $document_id = $d_id;
+           $status_id = $s_id;
+           $data = array();
+           $data['company']=$company;
+           $data['functionCorp'] = $functionCorp;
+
+       }else{
+            $data = $this->request->data;
+            $document_id = $data['document_id'];
+            $status_id = $data['chosen_action']==$data['next_action']?$data['chosen_action']==6? $data['chosen_action']:$data['next_action']+1:$data['chosen_action'];
+       }
+       //Update currentStatus column
+       //ChromePhp::log($status_id );
+       $docs = $this->DocumentStatus->find("all",array(
+           "conditions"=>array(
+               "DocumentStatus.document_id"=>$document_id,
+           )
+       ));
+ 
+       
+       foreach($docs as $doc_status){
+           $this->DocumentStatus->id = $doc_status['DocumentStatus']['id'];
+           if($doc_status['DocumentStatus']['status_id'] ==$status_id){
+               $this->DocumentStatus->saveField("current_status",1);
+               $this->DocumentStatus->saveField("available",1);
+               $this->DocumentStatus->saveField("updated_at",date('Y-m-d H:i:s'));
+           }else{
+               $this->DocumentStatus->saveField("current_status",0);
+               if($doc_status['DocumentStatus']['status_id'] > $status_id){
+                   //ChromePhp::log("in");
+                   $this->DocumentStatus->saveField("available",0);
+               }else{
+                   $this->DocumentStatus->saveField("available",1);
+               }
+    
+           }
+
+               
+        }
+       // $email = new EmailController();
+        //$email->sendEmailStatusTracking($document_id);
+         if(!empty($d_id)){
+
+         }else{
+             $this->redirect(array(
+                "controller"=>"documents",
+                "action"=>"trackingPage",
+                "?"=>array(
+                    "company"=>$data['company'],
+                    "functionCorp"=>$data['functionCorp']
+                )
+            ));
+        }
+        
+               
+    }
+
 }

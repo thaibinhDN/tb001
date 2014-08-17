@@ -14,7 +14,7 @@
             <label>Nationality:</label><input class='form-control' name='AUNationality' required><br><br>
              <input type="hidden" name="company" value="<?php echo $view_data['company']; ?>" />
             <div class="submit">
-			<input  style="margin-left:3.5em" class="form-control" type="submit" value="Generate Forms" />
+			<input  style="margin-left:3.5em" class="form-control" type="submit" value="Create" />
 		</div>
     </form>
 </div>

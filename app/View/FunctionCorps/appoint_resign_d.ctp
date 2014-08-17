@@ -32,7 +32,7 @@
                                 <option value="appointment">Appointment</option>
                                 <option value="cessation">Cessation</option>
 				</select>
-                                <input type="hidden" class = "attn" name="attn[]" style="margin:0px 25px;height:35px" value = "" size="8" />
+                                
                                 <button class="btn btn-danger remove_directors" type="button">Remove</button>
                                 </div>
                           

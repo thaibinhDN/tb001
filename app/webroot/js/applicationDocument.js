@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 $(document).ready(function() {
-    console.log("Welcome applicationIncorporation.js");
+    console.log("Welcome applicationDocument.js");
     var DOMAIN_URL = 'http://127.0.0.1/tb001/';
     $("#functionField").on("change",function(){
             

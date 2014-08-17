@@ -6,7 +6,7 @@
 
 $(document).ready(function() {
     console.log("Welcome to increaseOfShare");
-    var DOMAIN_URL = 'http://127.0.0.1/tb001/';
+   var DOMAIN_URL = 'http://127.0.0.1/tb001/';
         $( "#add_stakeholders" ).click(function(e) {
             var new_row = "<div class=\"stakeholder-block\">" 
 				+ "<br />"
@@ -14,10 +14,12 @@ $(document).ready(function() {
 					+"<option value=\"\"> ---Select--- </option>"
 				
 				+ "</select>"
-				+"<input class=\"form-control\" name=\"SharesAlloted[]\"  required></input>"
-                                +"<input style=\"margin-bottom:2em\" class=\"form-control\" name=\"SharesInCash[]\"  required></input><br>"
-                                +"<label >Cheque(if any)</label><input  value=\"\" class=\"form-control\" name=\"cheque[]\"/>"
-                                +"<button class=\"btn btn-danger remove_directors\" type=\"button\">Remove</button>"
+				+"<input class=\"form-control\" name=\"SharesAlloted[]\" value=\"\" required></input>"
+                             +"<input style=\"margin-bottom:2em\" class=\"form-control\" name=\"SharesInCash[]\" value=\"\" required></input><br>"
+                             +"<label >Cheque(if any)</label><label style=\"padding-left:4.5em\" >Class of Share</label><br>"
+                             
+                             +"<input  value=\"\" class=\"form-control\" name=\"cheque[]\"/>"
+                             +"<input  placeholder=\"Eg. Ordinary\" class=\"form-control\" name=\"class[]\" required/>"
 			+"</div>";
             
             $("#container-stakeholder-block").append(new_row);

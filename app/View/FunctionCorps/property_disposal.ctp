@@ -15,7 +15,7 @@
         <input  style="margin-bottom:10px" name="buyer" class="form-control"  required/>
         <br>
         <label>Price with Currency</label>
-        <input  style="margin-bottom:10px" name="price" class="form-control"  required/>
+        <input  style="margin-bottom:10px" name="price" class="form-control" placeholder="Eg. S$ 200000"  required/>
         <br>
         <label>The undersigned</label>
         <input  style="margin-bottom:10px" name="undersigned" class="form-control"  required/>

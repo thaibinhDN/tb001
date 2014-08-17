@@ -11,7 +11,7 @@
 		
                 <input type="hidden" name="company" value="<?php echo $company; ?>" />
                 <div>
-           <?php echo $this->Html->link('New ShareHolder', array('controller' => 'Shareholders', 'action' => 'shareholderForm',"?"=>array('id' => $company)),array("class"=>"btn btn-default pull-right")); ?>
+           <?php //echo $this->Html->link('New ShareHolder', array('controller' => 'Shareholders', 'action' => 'shareholderForm',"?"=>array('id' => $company)),array("class"=>"btn btn-default pull-right")); ?>
               
                </div>
                <br>

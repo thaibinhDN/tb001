@@ -21,7 +21,7 @@
         <tr>
             <td><?php echo $user;?></td>
             <td><?php echo $action;?></td>
-            <td><?php echo $this->Html->link("Submission",array("action"=>"preview".$event['Event']['function_id'],"?"=>array(
+            <td><?php echo $this->Html->link("Submission",array("action"=>"edit".$event['FunctionCorp']['function_name'],"?"=>array(
                     "id"=>$content_id,
                     "company"=>$event['Event']['company_id'],
                     "function_id"=>$event['Event']['function_id'],

@@ -31,6 +31,9 @@
      <label>Description</label>
     <input class="form-control" name="Pactivity2description" value="INCLUDING ARTS STATIONARIES AND SCHOOL STATION"/> 
     <br>   
+    <label>Financial Year</label>
+    <input class="form-control datepicker" name="financial year"  required/> 
+    <br>  
 </div>
 <div class="form-header" data-toggle="collapse" data-target="#shares_info">
 	Shares information

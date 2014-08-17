@@ -24,7 +24,7 @@
                 </div>
                 <div class="input text required">
                         <label style="width:auto">Price with Currency</label>
-                        <input style="margin-bottom:10px" name="price" class="form-control" type="text" id="price" required="required"/>
+                        <input style="margin-bottom:10px" name="price" class="form-control" type="text" id="price" placeholder="Eg.S$ 200000" required="required"/>
                 </div>
                  <div class="input text required">
                         <label style="margin-left:8em">Meeting Place</label>

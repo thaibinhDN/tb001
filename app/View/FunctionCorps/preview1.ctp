@@ -18,6 +18,10 @@
 <h1><?php echo " ".$preview_data['title']; ?></h1>
 <form action="<?php echo $this->Html->url(array('controller' => 'FunctionCorps', 'action' => 'generate'.implode('',explode(" ",$function_name)))); ?>" method="post" accept-charset="utf-8">
     <input type="hidden" name="company" value="<?php echo $preview_data['data']['company']; ?>" />
+     <?php if(isset($doc_ids)){
+                    foreach($doc_ids as $id){?>
+                        <input type="hidden" name="doc_ids[]" value="<?php echo $id ?>" /> 
+                    <?php   }}?>
     <?php for ($i = 0; $i < count($directors); $i++) { ?>
 	<?php if (count($directors) > 1) { ?>
 		<div class="form-header">DIRECTOR <?php echo ($i+1); ?></div>
@@ -77,7 +81,7 @@
 				</td>
 				<td style="text-align:left;padding-left:20px;border-left:1px solid #dbdfe6">
                                     <?php $types = array('cessation','appointment') ?>
-                                    <select class="form-control" name="type[]"> 
+                                    <select class="form-control select_type" name="type[]"> 
                                         <?php foreach($types as $type){ 
                                             if($preview_data['data']['type'][$i] == $type){
                                             ?>
@@ -99,14 +103,23 @@
 				</td>
                 </tr>
                 <?php }else{?>
-                      <input type="hidden" name = "reportedTo[]" value="">      
+                      <!--<input type="hidden" name = "reportedTo[]" value="">-->
+                      <tr>
+                    <td style="text-align:left;padding-left:20px;">
+					Attention
+				</td>
+				<td style="text-align:left;padding-left:20px;border-left:1px solid #dbdfe6">
+					<input class="form-control" type="text" name="reportedTo[]" value="" >
+				</td>
+                </tr>
                 <?php } ?>
                       
 
 	</table>
 <?php } ?>
-                <?php if(isset($preview_data['edit'])){?>
-                    <input class="form-control" type="hidden" name="edit" value="<?php echo $preview_data['edit']?>"/>
+                <?php if(isset($edit)){?>
+                    <input class="form-control" type="hidden" name="edit" value="edit"/>
+                    <input class="form-control" type="hidden" name="event_id" value="<?php echo $event_id ?>"/>
                 <?php } ?>
       
 	

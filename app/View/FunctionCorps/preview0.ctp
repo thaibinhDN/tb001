@@ -100,9 +100,15 @@
                
 <?php } ?>
                 
-                 <?php if(isset($preview_data['edit'])){?>
-                    <input class="form-control" type="hidden" name="edit" value="<?php echo $preview_data['edit']?>"/>
+                <?php if(isset($edit)){?>
+                    <input class="form-control" type="hidden" name="edit" value="edit"/>
+                    <input class="form-control" type="hidden" name="event_id" value="<?php echo $event_id ?>"/>
                 <?php } ?>
+                     <?php if(isset($doc_ids)){
+                    foreach($doc_ids as $id){?>
+                        <input type="hidden" name="doc_ids[]" value="<?php echo $id ?>" /> 
+                    <?php   }}?>   
+                    
                     <label>*Director/Secretary</label>    
                 <input class="form-control" type="text" name="prepared_by" value="<?php echo $preview_data['prepared_by'] ?>"/>
                 

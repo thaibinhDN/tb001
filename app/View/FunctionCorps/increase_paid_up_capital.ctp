@@ -12,6 +12,7 @@
                 <label>Total Cash</label><input  style="margin-bottom:10px" name="totalCash" class="form-control"  required/><br>
                  <label>Each Share cost</label><input  style="margin-bottom:10px" name="eachShare" class="form-control"  required/><br>
                  <label>Total Share Alloted</label><input  style="margin-bottom:10px" name="totalSharesAlloted" class="form-control"  required/><br>
+                 <label>Currency</label><input  style="margin-bottom:10px" name="currency" class="form-control"  required/><br>
                 
             </div>
 		<div id="container-stakeholder-block">

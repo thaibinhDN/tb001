@@ -1,4 +1,4 @@
-<form action="<?php echo $this->Html->url(array('controller' => 'Incorporations', 'action' => 'generateIncorporationForms',"?"=>array("edit"=>"y"))); ?>" method="post" accept-charset="utf-8">
+<form action="<?php echo $this->Html->url(array('controller' => 'Incorporations', 'action' => 'generateIncorporationForms')); ?>" method="post" accept-charset="utf-8">
 <div class="form-header" data-toggle="collapse" data-target="#company_info">
 	Company information
 </div>
@@ -32,6 +32,9 @@
      <label>Description</label>
     <input class="form-control" name="Pactivity2description" value="<?php echo $company_info['Company']['P2Description'] ?>"/> 
     <br>   
+    <label>Financial Year</label>
+    <input class="form-control datepicker" name="financial_year" value="<?php echo $company_info['Company']['FinancialYear'] ?>" required/> 
+    <br>  
 </div>
 <div class="form-header" data-toggle="collapse" data-target="#shares_info">
 	Shares information

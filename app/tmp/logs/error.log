@@ -28226,3 +28226,263 @@ Stack Trace:
 #9 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(DocumentsController), Object(CakeRequest), Object(CakeResponse))
 #10 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #11 {main}
+2014-08-06 13:08:21 Error: Fatal Error (4): syntax error, unexpected '$initial' (T_VARIABLE), expecting ']' in [C:\wamp\www\tb001\app\Controller\FormsController.php, line 644]
+2014-08-06 13:08:21 Error: [FatalErrorException] syntax error, unexpected '$initial' (T_VARIABLE), expecting ']'
+Request URL: /tb001/FunctionCorps/generateChangeOfCompanyName
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(4, 'syntax error, u...', 'C:\\wamp\\www\\tb0...', 644)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', 'C:\\wamp\\www\\tb0...', 644, Array)
+#2 C:\wamp\www\tb001\lib\Cake\Core\App.php(929): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', 'C:\\wamp\\www\\tb0...', 644, Array)
+#3 C:\wamp\www\tb001\lib\Cake\Core\App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-08-06 15:12:50 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1048 Le champ 'user_id' ne peut être vide (null)
+Request URL: /tb001/FunctionCorps/generateChangeOfCompanyName
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\wamp\www\tb001\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('INSERT INTO `co...', Array)
+#2 C:\wamp\www\tb001\lib\Cake\Model\Datasource\DboSource.php(1004): DboSource->execute('INSERT INTO `co...')
+#3 C:\wamp\www\tb001\lib\Cake\Model\Model.php(1832): DboSource->create(Object(Event), Array, Array)
+#4 C:\wamp\www\tb001\app\Controller\FunctionCorpsController.php(1096): Model->save(Array)
+#5 [internal function]: FunctionCorpsController->generateChangeOfCompanyName()
+#6 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(FunctionCorpsController), Array)
+#7 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#8 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#9 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2014-08-06 21:21:25 Error: [MissingActionException] Action FunctionCorpsController::index() could not be found.
+Exception Attributes: array (
+  'controller' => 'FunctionCorpsController',
+  'action' => 'index',
+)
+Request URL: /tb001/FunctionCorps
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#2 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-08-07 15:06:48 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1048 Le champ 'company_id' ne peut être vide (null)
+Request URL: /tb001/FunctionCorps/generateChangeOfPassport
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\wamp\www\tb001\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('INSERT INTO `co...', Array)
+#2 C:\wamp\www\tb001\lib\Cake\Model\Datasource\DboSource.php(1004): DboSource->execute('INSERT INTO `co...')
+#3 C:\wamp\www\tb001\lib\Cake\Model\Model.php(1832): DboSource->create(Object(Document), Array, Array)
+#4 C:\wamp\www\tb001\app\Controller\FunctionCorpsController.php(1656): Model->save(Array)
+#5 [internal function]: FunctionCorpsController->generateChangeOfPassport()
+#6 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(FunctionCorpsController), Array)
+#7 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#8 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#9 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2014-08-07 15:30:01 Error: Fatal Error (4): syntax error, unexpected '$pdf' (T_VARIABLE), expecting function (T_FUNCTION) in [C:\wamp\www\tb001\app\Controller\FormsController.php, line 4253]
+2014-08-07 15:30:01 Error: [FatalErrorException] syntax error, unexpected '$pdf' (T_VARIABLE), expecting function (T_FUNCTION)
+Request URL: /tb001/FunctionCorps/generateChangeRegisteredAddress
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(4, 'syntax error, u...', 'C:\\wamp\\www\\tb0...', 4253)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', 'C:\\wamp\\www\\tb0...', 4253, Array)
+#2 C:\wamp\www\tb001\lib\Cake\Core\App.php(929): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', 'C:\\wamp\\www\\tb0...', 4253, Array)
+#3 C:\wamp\www\tb001\lib\Cake\Core\App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-08-08 15:49:17 Error: Fatal Error (4): syntax error, unexpected '$' in [C:\wamp\www\tb001\app\Controller\FormsController.php, line 5711]
+2014-08-08 15:49:17 Error: [FatalErrorException] syntax error, unexpected '$'
+Request URL: /tb001/FunctionCorps/firstFinalDividend
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(4, 'syntax error, u...', 'C:\\wamp\\www\\tb0...', 5711)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', 'C:\\wamp\\www\\tb0...', 5711, Array)
+#2 C:\wamp\www\tb001\lib\Cake\Core\App.php(929): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', 'C:\\wamp\\www\\tb0...', 5711, Array)
+#3 C:\wamp\www\tb001\lib\Cake\Core\App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-08-14 11:50:50 Error: [MissingControllerException] Controller class PagesController could not be found.
+Exception Attributes: array (
+  'class' => 'PagesController',
+  'plugin' => NULL,
+)
+Request URL: /tb001/
+Stack Trace:
+#0 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-08-14 11:50:53 Error: [MissingControllerException] Controller class FormsController could not be found.
+Exception Attributes: array (
+  'class' => 'FormsController',
+  'plugin' => NULL,
+)
+Request URL: /tb001/forms/generate
+Stack Trace:
+#0 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-08-14 11:50:56 Error: [MissingControllerException] Controller class DocumentsController could not be found.
+Exception Attributes: array (
+  'class' => 'DocumentsController',
+  'plugin' => NULL,
+)
+Request URL: /tb001/documents
+Stack Trace:
+#0 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-08-14 11:50:57 Error: [MissingControllerException] Controller class CompaniesController could not be found.
+Exception Attributes: array (
+  'class' => 'CompaniesController',
+  'plugin' => NULL,
+)
+Request URL: /tb001/companies
+Stack Trace:
+#0 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-08-14 12:01:21 Error: [MissingControllerException] Controller class PagesController could not be found.
+Exception Attributes: array (
+  'class' => 'PagesController',
+  'plugin' => NULL,
+)
+Request URL: /tb001/
+Stack Trace:
+#0 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-08-14 12:19:25 Error: [MissingActionException] Action FunctionCorpsController::index() could not be found.
+Exception Attributes: array (
+  'controller' => 'FunctionCorpsController',
+  'action' => 'index',
+)
+Request URL: /tb001/FunctionCorps
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#2 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-08-14 12:19:33 Error: [MissingActionException] Action FunctionCorpsController::index() could not be found.
+Exception Attributes: array (
+  'controller' => 'FunctionCorpsController',
+  'action' => 'index',
+)
+Request URL: /tb001/FunctionCorps
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#2 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-08-14 12:31:56 Error: [ConfigureException] C:\wamp\www\tb001\app\Config\email.php not found.
+Request URL: /tb001/Documents/updateStatus
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\Network\Email\CakeEmail.php(1097): CakeEmail->_applyConfig('default')
+#1 C:\wamp\www\tb001\lib\Cake\Network\Email\CakeEmail.php(349): CakeEmail->config('default')
+#2 C:\wamp\www\tb001\app\Controller\EmailController.php(100): CakeEmail->__construct('default')
+#3 C:\wamp\www\tb001\app\Controller\DocumentsController.php(2786): EmailController->sendEmailStatusTracking('914')
+#4 [internal function]: DocumentsController->updateStatus()
+#5 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(DocumentsController), Array)
+#6 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#7 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(DocumentsController), Object(CakeRequest), Object(CakeResponse))
+#8 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#9 {main}
+2014-08-14 12:32:50 Error: [ConfigureException] C:\wamp\www\tb001\app\Config\email.php not found.
+Request URL: /tb001/Documents/updateStatus
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\Network\Email\CakeEmail.php(1097): CakeEmail->_applyConfig('default')
+#1 C:\wamp\www\tb001\lib\Cake\Network\Email\CakeEmail.php(349): CakeEmail->config('default')
+#2 C:\wamp\www\tb001\app\Controller\EmailController.php(100): CakeEmail->__construct('default')
+#3 C:\wamp\www\tb001\app\Controller\DocumentsController.php(2786): EmailController->sendEmailStatusTracking('914')
+#4 [internal function]: DocumentsController->updateStatus()
+#5 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(DocumentsController), Array)
+#6 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#7 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(DocumentsController), Object(CakeRequest), Object(CakeResponse))
+#8 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#9 {main}
+2014-08-14 12:37:54 Error: [ConfigureException] C:\wamp\www\tb001\app\Config\email.php not found.
+Request URL: /tb001/Documents/updateStatus
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\Network\Email\CakeEmail.php(1097): CakeEmail->_applyConfig('default')
+#1 C:\wamp\www\tb001\lib\Cake\Network\Email\CakeEmail.php(349): CakeEmail->config('default')
+#2 C:\wamp\www\tb001\app\Controller\EmailController.php(100): CakeEmail->__construct('default')
+#3 C:\wamp\www\tb001\app\Controller\DocumentsController.php(2786): EmailController->sendEmailStatusTracking('914')
+#4 [internal function]: DocumentsController->updateStatus()
+#5 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(DocumentsController), Array)
+#6 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#7 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(DocumentsController), Object(CakeRequest), Object(CakeResponse))
+#8 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#9 {main}
+2014-08-14 12:39:13 Error: [ConfigureException] C:\wamp\www\tb001\app\Config\email.php not found.
+Request URL: /tb001/Documents/updateStatus
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\Network\Email\CakeEmail.php(1097): CakeEmail->_applyConfig('default')
+#1 C:\wamp\www\tb001\lib\Cake\Network\Email\CakeEmail.php(349): CakeEmail->config('default')
+#2 C:\wamp\www\tb001\app\Controller\EmailController.php(100): CakeEmail->__construct('default')
+#3 C:\wamp\www\tb001\app\Controller\DocumentsController.php(2786): EmailController->sendEmailStatusTracking('914')
+#4 [internal function]: DocumentsController->updateStatus()
+#5 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(DocumentsController), Array)
+#6 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#7 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(DocumentsController), Object(CakeRequest), Object(CakeResponse))
+#8 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#9 {main}
+2014-08-14 12:40:05 Error: [ConfigureException] C:\wamp\www\tb001\app\Config\email.php not found.
+Request URL: /tb001/Documents/updateStatus
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\Network\Email\CakeEmail.php(1097): CakeEmail->_applyConfig('default')
+#1 C:\wamp\www\tb001\lib\Cake\Network\Email\CakeEmail.php(349): CakeEmail->config('default')
+#2 C:\wamp\www\tb001\app\Controller\EmailController.php(100): CakeEmail->__construct('default')
+#3 C:\wamp\www\tb001\app\Controller\DocumentsController.php(2786): EmailController->sendEmailStatusTracking('914')
+#4 [internal function]: DocumentsController->updateStatus()
+#5 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(DocumentsController), Array)
+#6 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#7 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(DocumentsController), Object(CakeRequest), Object(CakeResponse))
+#8 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#9 {main}
+2014-08-14 12:40:40 Error: [ConfigureException] C:\wamp\www\tb001\app\Config\email.php not found.
+Request URL: /tb001/Documents/updateStatus
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\Network\Email\CakeEmail.php(1097): CakeEmail->_applyConfig('default')
+#1 C:\wamp\www\tb001\lib\Cake\Network\Email\CakeEmail.php(349): CakeEmail->config('default')
+#2 C:\wamp\www\tb001\app\Controller\EmailController.php(100): CakeEmail->__construct('default')
+#3 C:\wamp\www\tb001\app\Controller\DocumentsController.php(2786): EmailController->sendEmailStatusTracking('914')
+#4 [internal function]: DocumentsController->updateStatus()
+#5 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(DocumentsController), Array)
+#6 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#7 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(DocumentsController), Object(CakeRequest), Object(CakeResponse))
+#8 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#9 {main}
+2014-08-14 12:42:04 Error: [SocketException] Invalid email: "you@localhost"
+Request URL: /tb001/Documents/updateStatus
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\Network\Email\CakeEmail.php(596): CakeEmail->_setEmail('_from', 'you@localhost', NULL)
+#1 C:\wamp\www\tb001\lib\Cake\Network\Email\CakeEmail.php(368): CakeEmail->_setEmailSingle('_from', 'you@localhost', NULL, 'From requires o...')
+#2 C:\wamp\www\tb001\lib\Cake\Network\Email\CakeEmail.php(1213): CakeEmail->from('you@localhost')
+#3 C:\wamp\www\tb001\lib\Cake\Network\Email\CakeEmail.php(1097): CakeEmail->_applyConfig('default')
+#4 C:\wamp\www\tb001\lib\Cake\Network\Email\CakeEmail.php(349): CakeEmail->config('default')
+#5 C:\wamp\www\tb001\app\Controller\EmailController.php(100): CakeEmail->__construct('default')
+#6 C:\wamp\www\tb001\app\Controller\DocumentsController.php(2786): EmailController->sendEmailStatusTracking('914')
+#7 [internal function]: DocumentsController->updateStatus()
+#8 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(DocumentsController), Array)
+#9 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#10 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(DocumentsController), Object(CakeRequest), Object(CakeResponse))
+#11 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2014-08-14 22:36:03 Error: [InvalidArgumentException] Cannot open C:\wamp\www\tb001\app\webroot\files/templates/Change_Of_banking_signatories _template.pdf !
+Request URL: /tb001/FunctionCorps/generateChangeOfBankingUOB
+Stack Trace:
+#0 C:\wamp\www\tb001\app\Vendor\fpdi\fpdi_pdf_parser.php(71): pdf_parser->__construct('C:\\wamp\\www\\tb0...')
+#1 C:\wamp\www\tb001\app\Vendor\fpdi\fpdi.php(128): fpdi_pdf_parser->__construct('C:\\wamp\\www\\tb0...')
+#2 C:\wamp\www\tb001\app\Vendor\fpdi\fpdi.php(108): FPDI->_getPdfParser('C:\\wamp\\www\\tb0...')
+#3 C:\wamp\www\tb001\app\Controller\FormsController.php(347): FPDI->setSourceFile('C:\\wamp\\www\\tb0...')
+#4 C:\wamp\www\tb001\app\Controller\FunctionCorpsController.php(562): FormsController->generateResolutionSignatoriesUOB(Array)
+#5 [internal function]: FunctionCorpsController->generateChangeOfBankingUOB()
+#6 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(FunctionCorpsController), Array)
+#7 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#8 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(FunctionCorpsController), Object(CakeRequest), Object(CakeResponse))
+#9 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2014-08-15 00:32:52 Error: [PDOException] SQLSTATE[42S22]: Column not found: 1054 Champ 'Director.company_id' inconnu dans where clause
+Request URL: /tb001/companies/134
+Stack Trace:
+#0 C:\wamp\www\tb001\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\wamp\www\tb001\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('SELECT `Directo...', Array)
+#2 C:\wamp\www\tb001\lib\Cake\Model\Datasource\DboSource.php(665): DboSource->execute('SELECT `Directo...', Array, Array)
+#3 C:\wamp\www\tb001\lib\Cake\Model\Datasource\DboSource.php(1077): DboSource->fetchAll('SELECT `Directo...', false)
+#4 C:\wamp\www\tb001\lib\Cake\Model\Model.php(2900): DboSource->read(Object(Director), Array)
+#5 C:\wamp\www\tb001\lib\Cake\Model\Model.php(2872): Model->_readDataSource('all', Array)
+#6 C:\wamp\www\tb001\app\Controller\CompaniesController.php(172): Model->find('all', Array)
+#7 [internal function]: CompaniesController->viewCompany()
+#8 C:\wamp\www\tb001\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(CompaniesController), Array)
+#9 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#10 C:\wamp\www\tb001\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(CompaniesController), Object(CakeRequest), Object(CakeResponse))
+#11 C:\wamp\www\tb001\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}

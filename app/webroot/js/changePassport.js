@@ -6,7 +6,7 @@
 
 $(document).ready(function() {
     console.log("Welcome to changePassport.js");
-    var DOMAIN_URL = 'http://127.0.0.1/corp-sec/';//Change domain
+   var DOMAIN_URL = 'http://127.0.0.1/tb001/';
     
     
 

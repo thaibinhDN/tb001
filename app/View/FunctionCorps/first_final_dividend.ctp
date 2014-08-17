@@ -14,6 +14,7 @@
                     <option value='firstfinal'>First And Final</option>
                 </select><br>
                 <label>Amount Of Dividend</label><input  style="margin-bottom:10px" name="amountDividend" class="form-control"  required/><br>
+                <label>Currency</label><input  style="margin-bottom:10px" name="currency" class="form-control" placeholder="Eg. S$"  required/><br>
                 <label>Dividend No</label><input  style="margin-bottom:10px" name="dividendNo" class="form-control"  required/><br>
                  <label>Total Shares</label><input  style="margin-bottom:10px" name="totalShares" class="form-control"  required/><br>
                 
