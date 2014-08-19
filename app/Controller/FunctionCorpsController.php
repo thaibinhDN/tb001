@@ -74,15 +74,15 @@ class FunctionCorpsController extends AppController{
               'StakeHolder.Secretary'=>1
            ) 
         ));
+        
+        
         $auditors= $this->StakeHolder->find('all',array(
               "conditions"=>array(
               'StakeHolder.company_id'=>$company,
               'StakeHolder.Auditor'=>1
            ) 
         ));
-        
-       // ChromePhp::log($auditors);
-        //ChromePhp::log($secretaries);
+    
         $this->set('title', 'Appoint both Secretary and Auditor');
          $this->set('secretaries',$secretaries);
          $this->set('auditors',$auditors);
@@ -136,6 +136,9 @@ class FunctionCorpsController extends AppController{
                'StakeHolder.Director'=>1 
            ) 
         ));
+//        foreach($directors as $director){
+//            ChromePhp::log($director);
+//        }
 
          $this->set('title', 'Appoint&Resign Directors');
          $this->set('directors',$directors);
@@ -1511,6 +1514,7 @@ class FunctionCorpsController extends AppController{
     public function generateChangeOfMAA(){
         $form = new FormsController();
         $data = $this->request->data;
+        ChromePhp::log($data);
         $directors = "";
         for($i = 0 ; $i < count($data['director']);$i++){
             if($i ==count($data['director'])- 1 ){
@@ -2187,7 +2191,7 @@ class FunctionCorpsController extends AppController{
     }
     public function generateNormalStruckOff() {
         $data = $this->request->data;
-        //ChromePhp::log($data);
+        ChromePhp::log($data); 
         $form = new FormsController();
        $form->generateEGM($data);
        $form->generateLetterAcra($data);
